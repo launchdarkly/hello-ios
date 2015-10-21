@@ -1,0 +1,64 @@
+PODS:
+  - AFNetworking (2.6.1):
+    - AFNetworking/NSURLConnection (= 2.6.1)
+    - AFNetworking/NSURLSession (= 2.6.1)
+    - AFNetworking/Reachability (= 2.6.1)
+    - AFNetworking/Security (= 2.6.1)
+    - AFNetworking/Serialization (= 2.6.1)
+    - AFNetworking/UIKit (= 2.6.1)
+  - AFNetworking/NSURLConnection (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.6.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.6.1)
+  - AFNetworking/Security (2.6.1)
+  - AFNetworking/Serialization (2.6.1)
+  - AFNetworking/UIKit (2.6.1):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - LaunchDarkly (0.0.2):
+    - LaunchDarkly/Core (= 0.0.2)
+  - LaunchDarkly/Core (0.0.2):
+    - AFNetworking (~> 2.5)
+    - BlocksKit (~> 2.2)
+    - Mantle (~> 2.0)
+    - MTLManagedObjectAdapter (~> 1.0)
+  - Mantle (2.0.5):
+    - Mantle/extobjc (= 2.0.5)
+  - Mantle/extobjc (2.0.5)
+  - MTLManagedObjectAdapter (1.0.0.1):
+    - Mantle (~> 2.0)
+    - MTLManagedObjectAdapter/extobjc (= 1.0.0.1)
+  - MTLManagedObjectAdapter/extobjc (1.0.0.1):
+    - Mantle (~> 2.0)
+
+DEPENDENCIES:
+  - LaunchDarkly
+
+SPEC CHECKSUMS:
+  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  LaunchDarkly: 834b8cb2883ca27eb2d1e9b444487dd0d8417a84
+  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
+  MTLManagedObjectAdapter: 2da4b0244ee66f87b43e5fe9e7cd47838dea83ae
+
+COCOAPODS: 0.38.2
