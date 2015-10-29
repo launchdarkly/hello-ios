@@ -3,5 +3,5 @@ We've built a simple console application that demonstrates how LaunchDarkly's SD
 ##### Build instructions  #####
 1. Make sure you have [XCode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12) installed
 2. Open `hello-ios.xcworkspace` in XCode
-3. Copy your API key and feature flag key from your LaunchDarkly dashboard into `ViewController.m` 
+3. Copy the mobile key from your account settings page and the feature flag key from your LaunchDarkly dashboard into `ViewController.m` 
 4. Run your application through XCode
