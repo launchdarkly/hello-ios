@@ -43,7 +43,7 @@
 }
 
 -(void) checkFeatureValue {
-    BOOL showFeature = [[LDClient sharedInstance] toggle:@"test-mobile-flag" default:NO];
+    BOOL showFeature = [[LDClient sharedInstance] toggle:@"YOUR_FLAG_KEY" default:NO];
     if (showFeature) {
         NSLog(@"Showing feature for %@", user.key);
     } else {

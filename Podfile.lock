@@ -35,9 +35,9 @@ PODS:
   - BlocksKit/UIKit (2.2.5):
     - BlocksKit/Core
     - BlocksKit/DynamicDelegate
-  - LaunchDarkly (0.1.0-beta):
-    - LaunchDarkly/Core (= 0.1.0-beta)
-  - LaunchDarkly/Core (0.1.0-beta):
+  - LaunchDarkly (0.3.0-beta):
+    - LaunchDarkly/Core (= 0.3.0-beta)
+  - LaunchDarkly/Core (0.3.0-beta):
     - AFNetworking (~> 2.5)
     - BlocksKit (~> 2.2)
     - Mantle (~> 2.0)
@@ -52,12 +52,12 @@ PODS:
     - Mantle (~> 2.0)
 
 DEPENDENCIES:
-  - LaunchDarkly (~> 0.1.0-beta)
+  - LaunchDarkly (~> 0.3.0-beta)
 
 SPEC CHECKSUMS:
   AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
   BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  LaunchDarkly: 89dd4a7461c18467dd6c5936fc2eea3c1f85c27c
+  LaunchDarkly: 0d9b6dc8b0c6c7066028c40a39a38ff0721840b7
   Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
   MTLManagedObjectAdapter: 2da4b0244ee66f87b43e5fe9e7cd47838dea83ae
 
