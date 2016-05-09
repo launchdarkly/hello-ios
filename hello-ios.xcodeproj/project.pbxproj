@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4D876B6839451BB76EC47DB6 /* libPods-hello-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 631B6B84824391BC66A6F80B /* libPods-hello-ios.a */; };
+		3198DEEAC180D6D87F21938C /* libPods-hello-ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E8A0E5001A44D51D9B6954D /* libPods-hello-ios.a */; };
 		F02202EF1BD856F500EB7727 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202EE1BD856F500EB7727 /* main.m */; };
 		F02202F21BD856F500EB7727 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202F11BD856F500EB7727 /* AppDelegate.m */; };
 		F02202F51BD856F500EB7727 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202F41BD856F500EB7727 /* ViewController.m */; };
@@ -17,9 +17,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1DACB6B96493CAA8658C430B /* Pods-hello-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios.release.xcconfig"; sourceTree = "<group>"; };
-		61157BE9F656C4511A4E2855 /* Pods-hello-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios.debug.xcconfig"; sourceTree = "<group>"; };
-		631B6B84824391BC66A6F80B /* libPods-hello-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hello-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		14518944012BA5A2DD84632C /* Pods-hello-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-ios.release.xcconfig"; path = "Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios.release.xcconfig"; sourceTree = "<group>"; };
+		1E8A0E5001A44D51D9B6954D /* libPods-hello-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hello-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		49CC570239A47D2D3FB6BB7C /* Pods-hello-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-ios.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios.debug.xcconfig"; sourceTree = "<group>"; };
 		F02202EA1BD856F500EB7727 /* hello-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hello-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02202EE1BD856F500EB7727 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F02202F01BD856F500EB7727 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -37,26 +37,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4D876B6839451BB76EC47DB6 /* libPods-hello-ios.a in Frameworks */,
+				3198DEEAC180D6D87F21938C /* libPods-hello-ios.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		63071B044193E298FDCC9644 /* Pods */ = {
+		B2135FDE0CB041A738B00886 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				61157BE9F656C4511A4E2855 /* Pods-hello-ios.debug.xcconfig */,
-				1DACB6B96493CAA8658C430B /* Pods-hello-ios.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		9CAB99C3E3130A0724E652C1 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				631B6B84824391BC66A6F80B /* libPods-hello-ios.a */,
+				1E8A0E5001A44D51D9B6954D /* libPods-hello-ios.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -66,8 +57,8 @@
 			children = (
 				F02202EC1BD856F500EB7727 /* hello-ios */,
 				F02202EB1BD856F500EB7727 /* Products */,
-				63071B044193E298FDCC9644 /* Pods */,
-				9CAB99C3E3130A0724E652C1 /* Frameworks */,
+				F1C363F97ED4C37DC0E1BF59 /* Pods */,
+				B2135FDE0CB041A738B00886 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +94,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F1C363F97ED4C37DC0E1BF59 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49CC570239A47D2D3FB6BB7C /* Pods-hello-ios.debug.xcconfig */,
+				14518944012BA5A2DD84632C /* Pods-hello-ios.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -110,12 +110,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F02203011BD856F500EB7727 /* Build configuration list for PBXNativeTarget "hello-ios" */;
 			buildPhases = (
-				461783FEABB1BC3D057B09D2 /* Check Pods Manifest.lock */,
+				970FAB18744804E7CE952211 /* 📦 Check Pods Manifest.lock */,
 				F02202E61BD856F500EB7727 /* Sources */,
 				F02202E71BD856F500EB7727 /* Frameworks */,
 				F02202E81BD856F500EB7727 /* Resources */,
-				39E7112C064BDD67CDEF426C /* Copy Pods Resources */,
-				3D5DC5A90E475837A584A672 /* Embed Pods Frameworks */,
+				1AF1A326917FB02DA2BB5A85 /* 📦 Embed Pods Frameworks */,
+				22DB1B6DEFAF6C998DD2744C /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -172,29 +172,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		39E7112C064BDD67CDEF426C /* Copy Pods Resources */ = {
+		1AF1A326917FB02DA2BB5A85 /* 📦 Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		3D5DC5A90E475837A584A672 /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
+			name = "📦 Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,14 +187,29 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		461783FEABB1BC3D057B09D2 /* Check Pods Manifest.lock */ = {
+		22DB1B6DEFAF6C998DD2744C /* 📦 Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		970FAB18744804E7CE952211 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -336,7 +336,7 @@
 		};
 		F02203021BD856F500EB7727 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 61157BE9F656C4511A4E2855 /* Pods-hello-ios.debug.xcconfig */;
+			baseConfigurationReference = 49CC570239A47D2D3FB6BB7C /* Pods-hello-ios.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "hello-ios/Info.plist";
@@ -348,7 +348,7 @@
 		};
 		F02203031BD856F500EB7727 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1DACB6B96493CAA8658C430B /* Pods-hello-ios.release.xcconfig */;
+			baseConfigurationReference = 14518944012BA5A2DD84632C /* Pods-hello-ios.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "hello-ios/Info.plist";

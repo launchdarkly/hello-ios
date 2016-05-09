@@ -1,64 +1,49 @@
 PODS:
-  - AFNetworking (2.6.1):
-    - AFNetworking/NSURLConnection (= 2.6.1)
-    - AFNetworking/NSURLSession (= 2.6.1)
-    - AFNetworking/Reachability (= 2.6.1)
-    - AFNetworking/Security (= 2.6.1)
-    - AFNetworking/Serialization (= 2.6.1)
-    - AFNetworking/UIKit (= 2.6.1)
-  - AFNetworking/NSURLConnection (2.6.1):
+  - AFNetworking (2.6.3):
+    - AFNetworking/NSURLConnection (= 2.6.3)
+    - AFNetworking/NSURLSession (= 2.6.3)
+    - AFNetworking/Reachability (= 2.6.3)
+    - AFNetworking/Security (= 2.6.3)
+    - AFNetworking/Serialization (= 2.6.3)
+    - AFNetworking/UIKit (= 2.6.3)
+  - AFNetworking/NSURLConnection (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.1):
+  - AFNetworking/NSURLSession (2.6.3):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.1)
-  - AFNetworking/Security (2.6.1)
-  - AFNetworking/Serialization (2.6.1)
-  - AFNetworking/UIKit (2.6.1):
+  - AFNetworking/Reachability (2.6.3)
+  - AFNetworking/Security (2.6.3)
+  - AFNetworking/Serialization (2.6.3)
+  - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - BlocksKit (2.2.5):
-    - BlocksKit/All (= 2.2.5)
-  - BlocksKit/All (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-    - BlocksKit/MessageUI
-    - BlocksKit/UIKit
-  - BlocksKit/Core (2.2.5)
-  - BlocksKit/DynamicDelegate (2.2.5)
-  - BlocksKit/MessageUI (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - BlocksKit/UIKit (2.2.5):
-    - BlocksKit/Core
-    - BlocksKit/DynamicDelegate
-  - LaunchDarkly (0.3.0-beta):
-    - LaunchDarkly/Core (= 0.3.0-beta)
-  - LaunchDarkly/Core (0.3.0-beta):
+  - LaunchDarkly (0.4.2-beta):
+    - LaunchDarkly/Core (= 0.4.2-beta)
+  - LaunchDarkly/Core (0.4.2-beta):
     - AFNetworking (~> 2.5)
-    - BlocksKit (~> 2.2)
     - Mantle (~> 2.0)
     - MTLManagedObjectAdapter (~> 1.0)
-  - Mantle (2.0.5):
-    - Mantle/extobjc (= 2.0.5)
-  - Mantle/extobjc (2.0.5)
-  - MTLManagedObjectAdapter (1.0.0.1):
+  - Mantle (2.0.7):
+    - Mantle/extobjc (= 2.0.7)
+  - Mantle/extobjc (2.0.7)
+  - MTLManagedObjectAdapter (1.0.3):
     - Mantle (~> 2.0)
-    - MTLManagedObjectAdapter/extobjc (= 1.0.0.1)
-  - MTLManagedObjectAdapter/extobjc (1.0.0.1):
+    - MTLManagedObjectAdapter/extobjc (= 1.0.3)
+  - MTLManagedObjectAdapter/extobjc (1.0.3):
     - Mantle (~> 2.0)
 
 DEPENDENCIES:
-  - LaunchDarkly (~> 0.3.0-beta)
+  - LaunchDarkly (~> 0.4.2-beta)
 
 SPEC CHECKSUMS:
-  AFNetworking: 8e4e60500beb8bec644cf575beee72990a76d399
-  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
-  LaunchDarkly: 0d9b6dc8b0c6c7066028c40a39a38ff0721840b7
-  Mantle: 1912395033f601de5adc8ee91e48f46e4c7051ad
-  MTLManagedObjectAdapter: 2da4b0244ee66f87b43e5fe9e7cd47838dea83ae
+  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
+  LaunchDarkly: 2d59b556a9b9e8b8466106faa7c11a2e45b4449f
+  Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
+  MTLManagedObjectAdapter: 631a53432675dcf03a9d90624afb3cececf54631
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 992dd4fcf924e20438ed96c09aa40f52f72c5e55
+
+COCOAPODS: 1.0.0.rc.2
