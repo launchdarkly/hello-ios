@@ -20,9 +20,9 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - LaunchDarkly (0.4.2-beta):
-    - LaunchDarkly/Core (= 0.4.2-beta)
-  - LaunchDarkly/Core (0.4.2-beta):
+  - LaunchDarkly (1.0.0):
+    - LaunchDarkly/Core (= 1.0.0)
+  - LaunchDarkly/Core (1.0.0):
     - AFNetworking (~> 2.5)
     - Mantle (~> 2.0)
     - MTLManagedObjectAdapter (~> 1.0)
@@ -36,14 +36,14 @@ PODS:
     - Mantle (~> 2.0)
 
 DEPENDENCIES:
-  - LaunchDarkly (~> 0.4.2-beta)
+  - LaunchDarkly (~> 1.0.0)
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  LaunchDarkly: 2d59b556a9b9e8b8466106faa7c11a2e45b4449f
+  LaunchDarkly: 81b2c7f9e8b160f1516b9d50b9a4b0f9a9440adf
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   MTLManagedObjectAdapter: 631a53432675dcf03a9d90624afb3cececf54631
 
-PODFILE CHECKSUM: 992dd4fcf924e20438ed96c09aa40f52f72c5e55
+PODFILE CHECKSUM: bff64013e3bcf41710a796c1e0912008f020b3a4
 
-COCOAPODS: 1.0.0.rc.2
+COCOAPODS: 1.0.0

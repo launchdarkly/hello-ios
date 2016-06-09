@@ -1,4 +1,4 @@
 target 'hello-ios' do
- pod 'LaunchDarkly', "~> 0.4.2-beta"
+ pod 'LaunchDarkly', "~> 1.0.0"
 end
 

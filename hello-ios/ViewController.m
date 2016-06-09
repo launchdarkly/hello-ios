@@ -11,7 +11,7 @@
 
 @interface ViewController ()
 
-@property LDUser *user;
+@property LDUserModel *user;
 @end
 
 @implementation ViewController
