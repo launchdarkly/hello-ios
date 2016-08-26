@@ -20,10 +20,12 @@ PODS:
   - AFNetworking/UIKit (2.6.3):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - LaunchDarkly (1.0.0):
-    - LaunchDarkly/Core (= 1.0.0)
-  - LaunchDarkly/Core (1.0.0):
+  - DarklyEventSource (1.1.0)
+  - LaunchDarkly (0.4.2):
+    - LaunchDarkly/Core (= 0.4.2)
+  - LaunchDarkly/Core (0.4.2):
     - AFNetworking (~> 2.5)
+    - DarklyEventSource
     - Mantle (~> 2.0)
     - MTLManagedObjectAdapter (~> 1.0)
   - Mantle (2.0.7):
@@ -36,14 +38,25 @@ PODS:
     - Mantle (~> 2.0)
 
 DEPENDENCIES:
-  - LaunchDarkly (~> 1.0.0)
+  - LaunchDarkly (from `https://github.com/launchdarkly/ios-client.git`, commit `3069882ae7179c13ce194749bfac989f4590bce0`)
+
+EXTERNAL SOURCES:
+  LaunchDarkly:
+    :commit: 3069882ae7179c13ce194749bfac989f4590bce0
+    :git: https://github.com/launchdarkly/ios-client.git
+
+CHECKOUT OPTIONS:
+  LaunchDarkly:
+    :commit: 3069882ae7179c13ce194749bfac989f4590bce0
+    :git: https://github.com/launchdarkly/ios-client.git
 
 SPEC CHECKSUMS:
   AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  LaunchDarkly: 81b2c7f9e8b160f1516b9d50b9a4b0f9a9440adf
+  DarklyEventSource: 0e55ed5a5bfed78b24a75a296c4a7fb048c96f6a
+  LaunchDarkly: 2a82dd27f1382caed3f9748ed401277b939220e6
   Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
   MTLManagedObjectAdapter: 631a53432675dcf03a9d90624afb3cececf54631
 
-PODFILE CHECKSUM: bff64013e3bcf41710a796c1e0912008f020b3a4
+PODFILE CHECKSUM: 09769bdc209bfeecd000775ec208674697f3f7ca
 
 COCOAPODS: 1.0.0

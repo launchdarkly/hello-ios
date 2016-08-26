@@ -30,7 +30,7 @@
     builder = [builder withCustomArray:@"groups" value:groups];
     
     LDConfigBuilder *config = [[LDConfigBuilder alloc] init];
-    [config withApiKey:@"YOUR_MOBILE_KEY"];
+    [config withMobileKey:@"YOUR_MOBILE_KEY"];
     
     [[LDClient sharedInstance] start:config userBuilder:builder];
     
@@ -43,7 +43,7 @@
 }
 
 -(void) checkFeatureValue {
-    BOOL showFeature = [[LDClient sharedInstance] toggle:@"YOUR_FLAG_KEY" default:NO];
+    BOOL showFeature = [[LDClient sharedInstance] boolVariation:@"YOUR_FLAG_KEY" fallback:NO];
     if (showFeature) {
         NSLog(@"Showing feature for %@", user.key);
     } else {
