@@ -1,62 +1,17 @@
 PODS:
-  - AFNetworking (2.6.3):
-    - AFNetworking/NSURLConnection (= 2.6.3)
-    - AFNetworking/NSURLSession (= 2.6.3)
-    - AFNetworking/Reachability (= 2.6.3)
-    - AFNetworking/Security (= 2.6.3)
-    - AFNetworking/Serialization (= 2.6.3)
-    - AFNetworking/UIKit (= 2.6.3)
-  - AFNetworking/NSURLConnection (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.6.3):
-    - AFNetworking/Reachability
-    - AFNetworking/Security
-    - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.6.3)
-  - AFNetworking/Security (2.6.3)
-  - AFNetworking/Serialization (2.6.3)
-  - AFNetworking/UIKit (2.6.3):
-    - AFNetworking/NSURLConnection
-    - AFNetworking/NSURLSession
-  - DarklyEventSource (1.1.0)
-  - LaunchDarkly (0.4.2):
-    - LaunchDarkly/Core (= 0.4.2)
-  - LaunchDarkly/Core (0.4.2):
-    - AFNetworking (~> 2.5)
-    - DarklyEventSource
-    - Mantle (~> 2.0)
-    - MTLManagedObjectAdapter (~> 1.0)
-  - Mantle (2.0.7):
-    - Mantle/extobjc (= 2.0.7)
-  - Mantle/extobjc (2.0.7)
-  - MTLManagedObjectAdapter (1.0.3):
-    - Mantle (~> 2.0)
-    - MTLManagedObjectAdapter/extobjc (= 1.0.3)
-  - MTLManagedObjectAdapter/extobjc (1.0.3):
-    - Mantle (~> 2.0)
+  - DarklyEventSource (1.2.0)
+  - LaunchDarkly (2.1.0):
+    - LaunchDarkly/Core (= 2.1.0)
+  - LaunchDarkly/Core (2.1.0):
+    - DarklyEventSource (~> 1.2.0)
 
 DEPENDENCIES:
-  - LaunchDarkly (from `https://github.com/launchdarkly/ios-client.git`, commit `3069882ae7179c13ce194749bfac989f4590bce0`)
-
-EXTERNAL SOURCES:
-  LaunchDarkly:
-    :commit: 3069882ae7179c13ce194749bfac989f4590bce0
-    :git: https://github.com/launchdarkly/ios-client.git
-
-CHECKOUT OPTIONS:
-  LaunchDarkly:
-    :commit: 3069882ae7179c13ce194749bfac989f4590bce0
-    :git: https://github.com/launchdarkly/ios-client.git
+  - LaunchDarkly
 
 SPEC CHECKSUMS:
-  AFNetworking: cb8d14a848e831097108418f5d49217339d4eb60
-  DarklyEventSource: 0e55ed5a5bfed78b24a75a296c4a7fb048c96f6a
-  LaunchDarkly: 2a82dd27f1382caed3f9748ed401277b939220e6
-  Mantle: bc40bb061d8c2c6fb48d5083e04d928c3b7f73d9
-  MTLManagedObjectAdapter: 631a53432675dcf03a9d90624afb3cececf54631
+  DarklyEventSource: f5a24cac8bd41a1b5e0c27203da4fd3ea0c71d2f
+  LaunchDarkly: 8401ec01e9653fc6a178916936e27923aa65d61a
 
-PODFILE CHECKSUM: 09769bdc209bfeecd000775ec208674697f3f7ca
+PODFILE CHECKSUM: f55839c09d9fd77a201162832a9dc8855d4a540d
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.1.1
