@@ -9,7 +9,10 @@
 #import "ViewController.h"
 #import "LDClient.h"
 
-@interface ViewController ()
+NSString *MOBILE_KEY = @"";
+NSString *FLAG_KEY = @"";
+
+@interface ViewController () <ClientDelegate>
 
 @property LDUserModel *user;
 @end
@@ -19,42 +22,46 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self setupLDClient];
+    [self checkFeatureValue];
+    [LDClient sharedInstance].delegate = self;
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+}
+
+- (void)setupLDClient {
     LDUserBuilder *builder = [[LDUserBuilder alloc] init];
     builder = [builder withKey:@"bob@example.com"];
     builder = [builder withFirstName:@"Bob"];
     builder = [builder withLastName:@"Loblaw"];
     
-    user = [builder build];
-    
     NSArray *groups = @[@"beta_testers"];
     builder = [builder withCustomArray:@"groups" value:groups];
     
     LDConfigBuilder *config = [[LDConfigBuilder alloc] init];
-    [config withMobileKey:@"YOUR_MOBILE_KEY"];
+    [config withMobileKey:MOBILE_KEY];
     
     [[LDClient sharedInstance] start:config userBuilder:builder];
-    
-    [NSTimer scheduledTimerWithTimeInterval:2.0
-                                     target:self
-                                   selector:@selector(checkFeatureValue)
-                                   userInfo:nil
-                                    repeats:YES];
-    
 }
 
--(void) checkFeatureValue {
-    BOOL showFeature = [[LDClient sharedInstance] boolVariation:@"YOUR_FLAG_KEY" fallback:NO];
-    if (showFeature) {
-        NSLog(@"Showing feature for %@", user.key);
-    } else {
-        NSLog(@"Not showing feature for user %@", user.key);
+- (void)checkFeatureValue {
+    BOOL showFeature = [[LDClient sharedInstance] boolVariation:FLAG_KEY fallback:NO];
+    [self updateLabel:[NSString stringWithFormat:@"%d",showFeature]];
+}
+
+- (void)updateLabel:(NSString *)value {
+    self.valueLabel.text = [NSString stringWithFormat:@"Flag value: %@",value];
+}
+
+#pragma mark - ClientDelegate methods
+
+-(void)featureFlagDidUpdate:(NSString *)key {
+    if([key isEqualToString:FLAG_KEY]) {
+        [self checkFeatureValue];
     }
-    
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
