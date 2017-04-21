@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		47D1E9047F589FA4A52A30C9 /* libPods-hello-watchOS Extension.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A70C9E02CB761A2A66F5557C /* libPods-hello-watchOS Extension.a */; };
 		6901329E1E962A040020AEC8 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6901329C1E962A040020AEC8 /* Interface.storyboard */; };
 		690132A01E962A040020AEC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6901329F1E962A040020AEC8 /* Assets.xcassets */; };
 		690132A71E962A040020AEC8 /* hello-watchOS Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 690132A61E962A040020AEC8 /* hello-watchOS Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -84,6 +85,8 @@
 		690132B61E962A040020AEC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690132B81E962A040020AEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72B4FDA0D4E4280CDA952E5B /* libPods-hello-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hello-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A676E8541D77A8501FE6A94 /* Pods-hello-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-watchOS Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
+		91708128117708E83F55478B /* Pods-hello-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-watchOS Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		A70C9E02CB761A2A66F5557C /* libPods-hello-watchOS Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-hello-watchOS Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E1853F889FC555DDAE7E6698 /* Pods_hello_watchOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hello_watchOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02202EA1BD856F500EB7727 /* hello-ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "hello-ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				47D1E9047F589FA4A52A30C9 /* libPods-hello-watchOS Extension.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,6 +223,8 @@
 			children = (
 				49CC570239A47D2D3FB6BB7C /* Pods-hello-ios.debug.xcconfig */,
 				14518944012BA5A2DD84632C /* Pods-hello-ios.release.xcconfig */,
+				91708128117708E83F55478B /* Pods-hello-watchOS Extension.debug.xcconfig */,
+				7A676E8541D77A8501FE6A94 /* Pods-hello-watchOS Extension.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -248,9 +254,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 690132C01E962A040020AEC8 /* Build configuration list for PBXNativeTarget "hello-watchOS Extension" */;
 			buildPhases = (
+				0AE9454BC421AD6F9D9D73E0 /* [CP] Check Pods Manifest.lock */,
 				690132A21E962A040020AEC8 /* Sources */,
 				690132A31E962A040020AEC8 /* Frameworks */,
 				690132A41E962A040020AEC8 /* Resources */,
+				9BE6727F4314CACC34F90D9C /* [CP] Embed Pods Frameworks */,
+				746FB90FBACFC86D234D752C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -356,6 +365,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0AE9454BC421AD6F9D9D73E0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		1AF1A326917FB02DA2BB5A85 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -386,6 +410,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		746FB90FBACFC86D234D752C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		970FAB18744804E7CE952211 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -398,7 +437,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		9BE6727F4314CACC34F90D9C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -509,6 +563,7 @@
 		};
 		690132BE1E962A040020AEC8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91708128117708E83F55478B /* Pods-hello-watchOS Extension.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -529,6 +584,7 @@
 		};
 		690132BF1E962A040020AEC8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A676E8541D77A8501FE6A94 /* Pods-hello-watchOS Extension.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
 				CLANG_ANALYZER_NONNULL = YES;

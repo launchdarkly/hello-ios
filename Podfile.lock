@@ -1,26 +1,17 @@
 PODS:
   - DarklyEventSource (1.3.1)
-  - LaunchDarkly (2.2.0):
-    - LaunchDarkly/Core (= 2.2.0)
-  - LaunchDarkly/Core (2.2.0):
+  - LaunchDarkly (2.3.0):
+    - LaunchDarkly/Core (= 2.3.0)
+  - LaunchDarkly/Core (2.3.0):
     - DarklyEventSource (~> 1.3.1)
 
 DEPENDENCIES:
-  - LaunchDarkly (from `https://github.com/launchdarkly/ios-client.git`)
-
-EXTERNAL SOURCES:
-  LaunchDarkly:
-    :git: https://github.com/launchdarkly/ios-client.git
-
-CHECKOUT OPTIONS:
-  LaunchDarkly:
-    :commit: 7dea04b431467b25edda1012eb6c49213f6c7336
-    :git: https://github.com/launchdarkly/ios-client.git
+  - LaunchDarkly
 
 SPEC CHECKSUMS:
   DarklyEventSource: ce31d84740e96ddd3d9cb7804ada109b9983d3ed
-  LaunchDarkly: 668077f5cdbcb6a400b7f225ebbc940ca5daa687
+  LaunchDarkly: bc5c7894a30f858dd93578c52f7c2b7a50bc262c
 
-PODFILE CHECKSUM: a9e04c7696a7b1d49060f90f9831f3fdfd95ede8
+PODFILE CHECKSUM: e35353ee50b31e82c8a2f042337cd7577463de3f
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1
