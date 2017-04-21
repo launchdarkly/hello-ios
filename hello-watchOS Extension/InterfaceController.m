@@ -1,35 +1,40 @@
 //
-//  ViewController.m
-//  hello-ios
+//  InterfaceController.m
+//  hello-watchOS Extension
 //
-//  Created by John Kodumal on 10/21/15.
-//  Copyright © 2015 John Kodumal. All rights reserved.
+//  Created by Danial Zahid on 4/6/17.
+//  Copyright © 2017 John Kodumal. All rights reserved.
 //
 
-#import "ViewController.h"
+#import "InterfaceController.h"
 #import "Darkly.h"
 
 NSString *MOBILE_KEY = @"mob-b9b5e098-aa3d-4049-b8fe-64abc39cd7d9";
 NSString *FLAG_KEY = @"main-slider";
 
-@interface ViewController () <ClientDelegate>
+@interface InterfaceController () <ClientDelegate>
+@property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *valueLabel;
 
-@property LDUserModel *user;
 @end
 
-@implementation ViewController
-@synthesize user;
+@implementation InterfaceController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    [self setupLDClient];
-    [self checkFeatureValue];
+- (void)awakeWithContext:(id)context {
+    [super awakeWithContext:context];
     [LDClient sharedInstance].delegate = self;
+    // Configure interface objects here.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+- (void)willActivate {
+    // This method is called when watch view controller is about to be visible to user
+    [super willActivate];
+    [self setupLDClient];
+    [self checkFeatureValue];
+}
+
+- (void)didDeactivate {
+    // This method is called when watch view controller is no longer visible
+    [super didDeactivate];
 }
 
 - (void)setupLDClient {
@@ -56,8 +61,6 @@ NSString *FLAG_KEY = @"main-slider";
     self.valueLabel.text = [NSString stringWithFormat:@"Flag value: %@",value];
 }
 
-#pragma mark - ClientDelegate methods
-
 -(void)featureFlagDidUpdate:(NSString *)key {
     if([key isEqualToString:FLAG_KEY]) {
         [self checkFeatureValue];
@@ -65,3 +68,6 @@ NSString *FLAG_KEY = @"main-slider";
 }
 
 @end
+
+
+
