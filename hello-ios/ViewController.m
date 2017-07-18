@@ -34,17 +34,17 @@ NSString *FLAG_KEY = @"main-slider";
 
 - (void)setupLDClient {
     LDUserBuilder *builder = [[LDUserBuilder alloc] init];
-    builder = [builder withKey:@"bob@example.com"];
-    builder = [builder withFirstName:@"Bob"];
-    builder = [builder withLastName:@"Loblaw"];
+    builder.key = @"bob@example.com";
+    builder.firstName = @"Bob";
+    builder.lastName = @"Loblaw";
     
     NSArray *groups = @[@"beta_testers"];
-    builder = [builder withCustomArray:@"groups" value:groups];
+    [builder customArray:@"groups" value:groups];
     
-    LDConfigBuilder *config = [[LDConfigBuilder alloc] init];
-    [config withMobileKey:MOBILE_KEY];
+    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
+    config.debugEnabled = YES;
     
-    [[LDClient sharedInstance] start:config userBuilder:builder];
+    [[LDClient sharedInstance] start:config withUserBuilder:builder];
 }
 
 - (void)checkFeatureValue {
