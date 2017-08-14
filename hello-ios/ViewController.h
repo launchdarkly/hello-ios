@@ -10,7 +10,11 @@
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *valueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *booleanValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numberValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *stringValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *arrayValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dictionaryValueLabel;
 
 @end
 
