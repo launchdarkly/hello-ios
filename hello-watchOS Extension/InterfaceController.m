@@ -9,8 +9,8 @@
 #import "InterfaceController.h"
 #import "Darkly.h"
 
-NSString *MOBILE_KEY = @"mob-b9b5e098-aa3d-4049-b8fe-64abc39cd7d9";
-NSString *FLAG_KEY = @"main-slider";
+NSString *MOBILE_KEY = @"";
+NSString *FLAG_KEY = @"test-flag";
 
 @interface InterfaceController () <ClientDelegate>
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *valueLabel;
