@@ -35,7 +35,6 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     
     [self setupLDClient];
     [self checkFeatureValue];
-    [LDClient sharedInstance].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
