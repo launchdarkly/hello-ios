@@ -1,0 +1,1428 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0009E09A6681BE2C945EB6CC53F4BF47 /* NSNumber+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = 981F18F0211397000CEF6D38DDFA5455 /* NSNumber+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0227349374EE8C778D5CFFD6B34227B4 /* LDPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34DEFC8752E8F1970F321EFD5CD365 /* LDPollingManager.m */; };
+		04435A56A5BBA0DB95C0C908B10C2C86 /* NSArray+LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E34EA6FA8F4C1D91E47DCCD26F1DD7EA /* NSArray+LDEventSource.m */; };
+		04CF339F96D5FE9B85C93A7417A1F5DA /* LDPollingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 27FAEB86BAF1AF7A4CDFC9B9B4364449 /* LDPollingManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0588659FCE67D096DC970BAE217FB0E9 /* LDEvent+EventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D2DB17D7A813565788DB8471EC4341 /* LDEvent+EventTypes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		07B5A6F57FFCFFD0A915FA96C9D9E05F /* LDEventTrackingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6F9E61D15EDB6E1ACD343F2DA0825 /* LDEventTrackingContext.m */; };
+		07E820067CD0E01C2C3306D11AF075D7 /* LDEventStringAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = DA510FB92C4067F4B961A75701F70DB3 /* LDEventStringAccumulator.m */; };
+		0E5BEFB2C3556F78E2921710CC674479 /* LDFlagConfigValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 48807B075EEE2DF7F48E522BE25DE9B0 /* LDFlagConfigValue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0E79FAB289351440A1FB4F8DECD0B4B1 /* NSDateFormatter+JsonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD4D9F0A9D9D77E8B3F01B4E6F62ECD /* NSDateFormatter+JsonHeader.m */; };
+		11284C366A9997704F6FA85CF0002C12 /* DarklyEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A23E59FE80162B1E4472CB695CCF1DE /* DarklyEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		12DE41F5CB3B781C917C852804F0858A /* LDFlagCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A589BEB5A1ED748F36976E88398E540 /* LDFlagCounter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1362513EFF801A21E2B1DC2A521F62A6 /* DarklyConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F4F406C145D3BB0A9CB7AFECC906B5 /* DarklyConstants.m */; };
+		139090BB1FFE7959DCD1B26957A51D89 /* LDFlagConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3433ED7857F658C658FF59D077FC2A12 /* LDFlagConfigModel.m */; };
+		1472B3C893ACBA687A7134355236995A /* LDFlagValueCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 813A99C2136D74109677FB79E78CB4C0 /* LDFlagValueCounter.m */; };
+		14CA56095AD6821E78FB1DF0CB302755 /* LDUserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E061555367AE55ECF864A00F089AF4CD /* LDUserBuilder.m */; };
+		17DF7646EA2BF1D8ECD04614FFEB2D18 /* NSDate+ReferencedDate.h in Headers */ = {isa = PBXBuildFile; fileRef = D04E8D961AE8C236E54059FE4B81A464 /* NSDate+ReferencedDate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1963CD4ED79E15AFD2ACCC1E5C28FF72 /* LDClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A765F94057BA5623F19D78316C64CE80 /* LDClientManager.m */; };
+		1B3960203F74C1E3C7E8E8FD2892A807 /* NSDictionary+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA61A72031342EB9096011BA0EE7E13 /* NSDictionary+JSON.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1CEE89FF9A742918350534AED13F68E5 /* LDEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68322517D7A033CB628856E2F6FBBD9B /* LDEventModel.m */; };
+		1D27A7CC54B54F03EABE5DA2A480DDCD /* LDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 69028EFA87460FA99C3EC4677D48E308 /* LDConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1E93A75E803FB39E5F0D993463844B94 /* LDEventTrackingContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 80227DFDF0C5133CC1E2EC0590A111EC /* LDEventTrackingContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2384628DA3F8EA0461425D4A11A5126D /* NSDateFormatter+JsonHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD4D9F0A9D9D77E8B3F01B4E6F62ECD /* NSDateFormatter+JsonHeader.m */; };
+		28933DE2C5BA811C19C873408CB87629 /* NSHTTPURLResponse+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = 6976CE6DD6AF8A7EBE646312AE7D449E /* NSHTTPURLResponse+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		291277BF6C99780464876BB3693B1AA5 /* NSDateFormatter+LDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F5F9F0C6FB5BF8205F5197FC13C18 /* NSDateFormatter+LDUserModel.m */; };
+		29E4C0EB2DD617CE29B7381CFFDAF3F4 /* LDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E873A26D3BCF81C64E0E4AF9A31E8222 /* LDUserModel.m */; };
+		2A77DA21A35C6DC2FCE59AC4D2E5C8C1 /* LDEventStringAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = DA510FB92C4067F4B961A75701F70DB3 /* LDEventStringAccumulator.m */; };
+		2C895138B6E8261893A60CA30B5515F3 /* LDUserBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA3C11BB663F2DC5D5065BA5189E2EF /* LDUserBuilder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		2ED712C559F345F5429585C3C0CD7C6E /* LDEventTrackingContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 80227DFDF0C5133CC1E2EC0590A111EC /* LDEventTrackingContext.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		318A5AD8E78BC7B1708942D02C8898FA /* LaunchDarkly-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B759CC9C874750DC6632E6223356DA9B /* LaunchDarkly-watchOS-dummy.m */; };
+		351F5EBD42BE84A164F9DBE718109DAE /* LDFlagConfigValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B51BB60702DACD13A1706694604C3CDC /* LDFlagConfigValue.m */; };
+		3525F67AD9B53230A7FE2F5F661B1A96 /* NSString+RemoveWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F108F1445CA04AA8FD8D2CD24AAFD4 /* NSString+RemoveWhitespace.m */; };
+		37C29D0E21A356BF33C5A313FC74AE0D /* LDFlagCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4FAB0DA3FF7B66F129F6457419397A /* LDFlagCounter.m */; };
+		37F24145E21B69AA561321266E0A674A /* NSNumber+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = 33572071531D1C361950CB5C5FB161E1 /* NSNumber+LaunchDarkly.m */; };
+		395E270ECE4F8AB6F6A8CBF246D15100 /* NSDateFormatter+LDUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B8CAA8D4685BD3C509406BDF5B4F57F /* NSDateFormatter+LDUserModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		3B70A5427E7DBFF97EB2655FC924F579 /* LDFlagValueCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = 813A99C2136D74109677FB79E78CB4C0 /* LDFlagValueCounter.m */; };
+		3BAABD0C7CB676B23B0B1D3CD62E7BCE /* LDThrottler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BF4EB3180DAA6E5C07FF95EC38D7EF /* LDThrottler.m */; };
+		4369A0DD16DF24DC52B97EDF4BFC4A27 /* LDEvent+Unauthorized.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F418F15C4C98931D3EC770C83B1F2A /* LDEvent+Unauthorized.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		43D49EE5251B977628945CCAF58F9196 /* LDEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC9B313B3A81F8B2E28757B247114F9 /* LDEventParser.m */; };
+		4523AB7C6DE482454F0B84F221112D80 /* NSDate+ReferencedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B04E8A65B43414C23369441BB97DAB68 /* NSDate+ReferencedDate.m */; };
+		48FFEBDBDCF52BB027F8C6BAFF70D09C /* NSMutableDictionary+NullRemovable.h in Headers */ = {isa = PBXBuildFile; fileRef = D80CF5D493DC203C76B3744EBCFA4B92 /* NSMutableDictionary+NullRemovable.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		49D870B613550793CEA805330809F71E /* NSDateFormatter+JsonHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 038E52C7B40BEB1721464CC069057A33 /* NSDateFormatter+JsonHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		4C162B0F91929A809F2F43C2CBC467DE /* DarklyConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = E3F4F406C145D3BB0A9CB7AFECC906B5 /* DarklyConstants.m */; };
+		50F9152CDA132D6EC7C25B0B9C6A1DFA /* LDUserBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = 8DA3C11BB663F2DC5D5065BA5189E2EF /* LDUserBuilder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		516A4304B8FA867FDD262E37292AFCDD /* NSURLResponse+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = E153821D34E9B8FAFAF7D50309487344 /* NSURLResponse+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		523D7C0623B9F5F27E489F2FCE14A29D /* LDEventStringAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FD5090E42EAD3A59ED00549E4AF96B /* LDEventStringAccumulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		58FA14BABEC4CE85447B64B63845014D /* LDFlagConfigTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E1172C876260FE94A1A062CA738042 /* LDFlagConfigTracker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		596DFC8AF0EAD726D50AD393B26A724F /* NSNumber+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = 33572071531D1C361950CB5C5FB161E1 /* NSNumber+LaunchDarkly.m */; };
+		5D37266E83F1BF82AE04B9EAA60FE579 /* NSString+LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7672D56F9757F32751A36AAF871440EF /* NSString+LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		5E875DC53ACC2412084227178E343D36 /* NSThread+MainExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0D354355C4BAFD4FEB92E0B2D18961 /* NSThread+MainExecutable.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		64FFB19D60E2A130EDF365160793C5A3 /* NSArray+LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D96F29495C06D4A5B442F23A00C4B2A7 /* NSArray+LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		667F8C7C9B02CBAF5D76F467161EE84D /* LDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A65DAF3454411CC37FF7B73458E8250 /* LDDataManager.m */; };
+		68DFAAC073CF44013BB75CFD40F7246F /* LDPollingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1C34DEFC8752E8F1970F321EFD5CD365 /* LDPollingManager.m */; };
+		6C65BF2C18952FFC7FCAF0C93FF5051D /* LDEventTrackingContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC6F9E61D15EDB6E1ACD343F2DA0825 /* LDEventTrackingContext.m */; };
+		6CD9A82CBF610FE91DD426ADE19AAE31 /* LDDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A65DAF3454411CC37FF7B73458E8250 /* LDDataManager.m */; };
+		6D5E04EE96B4F6C1E5742EB2481AFE2E /* LDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C4034E75A700A00E3398BE8ED6E8A6E6 /* LDUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6E059D64EFF9FE24585C701D4A07CD84 /* LDThrottler.h in Headers */ = {isa = PBXBuildFile; fileRef = A06471E394D9E8A5F3A9F9916D549AFC /* LDThrottler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6E774FDAB6F8C03C92F43BFF4C1B52AF /* DarklyEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A23E59FE80162B1E4472CB695CCF1DE /* DarklyEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7199661FFE4432A1E14391978EE705B7 /* DarklyConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4083648A76E9527142D595249D129E /* DarklyConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		72C45CF7D55D20D406DB149D8D3BDD59 /* Darkly.h in Headers */ = {isa = PBXBuildFile; fileRef = DE4FB08F9140600389035CE8186874D4 /* Darkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		73FBEBAB5AFADEB5373944FB70FE2C09 /* LDEvent+EventTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = 15D2DB17D7A813565788DB8471EC4341 /* LDEvent+EventTypes.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7559ADC25E2C74DF106A9BECC250E1BB /* NSURLResponse+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2127FA146457C425680AE6DD0845 /* NSURLResponse+LaunchDarkly.m */; };
+		756E78B499F9A7CB9C17AF5C7FCF9BAF /* NSMutableDictionary+NullRemovable.h in Headers */ = {isa = PBXBuildFile; fileRef = D80CF5D493DC203C76B3744EBCFA4B92 /* NSMutableDictionary+NullRemovable.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		76395E603F9A788CBD513935C4EB7B88 /* NSString+RemoveWhitespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7044C25DD02FAE53F9068F9DEF7D0D /* NSString+RemoveWhitespace.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		764A823A34015184D84C1B61DD0609D2 /* LDUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 916AAD8FF867E832D83BC6E09579927D /* LDUserModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		768059704B05E5B8C77719F7E53E8884 /* NSThread+MainExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = A949429582F72833BD33B15B122FE03F /* NSThread+MainExecutable.m */; };
+		771CDD5183C33FB6E41902A4065E672B /* LDClientManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F456602F3152A1FBFC23A8C57244DFF9 /* LDClientManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		77D3F247ED5CA2122951DAABF244F9DE /* NSString+LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 7672D56F9757F32751A36AAF871440EF /* NSString+LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		782A4805AC5DCA618E2B2F52802C53CE /* NSNumber+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = 981F18F0211397000CEF6D38DDFA5455 /* NSNumber+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7A628BB016F0E8225EEA9EFC3CB019C6 /* LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 507C6C201128761AF89E967EA7068C80 /* LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7AFB41F543141FF5B3CCBD88514665E8 /* LDUserBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E061555367AE55ECF864A00F089AF4CD /* LDUserBuilder.m */; };
+		7B2D9E6BCB2866F21EEC2BB68C7F7CE3 /* NSArray+LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E34EA6FA8F4C1D91E47DCCD26F1DD7EA /* NSArray+LDEventSource.m */; };
+		7D620C5D249E73449D0787C9203F9831 /* LDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C821A9C559E434A9E282412A26DF3843 /* LDUtil.m */; };
+		7E9B2052ECFD8FAB1A0CCE025F9F039C /* LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76DD161A20C659BC15EB3A8843CD71 /* LDEventSource.m */; };
+		7EAB5118C3AF839DB200B20D6AB610F6 /* NSMutableDictionary+NullRemovable.m in Sources */ = {isa = PBXBuildFile; fileRef = 25251E70C87468ED29AE05B75E6C8E39 /* NSMutableDictionary+NullRemovable.m */; };
+		83F461508E52786B104203EE1A5DF4B4 /* LDFlagConfigModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF10C714DBCB3157A22DB07DEAAB946 /* LDFlagConfigModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		842D05996B08C8C75693F71A3E77039A /* LDThrottler.h in Headers */ = {isa = PBXBuildFile; fileRef = A06471E394D9E8A5F3A9F9916D549AFC /* LDThrottler.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		85AD606522091DCA19FD73DAEDF618FF /* LDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E873A26D3BCF81C64E0E4AF9A31E8222 /* LDUserModel.m */; };
+		8AB7ED028F9531CB42248DF7979895D1 /* LDEventParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A2EB9D03591E747AB3758532715CB8F /* LDEventParser.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8BB0E0001EE6F5AF7F1CDBA1F6E04032 /* LDFlagConfigTracker.h in Headers */ = {isa = PBXBuildFile; fileRef = 72E1172C876260FE94A1A062CA738042 /* LDFlagConfigTracker.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		8CC6088DFEBBD5ED270B688EBB5B19C4 /* LDThrottler.m in Sources */ = {isa = PBXBuildFile; fileRef = 60BF4EB3180DAA6E5C07FF95EC38D7EF /* LDThrottler.m */; };
+		8CE61E8A209CA7C5AEE9AF8C2D053B80 /* LDRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D2A0E63D523E5444E1CA298C77E14B42 /* LDRequestManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9012672C2E89ED12DAC280B884EE9EBA /* NSDateFormatter+JsonHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 038E52C7B40BEB1721464CC069057A33 /* NSDateFormatter+JsonHeader.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		92A3CFB9AF7836A842768C0CEF2B2ECD /* NSString+RemoveWhitespace.m in Sources */ = {isa = PBXBuildFile; fileRef = 15F108F1445CA04AA8FD8D2CD24AAFD4 /* NSString+RemoveWhitespace.m */; };
+		93F3F8D6CAE6C51D91C92CA4AAF884F6 /* DarklyEventSource-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 66C3351423D953014C231F432DD9D667 /* DarklyEventSource-iOS-dummy.m */; };
+		96635BD81CBC408F312C65ED6F4EC87E /* LDClient.h in Headers */ = {isa = PBXBuildFile; fileRef = BE6DBBF78284DBCA06BD3D6EBC61E73A /* LDClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9761069D162FACACF9C9CE7E03E2BADD /* LDFlagConfigTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A272255E7FE95D1A520A1693E89ABC97 /* LDFlagConfigTracker.m */; };
+		97ED607C0666E8A30E73173BFDD0B00C /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E896E3E804CDD881F913AFBB4F1C2861 /* NSDictionary+JSON.m */; };
+		98E05B6B13B144154E0E08B7BDFB3FCA /* LDFlagConfigTracker.m in Sources */ = {isa = PBXBuildFile; fileRef = A272255E7FE95D1A520A1693E89ABC97 /* LDFlagConfigTracker.m */; };
+		9B626B54711B0C33F6DC5DEF1C80763F /* LDRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEBDFAD0F09BC4027036BE1824E6882 /* LDRequestManager.m */; };
+		9F849C9BFB9D146FD81A1A21527257EA /* NSDate+ReferencedDate.h in Headers */ = {isa = PBXBuildFile; fileRef = D04E8D961AE8C236E54059FE4B81A464 /* NSDate+ReferencedDate.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A128A3A016E8147B431D350C3557179A /* LDUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = C4034E75A700A00E3398BE8ED6E8A6E6 /* LDUtil.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		A39253C3ABA4ABB2007D5D5F1D85E85C /* NSThread+MainExecutable.m in Sources */ = {isa = PBXBuildFile; fileRef = A949429582F72833BD33B15B122FE03F /* NSThread+MainExecutable.m */; };
+		A8F88ECFE3371BAE845430CBAF7993E0 /* LDEventStringAccumulator.h in Headers */ = {isa = PBXBuildFile; fileRef = 52FD5090E42EAD3A59ED00549E4AF96B /* LDEventStringAccumulator.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AB73FB6B381D9B477608479EC84B74BB /* NSDateFormatter+LDUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C9F5F9F0C6FB5BF8205F5197FC13C18 /* NSDateFormatter+LDUserModel.m */; };
+		AB98C1E123414AB9779B4C46D427BDCD /* LDClientManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F456602F3152A1FBFC23A8C57244DFF9 /* LDClientManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		ABAFD423F4D61645030403E338B6F6B7 /* NSDate+ReferencedDate.m in Sources */ = {isa = PBXBuildFile; fileRef = B04E8A65B43414C23369441BB97DAB68 /* NSDate+ReferencedDate.m */; };
+		B1DED6F307EE44656C6AAABDE623490F /* DarklyEventSource-watchOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6F4E205AD075E7D9DFACBF6E8F3C73E2 /* DarklyEventSource-watchOS-dummy.m */; };
+		B30636E7A0B059578EB6361952F64ED3 /* NSURLResponse+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = 26CD2127FA146457C425680AE6DD0845 /* NSURLResponse+LaunchDarkly.m */; };
+		B38F49609609833796F6D923CDBC2910 /* LDRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = CFEBDFAD0F09BC4027036BE1824E6882 /* LDRequestManager.m */; };
+		B674D85B65C074C91367871DC8784A18 /* NSHTTPURLResponse+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A283B1515678B688D1C7936B575896 /* NSHTTPURLResponse+LaunchDarkly.m */; };
+		BA90534FB1C6047436C10D4EFCA57A2E /* NSHTTPURLResponse+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = 6976CE6DD6AF8A7EBE646312AE7D449E /* NSHTTPURLResponse+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BAF9CEC539E2C32FB91F01A2BE196427 /* LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE76DD161A20C659BC15EB3A8843CD71 /* LDEventSource.m */; };
+		BCC658C61D7432BD084F8F77327A0681 /* LDFlagCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A589BEB5A1ED748F36976E88398E540 /* LDFlagCounter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		BFFF523C751FDBBD416C854C4D0FC022 /* LDFlagValueCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F7D454AB964BFE495202C7CD92DD72 /* LDFlagValueCounter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C2470E6B5077CD7CAA10C9628F3C55BD /* NSMutableDictionary+NullRemovable.m in Sources */ = {isa = PBXBuildFile; fileRef = 25251E70C87468ED29AE05B75E6C8E39 /* NSMutableDictionary+NullRemovable.m */; };
+		C411B7887C46EE6FB2398CD1D71F8F84 /* LDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D32C7407E22F1BB7809E5913159F1AC /* LDConfig.m */; };
+		C5D6B2A29321E2D6AA3723576F9E1C0F /* LDEventModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 76A1235E77487098F9E99FDEB1775115 /* LDEventModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C631E054684390C030F3FDD559794640 /* NSString+LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B183F962733C5CD7412CFC8C63BD6BB9 /* NSString+LDEventSource.m */; };
+		C70274C3A9A23D85F8FB0E9E803CA931 /* LDEventParser.h in Headers */ = {isa = PBXBuildFile; fileRef = 2A2EB9D03591E747AB3758532715CB8F /* LDEventParser.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C713CDBC93A9375D982B9114DF8E9834 /* LDFlagConfigModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CF10C714DBCB3157A22DB07DEAAB946 /* LDFlagConfigModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C8350D9BF1347924FDEBE95C58B1CD82 /* LDFlagConfigValue.m in Sources */ = {isa = PBXBuildFile; fileRef = B51BB60702DACD13A1706694604C3CDC /* LDFlagConfigValue.m */; };
+		C8A9E977A932255C306C741DBB4BC629 /* LDFlagCounter.m in Sources */ = {isa = PBXBuildFile; fileRef = CB4FAB0DA3FF7B66F129F6457419397A /* LDFlagCounter.m */; };
+		C8C72F4561FD6FC4586805EB74E6FEAE /* LaunchDarkly-iOS-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6FE56DC5E273E29D9618C970B807F36 /* LaunchDarkly-iOS-dummy.m */; };
+		C9FEDD2F6CF5CC5BB5DF4D9F24137196 /* LDEvent+Unauthorized.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322EDFF7CC1DF911806908C280BCB75 /* LDEvent+Unauthorized.m */; };
+		CAB79BFC86E6253E8ABC52BD093977B2 /* LDEventParser.m in Sources */ = {isa = PBXBuildFile; fileRef = AAC9B313B3A81F8B2E28757B247114F9 /* LDEventParser.m */; };
+		CB2D06C13BF6B7E0CAC8A1617B508EF5 /* Pods-hello-watchOS Extension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E11DC9D0218F5BBB4F646D07DD500F5 /* Pods-hello-watchOS Extension-dummy.m */; };
+		CBDF442574BDB157F66926AFF9FED5F0 /* LDDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6443D322ADB7E009655D772546D1F04D /* LDDataManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		CC2CBCBA0AC43A6B9E3C97C20E9F570E /* LDClient.h in Headers */ = {isa = PBXBuildFile; fileRef = BE6DBBF78284DBCA06BD3D6EBC61E73A /* LDClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D0468ED52734CD4D28351EA0634A51A7 /* LDUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 916AAD8FF867E832D83BC6E09579927D /* LDUserModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D211134A23A4E8B5180233431D7AA86F /* LDClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = A765F94057BA5623F19D78316C64CE80 /* LDClientManager.m */; };
+		D35A3EFBE06D2A9C9CC8524AC4DDA928 /* LDEvent+EventTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = A026423392F0808CAC5D768D724E91F4 /* LDEvent+EventTypes.m */; };
+		D56C67707484A3C2545B9DF341BE078A /* NSURLResponse+LaunchDarkly.h in Headers */ = {isa = PBXBuildFile; fileRef = E153821D34E9B8FAFAF7D50309487344 /* NSURLResponse+LaunchDarkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D5F3F7BEA0336C08B5D321BF40050859 /* LDRequestManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D2A0E63D523E5444E1CA298C77E14B42 /* LDRequestManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D6B45C7CB77615F4B36CFEAECF6EB4C7 /* LDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B939F78D709AB2061C2F63FA0A455B /* LDClient.m */; };
+		D70FD97363AF58B572696FD6CA9B5CE3 /* NSHTTPURLResponse+LaunchDarkly.m in Sources */ = {isa = PBXBuildFile; fileRef = A7A283B1515678B688D1C7936B575896 /* NSHTTPURLResponse+LaunchDarkly.m */; };
+		D812E2BA075B76065C45E510E64A6FC4 /* NSThread+MainExecutable.h in Headers */ = {isa = PBXBuildFile; fileRef = 3F0D354355C4BAFD4FEB92E0B2D18961 /* NSThread+MainExecutable.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D89C6492A4F7CBE5821F2DFDA6A1376D /* LDConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 69028EFA87460FA99C3EC4677D48E308 /* LDConfig.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D8D14C2E69ADBEDA1FBEF5F833520460 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E896E3E804CDD881F913AFBB4F1C2861 /* NSDictionary+JSON.m */; };
+		DCEF95E50F2775D5EDD8E6C743666188 /* Darkly.h in Headers */ = {isa = PBXBuildFile; fileRef = DE4FB08F9140600389035CE8186874D4 /* Darkly.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DDC08C5453B75F17ACA9A6A7CBAEAD3D /* LDEvent+Unauthorized.h in Headers */ = {isa = PBXBuildFile; fileRef = B3F418F15C4C98931D3EC770C83B1F2A /* LDEvent+Unauthorized.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DDD3C777316455DD6EB3294D5ABD3066 /* LDFlagConfigModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3433ED7857F658C658FF59D077FC2A12 /* LDFlagConfigModel.m */; };
+		DF5CB963A45747DA623759A3E46BC7C7 /* NSDictionary+JSON.h in Headers */ = {isa = PBXBuildFile; fileRef = 7AA61A72031342EB9096011BA0EE7E13 /* NSDictionary+JSON.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E2B096296A331D742F101CD7EF249C6E /* LDEventModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 76A1235E77487098F9E99FDEB1775115 /* LDEventModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E36801FAE2F27CB0127BE06EFD710C84 /* Pods-hello-ios-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 6AA155D83995CEBC498EF321A2C39FD7 /* Pods-hello-ios-dummy.m */; };
+		E44715310EC13DA23A2ED7F495A91AC5 /* LDUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = C821A9C559E434A9E282412A26DF3843 /* LDUtil.m */; };
+		E6070F8BB11F6B2B247878F5107D55B1 /* NSArray+LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = D96F29495C06D4A5B442F23A00C4B2A7 /* NSArray+LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E6D7A7391D2E561EDE15007070579230 /* LDEvent+EventTypes.m in Sources */ = {isa = PBXBuildFile; fileRef = A026423392F0808CAC5D768D724E91F4 /* LDEvent+EventTypes.m */; };
+		E7E20EC1538855A5C95BEB148A3449B5 /* LDFlagConfigValue.h in Headers */ = {isa = PBXBuildFile; fileRef = 48807B075EEE2DF7F48E522BE25DE9B0 /* LDFlagConfigValue.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E863B6572B5EEA6B37BC5747A9E1ECE4 /* LDEventSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 507C6C201128761AF89E967EA7068C80 /* LDEventSource.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EB1AD22F5061B4E90B61BF213F5B8E1A /* NSString+RemoveWhitespace.h in Headers */ = {isa = PBXBuildFile; fileRef = 5B7044C25DD02FAE53F9068F9DEF7D0D /* NSString+RemoveWhitespace.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		EDB0A755B3865ECA090A2A8099CEAAA8 /* LDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = B9B939F78D709AB2061C2F63FA0A455B /* LDClient.m */; };
+		EE59D45F0141B84455E70CC4DCEFBAD9 /* LDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D32C7407E22F1BB7809E5913159F1AC /* LDConfig.m */; };
+		EEB3021D97A0C0ACD31F9E1D8FD5C0F8 /* LDDataManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6443D322ADB7E009655D772546D1F04D /* LDDataManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F05AE6BC00517CAE10D7C50FE78F4010 /* DarklyConstants.h in Headers */ = {isa = PBXBuildFile; fileRef = CD4083648A76E9527142D595249D129E /* DarklyConstants.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F23ABD898E612D4A7C6AB565C3EB2F6D /* LDEventModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 68322517D7A033CB628856E2F6FBBD9B /* LDEventModel.m */; };
+		F272BC71A4F9CD284127A507785D7999 /* LDEvent+Unauthorized.m in Sources */ = {isa = PBXBuildFile; fileRef = 0322EDFF7CC1DF911806908C280BCB75 /* LDEvent+Unauthorized.m */; };
+		F571D05ADAC84842CE22BE7926C27803 /* NSDateFormatter+LDUserModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8B8CAA8D4685BD3C509406BDF5B4F57F /* NSDateFormatter+LDUserModel.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F5B6C23C37839F4661C3DBCB8EF7334D /* LDPollingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 27FAEB86BAF1AF7A4CDFC9B9B4364449 /* LDPollingManager.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FBB8F1B9975F78FC5ACC16D493F38D44 /* LDFlagValueCounter.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F7D454AB964BFE495202C7CD92DD72 /* LDFlagValueCounter.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		FC6E9BBB9B465FDCCACC9F3BBA535D1D /* NSString+LDEventSource.m in Sources */ = {isa = PBXBuildFile; fileRef = B183F962733C5CD7412CFC8C63BD6BB9 /* NSString+LDEventSource.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2293B93CCA0AAE0C73D061B7B768F74A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FACD7A0B95D8AEE0D511709EC3CF3F9F;
+			remoteInfo = "DarklyEventSource-watchOS";
+		};
+		42B192B70A6087DE7289E414E0B7E3EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C56A3679073A762F7B39249D0A8B4771;
+			remoteInfo = "DarklyEventSource-iOS";
+		};
+		7366722384CF1C699B5D56F60C084C0B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C56A3679073A762F7B39249D0A8B4771;
+			remoteInfo = "DarklyEventSource-iOS";
+		};
+		A0DCE1C2D6F0F7DF7F38E1DE5D5FABD2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FACD7A0B95D8AEE0D511709EC3CF3F9F;
+			remoteInfo = "DarklyEventSource-watchOS";
+		};
+		AE3481BD1099FEA820AEF1EE8D4E16D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 36D017F67CAC5BCBD23A2C30EED14FA4;
+			remoteInfo = "LaunchDarkly-watchOS";
+		};
+		BB91111CD1834FA573BD33FD643BC83F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 984DD7BC2CE2AEB4D7DF3E4D1803F0F3;
+			remoteInfo = "LaunchDarkly-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0322EDFF7CC1DF911806908C280BCB75 /* LDEvent+Unauthorized.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "LDEvent+Unauthorized.m"; path = "Darkly/LDEvent+Unauthorized.m"; sourceTree = "<group>"; };
+		038E52C7B40BEB1721464CC069057A33 /* NSDateFormatter+JsonHeader.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+JsonHeader.h"; path = "Darkly/NSDateFormatter+JsonHeader.h"; sourceTree = "<group>"; };
+		1044393C6D8979A693116AB08B16E1A7 /* Pods-hello-ios.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hello-ios.debug.xcconfig"; sourceTree = "<group>"; };
+		143E2D47FFD98CEB111E81D7F68CEDC8 /* Pods-hello-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hello-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
+		15D2DB17D7A813565788DB8471EC4341 /* LDEvent+EventTypes.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "LDEvent+EventTypes.h"; path = "Darkly/LDEvent+EventTypes.h"; sourceTree = "<group>"; };
+		15F108F1445CA04AA8FD8D2CD24AAFD4 /* NSString+RemoveWhitespace.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+RemoveWhitespace.m"; path = "Darkly/NSString+RemoveWhitespace.m"; sourceTree = "<group>"; };
+		17F7D454AB964BFE495202C7CD92DD72 /* LDFlagValueCounter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDFlagValueCounter.h; path = Darkly/LDFlagConfig/LDFlagValueCounter.h; sourceTree = "<group>"; };
+		1840E6A0E03ADA9970E68F9CCAA90223 /* libLaunchDarkly-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libLaunchDarkly-iOS.a"; path = "libLaunchDarkly-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1A65DAF3454411CC37FF7B73458E8250 /* LDDataManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDDataManager.m; path = Darkly/LDDataManager.m; sourceTree = "<group>"; };
+		1B105D33A72F1C51E0A80D49981AFE5D /* DarklyEventSource-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "DarklyEventSource-watchOS.xcconfig"; path = "../DarklyEventSource-watchOS/DarklyEventSource-watchOS.xcconfig"; sourceTree = "<group>"; };
+		1C34DEFC8752E8F1970F321EFD5CD365 /* LDPollingManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDPollingManager.m; path = Darkly/LDPollingManager.m; sourceTree = "<group>"; };
+		1CBAABF122F7D43467191AFE1F9F84FC /* DarklyEventSource-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "DarklyEventSource-iOS.xcconfig"; sourceTree = "<group>"; };
+		25251E70C87468ED29AE05B75E6C8E39 /* NSMutableDictionary+NullRemovable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSMutableDictionary+NullRemovable.m"; path = "Darkly/NSMutableDictionary+NullRemovable.m"; sourceTree = "<group>"; };
+		25D3E0D65FD98B738854EAEFC505663F /* LaunchDarkly-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LaunchDarkly-iOS-prefix.pch"; sourceTree = "<group>"; };
+		26CD2127FA146457C425680AE6DD0845 /* NSURLResponse+LaunchDarkly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSURLResponse+LaunchDarkly.m"; path = "Darkly/NSURLResponse+LaunchDarkly.m"; sourceTree = "<group>"; };
+		27FAEB86BAF1AF7A4CDFC9B9B4364449 /* LDPollingManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDPollingManager.h; path = Darkly/LDPollingManager.h; sourceTree = "<group>"; };
+		28BE6E41F5472C695460EF6013536EBC /* Pods-hello-ios-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hello-ios-acknowledgements.plist"; sourceTree = "<group>"; };
+		2977F7FB20D7A2072904AA97AFE7F8F2 /* Pods-hello-watchOS Extension-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-hello-watchOS Extension-resources.sh"; sourceTree = "<group>"; };
+		2A2EB9D03591E747AB3758532715CB8F /* LDEventParser.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDEventParser.h; path = LDEventSource/LDEventParser.h; sourceTree = "<group>"; };
+		2CF10C714DBCB3157A22DB07DEAAB946 /* LDFlagConfigModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDFlagConfigModel.h; path = Darkly/LDFlagConfig/LDFlagConfigModel.h; sourceTree = "<group>"; };
+		3145528DBB2571E94797CCB7E9EBBE54 /* Pods-hello-ios.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hello-ios.release.xcconfig"; sourceTree = "<group>"; };
+		33572071531D1C361950CB5C5FB161E1 /* NSNumber+LaunchDarkly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSNumber+LaunchDarkly.m"; path = "Darkly/NSNumber+LaunchDarkly.m"; sourceTree = "<group>"; };
+		3433ED7857F658C658FF59D077FC2A12 /* LDFlagConfigModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDFlagConfigModel.m; path = Darkly/LDFlagConfig/LDFlagConfigModel.m; sourceTree = "<group>"; };
+		38398CC6E715BC8BD31D35CF7511895F /* Pods-hello-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-hello-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
+		3E11DC9D0218F5BBB4F646D07DD500F5 /* Pods-hello-watchOS Extension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-hello-watchOS Extension-dummy.m"; sourceTree = "<group>"; };
+		3F0D354355C4BAFD4FEB92E0B2D18961 /* NSThread+MainExecutable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSThread+MainExecutable.h"; path = "Darkly/NSThread+MainExecutable.h"; sourceTree = "<group>"; };
+		3FFFFEE281FE3714E720FD5F99B2897C /* LaunchDarkly-watchOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "LaunchDarkly-watchOS.xcconfig"; path = "../LaunchDarkly-watchOS/LaunchDarkly-watchOS.xcconfig"; sourceTree = "<group>"; };
+		438B75469DB3F568DB48624C56686C6E /* LaunchDarkly-iOS.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "LaunchDarkly-iOS.xcconfig"; sourceTree = "<group>"; };
+		48807B075EEE2DF7F48E522BE25DE9B0 /* LDFlagConfigValue.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDFlagConfigValue.h; path = Darkly/LDFlagConfig/LDFlagConfigValue.h; sourceTree = "<group>"; };
+		4C9F5F9F0C6FB5BF8205F5197FC13C18 /* NSDateFormatter+LDUserModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+LDUserModel.m"; path = "Darkly/NSDateFormatter+LDUserModel.m"; sourceTree = "<group>"; };
+		4CC6F9E61D15EDB6E1ACD343F2DA0825 /* LDEventTrackingContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDEventTrackingContext.m; path = Darkly/LDFlagConfig/LDEventTrackingContext.m; sourceTree = "<group>"; };
+		4F17A14855B99B4E1B49026110A29C8F /* libPods-hello-ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-hello-ios.a"; path = "libPods-hello-ios.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		507C6C201128761AF89E967EA7068C80 /* LDEventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDEventSource.h; path = LDEventSource/LDEventSource.h; sourceTree = "<group>"; };
+		52FD5090E42EAD3A59ED00549E4AF96B /* LDEventStringAccumulator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDEventStringAccumulator.h; path = LDEventSource/LDEventStringAccumulator.h; sourceTree = "<group>"; };
+		54A5E24638A026195B3309FBCCA97BD3 /* Pods-hello-watchOS Extension-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hello-watchOS Extension-acknowledgements.markdown"; sourceTree = "<group>"; };
+		5A0281223FEDEC4BAF3058A3FE2AE822 /* Pods-hello-watchOS Extension-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-hello-watchOS Extension-frameworks.sh"; sourceTree = "<group>"; };
+		5A23E59FE80162B1E4472CB695CCF1DE /* DarklyEventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DarklyEventSource.h; path = LDEventSource/DarklyEventSource.h; sourceTree = "<group>"; };
+		5B7044C25DD02FAE53F9068F9DEF7D0D /* NSString+RemoveWhitespace.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+RemoveWhitespace.h"; path = "Darkly/NSString+RemoveWhitespace.h"; sourceTree = "<group>"; };
+		60BF4EB3180DAA6E5C07FF95EC38D7EF /* LDThrottler.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDThrottler.m; path = Darkly/LDThrottler.m; sourceTree = "<group>"; };
+		62167296D327B359ABFA8E8F4BD392F3 /* Pods-hello-ios-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-hello-ios-acknowledgements.markdown"; sourceTree = "<group>"; };
+		6443D322ADB7E009655D772546D1F04D /* LDDataManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDDataManager.h; path = Darkly/LDDataManager.h; sourceTree = "<group>"; };
+		6652B1F98CDBD54EE989EA80C70F8D6B /* libPods-hello-watchOS Extension.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-hello-watchOS Extension.a"; path = "libPods-hello-watchOS Extension.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		66C3351423D953014C231F432DD9D667 /* DarklyEventSource-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "DarklyEventSource-iOS-dummy.m"; sourceTree = "<group>"; };
+		68322517D7A033CB628856E2F6FBBD9B /* LDEventModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDEventModel.m; path = Darkly/LDEventModel.m; sourceTree = "<group>"; };
+		69028EFA87460FA99C3EC4677D48E308 /* LDConfig.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDConfig.h; path = Darkly/LDConfig.h; sourceTree = "<group>"; };
+		6976CE6DD6AF8A7EBE646312AE7D449E /* NSHTTPURLResponse+LaunchDarkly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSHTTPURLResponse+LaunchDarkly.h"; path = "Darkly/NSHTTPURLResponse+LaunchDarkly.h"; sourceTree = "<group>"; };
+		6AA155D83995CEBC498EF321A2C39FD7 /* Pods-hello-ios-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-hello-ios-dummy.m"; sourceTree = "<group>"; };
+		6F4E205AD075E7D9DFACBF6E8F3C73E2 /* DarklyEventSource-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "DarklyEventSource-watchOS-dummy.m"; path = "../DarklyEventSource-watchOS/DarklyEventSource-watchOS-dummy.m"; sourceTree = "<group>"; };
+		6FD4D9F0A9D9D77E8B3F01B4E6F62ECD /* NSDateFormatter+JsonHeader.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDateFormatter+JsonHeader.m"; path = "Darkly/NSDateFormatter+JsonHeader.m"; sourceTree = "<group>"; };
+		72E1172C876260FE94A1A062CA738042 /* LDFlagConfigTracker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDFlagConfigTracker.h; path = Darkly/LDFlagConfig/LDFlagConfigTracker.h; sourceTree = "<group>"; };
+		7672D56F9757F32751A36AAF871440EF /* NSString+LDEventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSString+LDEventSource.h"; path = "LDEventSource/NSString+LDEventSource.h"; sourceTree = "<group>"; };
+		76A1235E77487098F9E99FDEB1775115 /* LDEventModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDEventModel.h; path = Darkly/LDEventModel.h; sourceTree = "<group>"; };
+		7A589BEB5A1ED748F36976E88398E540 /* LDFlagCounter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDFlagCounter.h; path = Darkly/LDFlagConfig/LDFlagCounter.h; sourceTree = "<group>"; };
+		7AA61A72031342EB9096011BA0EE7E13 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JSON.h"; path = "Darkly/NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		80227DFDF0C5133CC1E2EC0590A111EC /* LDEventTrackingContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDEventTrackingContext.h; path = Darkly/LDFlagConfig/LDEventTrackingContext.h; sourceTree = "<group>"; };
+		813A99C2136D74109677FB79E78CB4C0 /* LDFlagValueCounter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDFlagValueCounter.m; path = Darkly/LDFlagConfig/LDFlagValueCounter.m; sourceTree = "<group>"; };
+		8B8CAA8D4685BD3C509406BDF5B4F57F /* NSDateFormatter+LDUserModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDateFormatter+LDUserModel.h"; path = "Darkly/NSDateFormatter+LDUserModel.h"; sourceTree = "<group>"; };
+		8CB8BDE45BC81BE45473004DED490111 /* libDarklyEventSource-iOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libDarklyEventSource-iOS.a"; path = "libDarklyEventSource-iOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D32C7407E22F1BB7809E5913159F1AC /* LDConfig.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDConfig.m; path = Darkly/LDConfig.m; sourceTree = "<group>"; };
+		8DA3C11BB663F2DC5D5065BA5189E2EF /* LDUserBuilder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDUserBuilder.h; path = Darkly/LDUserBuilder.h; sourceTree = "<group>"; };
+		916AAD8FF867E832D83BC6E09579927D /* LDUserModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDUserModel.h; path = Darkly/LDUserModel.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94D98C648B311BAA41913B0076D5FAF1 /* LaunchDarkly-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "LaunchDarkly-watchOS-prefix.pch"; path = "../LaunchDarkly-watchOS/LaunchDarkly-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		96E300CBC962ED55979A1982E43D9597 /* DarklyEventSource-iOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "DarklyEventSource-iOS-prefix.pch"; sourceTree = "<group>"; };
+		981F18F0211397000CEF6D38DDFA5455 /* NSNumber+LaunchDarkly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSNumber+LaunchDarkly.h"; path = "Darkly/NSNumber+LaunchDarkly.h"; sourceTree = "<group>"; };
+		A026423392F0808CAC5D768D724E91F4 /* LDEvent+EventTypes.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "LDEvent+EventTypes.m"; path = "Darkly/LDEvent+EventTypes.m"; sourceTree = "<group>"; };
+		A06471E394D9E8A5F3A9F9916D549AFC /* LDThrottler.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDThrottler.h; path = Darkly/LDThrottler.h; sourceTree = "<group>"; };
+		A272255E7FE95D1A520A1693E89ABC97 /* LDFlagConfigTracker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDFlagConfigTracker.m; path = Darkly/LDFlagConfig/LDFlagConfigTracker.m; sourceTree = "<group>"; };
+		A765F94057BA5623F19D78316C64CE80 /* LDClientManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDClientManager.m; path = Darkly/LDClientManager.m; sourceTree = "<group>"; };
+		A7A283B1515678B688D1C7936B575896 /* NSHTTPURLResponse+LaunchDarkly.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSHTTPURLResponse+LaunchDarkly.m"; path = "Darkly/NSHTTPURLResponse+LaunchDarkly.m"; sourceTree = "<group>"; };
+		A949429582F72833BD33B15B122FE03F /* NSThread+MainExecutable.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSThread+MainExecutable.m"; path = "Darkly/NSThread+MainExecutable.m"; sourceTree = "<group>"; };
+		AAC9B313B3A81F8B2E28757B247114F9 /* LDEventParser.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDEventParser.m; path = LDEventSource/LDEventParser.m; sourceTree = "<group>"; };
+		B04E8A65B43414C23369441BB97DAB68 /* NSDate+ReferencedDate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDate+ReferencedDate.m"; path = "Darkly/NSDate+ReferencedDate.m"; sourceTree = "<group>"; };
+		B183F962733C5CD7412CFC8C63BD6BB9 /* NSString+LDEventSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSString+LDEventSource.m"; path = "LDEventSource/NSString+LDEventSource.m"; sourceTree = "<group>"; };
+		B3F418F15C4C98931D3EC770C83B1F2A /* LDEvent+Unauthorized.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "LDEvent+Unauthorized.h"; path = "Darkly/LDEvent+Unauthorized.h"; sourceTree = "<group>"; };
+		B51BB60702DACD13A1706694604C3CDC /* LDFlagConfigValue.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDFlagConfigValue.m; path = Darkly/LDFlagConfig/LDFlagConfigValue.m; sourceTree = "<group>"; };
+		B6FE56DC5E273E29D9618C970B807F36 /* LaunchDarkly-iOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LaunchDarkly-iOS-dummy.m"; sourceTree = "<group>"; };
+		B759CC9C874750DC6632E6223356DA9B /* LaunchDarkly-watchOS-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "LaunchDarkly-watchOS-dummy.m"; path = "../LaunchDarkly-watchOS/LaunchDarkly-watchOS-dummy.m"; sourceTree = "<group>"; };
+		B80496B2E85C4679EFAEC7415E2A6E5E /* libDarklyEventSource-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libDarklyEventSource-watchOS.a"; path = "libDarklyEventSource-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9B939F78D709AB2061C2F63FA0A455B /* LDClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDClient.m; path = Darkly/LDClient.m; sourceTree = "<group>"; };
+		BCE0C335967F313C994269513A186CE4 /* DarklyEventSource-watchOS-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "DarklyEventSource-watchOS-prefix.pch"; path = "../DarklyEventSource-watchOS/DarklyEventSource-watchOS-prefix.pch"; sourceTree = "<group>"; };
+		BE6DBBF78284DBCA06BD3D6EBC61E73A /* LDClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDClient.h; path = Darkly/LDClient.h; sourceTree = "<group>"; };
+		C4034E75A700A00E3398BE8ED6E8A6E6 /* LDUtil.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDUtil.h; path = Darkly/LDUtil.h; sourceTree = "<group>"; };
+		C821A9C559E434A9E282412A26DF3843 /* LDUtil.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDUtil.m; path = Darkly/LDUtil.m; sourceTree = "<group>"; };
+		CB4FAB0DA3FF7B66F129F6457419397A /* LDFlagCounter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDFlagCounter.m; path = Darkly/LDFlagConfig/LDFlagCounter.m; sourceTree = "<group>"; };
+		CD4083648A76E9527142D595249D129E /* DarklyConstants.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = DarklyConstants.h; path = Darkly/DarklyConstants.h; sourceTree = "<group>"; };
+		CE76DD161A20C659BC15EB3A8843CD71 /* LDEventSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDEventSource.m; path = LDEventSource/LDEventSource.m; sourceTree = "<group>"; };
+		CF40D37D4C4C6BE9A90C4F5A825BA3DE /* Pods-hello-watchOS Extension-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-hello-watchOS Extension-acknowledgements.plist"; sourceTree = "<group>"; };
+		CFEBDFAD0F09BC4027036BE1824E6882 /* LDRequestManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDRequestManager.m; path = Darkly/LDRequestManager.m; sourceTree = "<group>"; };
+		D04E8D961AE8C236E54059FE4B81A464 /* NSDate+ReferencedDate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSDate+ReferencedDate.h"; path = "Darkly/NSDate+ReferencedDate.h"; sourceTree = "<group>"; };
+		D2A0E63D523E5444E1CA298C77E14B42 /* LDRequestManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDRequestManager.h; path = Darkly/LDRequestManager.h; sourceTree = "<group>"; };
+		D624A47FB3A5563BC8592F4E05DDBA29 /* libLaunchDarkly-watchOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libLaunchDarkly-watchOS.a"; path = "libLaunchDarkly-watchOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		D80CF5D493DC203C76B3744EBCFA4B92 /* NSMutableDictionary+NullRemovable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSMutableDictionary+NullRemovable.h"; path = "Darkly/NSMutableDictionary+NullRemovable.h"; sourceTree = "<group>"; };
+		D96F29495C06D4A5B442F23A00C4B2A7 /* NSArray+LDEventSource.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSArray+LDEventSource.h"; path = "LDEventSource/NSArray+LDEventSource.h"; sourceTree = "<group>"; };
+		DA510FB92C4067F4B961A75701F70DB3 /* LDEventStringAccumulator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDEventStringAccumulator.m; path = LDEventSource/LDEventStringAccumulator.m; sourceTree = "<group>"; };
+		DE4FB08F9140600389035CE8186874D4 /* Darkly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = Darkly.h; path = Darkly/Darkly.h; sourceTree = "<group>"; };
+		E061555367AE55ECF864A00F089AF4CD /* LDUserBuilder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDUserBuilder.m; path = Darkly/LDUserBuilder.m; sourceTree = "<group>"; };
+		E153821D34E9B8FAFAF7D50309487344 /* NSURLResponse+LaunchDarkly.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "NSURLResponse+LaunchDarkly.h"; path = "Darkly/NSURLResponse+LaunchDarkly.h"; sourceTree = "<group>"; };
+		E34EA6FA8F4C1D91E47DCCD26F1DD7EA /* NSArray+LDEventSource.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSArray+LDEventSource.m"; path = "LDEventSource/NSArray+LDEventSource.m"; sourceTree = "<group>"; };
+		E3F4F406C145D3BB0A9CB7AFECC906B5 /* DarklyConstants.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DarklyConstants.m; path = Darkly/DarklyConstants.m; sourceTree = "<group>"; };
+		E5DE8C16EB70337E09FC7FAC70F37946 /* Pods-hello-ios-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-hello-ios-resources.sh"; sourceTree = "<group>"; };
+		E873A26D3BCF81C64E0E4AF9A31E8222 /* LDUserModel.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LDUserModel.m; path = Darkly/LDUserModel.m; sourceTree = "<group>"; };
+		E896E3E804CDD881F913AFBB4F1C2861 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JSON.m"; path = "Darkly/NSDictionary+JSON.m"; sourceTree = "<group>"; };
+		EA081AB196A3007624A11B9FCEE7ACC9 /* Pods-hello-ios-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-hello-ios-frameworks.sh"; sourceTree = "<group>"; };
+		F456602F3152A1FBFC23A8C57244DFF9 /* LDClientManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LDClientManager.h; path = Darkly/LDClientManager.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1355612856BD004FED74C49AC37AC915 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		19EDC1E4D903E82766B50CD8025C51BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1F491462DA227656A28219E38255F539 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		34AA0A0F38EFAAB8B26016CCD0997230 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3AD39AA2BA431525B0B818B6D5F42D95 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C952C2FD5B5BC2DE0AAD90F7DF6D821C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0320DA47E7961AB7082E3D0EF2E6919A /* DarklyEventSource */ = {
+			isa = PBXGroup;
+			children = (
+				5A23E59FE80162B1E4472CB695CCF1DE /* DarklyEventSource.h */,
+				2A2EB9D03591E747AB3758532715CB8F /* LDEventParser.h */,
+				AAC9B313B3A81F8B2E28757B247114F9 /* LDEventParser.m */,
+				507C6C201128761AF89E967EA7068C80 /* LDEventSource.h */,
+				CE76DD161A20C659BC15EB3A8843CD71 /* LDEventSource.m */,
+				52FD5090E42EAD3A59ED00549E4AF96B /* LDEventStringAccumulator.h */,
+				DA510FB92C4067F4B961A75701F70DB3 /* LDEventStringAccumulator.m */,
+				D96F29495C06D4A5B442F23A00C4B2A7 /* NSArray+LDEventSource.h */,
+				E34EA6FA8F4C1D91E47DCCD26F1DD7EA /* NSArray+LDEventSource.m */,
+				7672D56F9757F32751A36AAF871440EF /* NSString+LDEventSource.h */,
+				B183F962733C5CD7412CFC8C63BD6BB9 /* NSString+LDEventSource.m */,
+				F388428EA9D4E99A003D068977ECD020 /* Support Files */,
+			);
+			name = DarklyEventSource;
+			path = DarklyEventSource;
+			sourceTree = "<group>";
+		};
+		0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		27F348A43CE575CA05047A6D91AD298E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8CB8BDE45BC81BE45473004DED490111 /* libDarklyEventSource-iOS.a */,
+				B80496B2E85C4679EFAEC7415E2A6E5E /* libDarklyEventSource-watchOS.a */,
+				1840E6A0E03ADA9970E68F9CCAA90223 /* libLaunchDarkly-iOS.a */,
+				D624A47FB3A5563BC8592F4E05DDBA29 /* libLaunchDarkly-watchOS.a */,
+				4F17A14855B99B4E1B49026110A29C8F /* libPods-hello-ios.a */,
+				6652B1F98CDBD54EE989EA80C70F8D6B /* libPods-hello-watchOS Extension.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		364C2A7F04C130B2F06FC2865430EE32 /* Pods-hello-ios */ = {
+			isa = PBXGroup;
+			children = (
+				62167296D327B359ABFA8E8F4BD392F3 /* Pods-hello-ios-acknowledgements.markdown */,
+				28BE6E41F5472C695460EF6013536EBC /* Pods-hello-ios-acknowledgements.plist */,
+				6AA155D83995CEBC498EF321A2C39FD7 /* Pods-hello-ios-dummy.m */,
+				EA081AB196A3007624A11B9FCEE7ACC9 /* Pods-hello-ios-frameworks.sh */,
+				E5DE8C16EB70337E09FC7FAC70F37946 /* Pods-hello-ios-resources.sh */,
+				1044393C6D8979A693116AB08B16E1A7 /* Pods-hello-ios.debug.xcconfig */,
+				3145528DBB2571E94797CCB7E9EBBE54 /* Pods-hello-ios.release.xcconfig */,
+			);
+			name = "Pods-hello-ios";
+			path = "Target Support Files/Pods-hello-ios";
+			sourceTree = "<group>";
+		};
+		4D264AA02183C4C80B73E398D482238D /* LaunchDarkly */ = {
+			isa = PBXGroup;
+			children = (
+				DE4FB08F9140600389035CE8186874D4 /* Darkly.h */,
+				CD4083648A76E9527142D595249D129E /* DarklyConstants.h */,
+				E3F4F406C145D3BB0A9CB7AFECC906B5 /* DarklyConstants.m */,
+				BE6DBBF78284DBCA06BD3D6EBC61E73A /* LDClient.h */,
+				B9B939F78D709AB2061C2F63FA0A455B /* LDClient.m */,
+				F456602F3152A1FBFC23A8C57244DFF9 /* LDClientManager.h */,
+				A765F94057BA5623F19D78316C64CE80 /* LDClientManager.m */,
+				69028EFA87460FA99C3EC4677D48E308 /* LDConfig.h */,
+				8D32C7407E22F1BB7809E5913159F1AC /* LDConfig.m */,
+				6443D322ADB7E009655D772546D1F04D /* LDDataManager.h */,
+				1A65DAF3454411CC37FF7B73458E8250 /* LDDataManager.m */,
+				15D2DB17D7A813565788DB8471EC4341 /* LDEvent+EventTypes.h */,
+				A026423392F0808CAC5D768D724E91F4 /* LDEvent+EventTypes.m */,
+				B3F418F15C4C98931D3EC770C83B1F2A /* LDEvent+Unauthorized.h */,
+				0322EDFF7CC1DF911806908C280BCB75 /* LDEvent+Unauthorized.m */,
+				76A1235E77487098F9E99FDEB1775115 /* LDEventModel.h */,
+				68322517D7A033CB628856E2F6FBBD9B /* LDEventModel.m */,
+				80227DFDF0C5133CC1E2EC0590A111EC /* LDEventTrackingContext.h */,
+				4CC6F9E61D15EDB6E1ACD343F2DA0825 /* LDEventTrackingContext.m */,
+				2CF10C714DBCB3157A22DB07DEAAB946 /* LDFlagConfigModel.h */,
+				3433ED7857F658C658FF59D077FC2A12 /* LDFlagConfigModel.m */,
+				72E1172C876260FE94A1A062CA738042 /* LDFlagConfigTracker.h */,
+				A272255E7FE95D1A520A1693E89ABC97 /* LDFlagConfigTracker.m */,
+				48807B075EEE2DF7F48E522BE25DE9B0 /* LDFlagConfigValue.h */,
+				B51BB60702DACD13A1706694604C3CDC /* LDFlagConfigValue.m */,
+				7A589BEB5A1ED748F36976E88398E540 /* LDFlagCounter.h */,
+				CB4FAB0DA3FF7B66F129F6457419397A /* LDFlagCounter.m */,
+				17F7D454AB964BFE495202C7CD92DD72 /* LDFlagValueCounter.h */,
+				813A99C2136D74109677FB79E78CB4C0 /* LDFlagValueCounter.m */,
+				27FAEB86BAF1AF7A4CDFC9B9B4364449 /* LDPollingManager.h */,
+				1C34DEFC8752E8F1970F321EFD5CD365 /* LDPollingManager.m */,
+				D2A0E63D523E5444E1CA298C77E14B42 /* LDRequestManager.h */,
+				CFEBDFAD0F09BC4027036BE1824E6882 /* LDRequestManager.m */,
+				A06471E394D9E8A5F3A9F9916D549AFC /* LDThrottler.h */,
+				60BF4EB3180DAA6E5C07FF95EC38D7EF /* LDThrottler.m */,
+				8DA3C11BB663F2DC5D5065BA5189E2EF /* LDUserBuilder.h */,
+				E061555367AE55ECF864A00F089AF4CD /* LDUserBuilder.m */,
+				916AAD8FF867E832D83BC6E09579927D /* LDUserModel.h */,
+				E873A26D3BCF81C64E0E4AF9A31E8222 /* LDUserModel.m */,
+				C4034E75A700A00E3398BE8ED6E8A6E6 /* LDUtil.h */,
+				C821A9C559E434A9E282412A26DF3843 /* LDUtil.m */,
+				D04E8D961AE8C236E54059FE4B81A464 /* NSDate+ReferencedDate.h */,
+				B04E8A65B43414C23369441BB97DAB68 /* NSDate+ReferencedDate.m */,
+				038E52C7B40BEB1721464CC069057A33 /* NSDateFormatter+JsonHeader.h */,
+				6FD4D9F0A9D9D77E8B3F01B4E6F62ECD /* NSDateFormatter+JsonHeader.m */,
+				8B8CAA8D4685BD3C509406BDF5B4F57F /* NSDateFormatter+LDUserModel.h */,
+				4C9F5F9F0C6FB5BF8205F5197FC13C18 /* NSDateFormatter+LDUserModel.m */,
+				7AA61A72031342EB9096011BA0EE7E13 /* NSDictionary+JSON.h */,
+				E896E3E804CDD881F913AFBB4F1C2861 /* NSDictionary+JSON.m */,
+				6976CE6DD6AF8A7EBE646312AE7D449E /* NSHTTPURLResponse+LaunchDarkly.h */,
+				A7A283B1515678B688D1C7936B575896 /* NSHTTPURLResponse+LaunchDarkly.m */,
+				D80CF5D493DC203C76B3744EBCFA4B92 /* NSMutableDictionary+NullRemovable.h */,
+				25251E70C87468ED29AE05B75E6C8E39 /* NSMutableDictionary+NullRemovable.m */,
+				981F18F0211397000CEF6D38DDFA5455 /* NSNumber+LaunchDarkly.h */,
+				33572071531D1C361950CB5C5FB161E1 /* NSNumber+LaunchDarkly.m */,
+				5B7044C25DD02FAE53F9068F9DEF7D0D /* NSString+RemoveWhitespace.h */,
+				15F108F1445CA04AA8FD8D2CD24AAFD4 /* NSString+RemoveWhitespace.m */,
+				3F0D354355C4BAFD4FEB92E0B2D18961 /* NSThread+MainExecutable.h */,
+				A949429582F72833BD33B15B122FE03F /* NSThread+MainExecutable.m */,
+				E153821D34E9B8FAFAF7D50309487344 /* NSURLResponse+LaunchDarkly.h */,
+				26CD2127FA146457C425680AE6DD0845 /* NSURLResponse+LaunchDarkly.m */,
+				7CFB02BA10970080C98244C4FE77AC86 /* Support Files */,
+			);
+			name = LaunchDarkly;
+			path = LaunchDarkly;
+			sourceTree = "<group>";
+		};
+		7CFB02BA10970080C98244C4FE77AC86 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				438B75469DB3F568DB48624C56686C6E /* LaunchDarkly-iOS.xcconfig */,
+				B6FE56DC5E273E29D9618C970B807F36 /* LaunchDarkly-iOS-dummy.m */,
+				25D3E0D65FD98B738854EAEFC505663F /* LaunchDarkly-iOS-prefix.pch */,
+				3FFFFEE281FE3714E720FD5F99B2897C /* LaunchDarkly-watchOS.xcconfig */,
+				B759CC9C874750DC6632E6223356DA9B /* LaunchDarkly-watchOS-dummy.m */,
+				94D98C648B311BAA41913B0076D5FAF1 /* LaunchDarkly-watchOS-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LaunchDarkly-iOS";
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				0F8D2E47FE03D3B91B51069F7C273AF4 /* Frameworks */,
+				9E46DA88B3A90549F20D8AEE80D7BBC6 /* Pods */,
+				27F348A43CE575CA05047A6D91AD298E /* Products */,
+				D3413D1145069AACCD68A7269F584291 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		9E46DA88B3A90549F20D8AEE80D7BBC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0320DA47E7961AB7082E3D0EF2E6919A /* DarklyEventSource */,
+				4D264AA02183C4C80B73E398D482238D /* LaunchDarkly */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9FAAECE56BB37A5C476EFF49099B5753 /* Pods-hello-watchOS Extension */ = {
+			isa = PBXGroup;
+			children = (
+				54A5E24638A026195B3309FBCCA97BD3 /* Pods-hello-watchOS Extension-acknowledgements.markdown */,
+				CF40D37D4C4C6BE9A90C4F5A825BA3DE /* Pods-hello-watchOS Extension-acknowledgements.plist */,
+				3E11DC9D0218F5BBB4F646D07DD500F5 /* Pods-hello-watchOS Extension-dummy.m */,
+				5A0281223FEDEC4BAF3058A3FE2AE822 /* Pods-hello-watchOS Extension-frameworks.sh */,
+				2977F7FB20D7A2072904AA97AFE7F8F2 /* Pods-hello-watchOS Extension-resources.sh */,
+				143E2D47FFD98CEB111E81D7F68CEDC8 /* Pods-hello-watchOS Extension.debug.xcconfig */,
+				38398CC6E715BC8BD31D35CF7511895F /* Pods-hello-watchOS Extension.release.xcconfig */,
+			);
+			name = "Pods-hello-watchOS Extension";
+			path = "Target Support Files/Pods-hello-watchOS Extension";
+			sourceTree = "<group>";
+		};
+		D3413D1145069AACCD68A7269F584291 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				364C2A7F04C130B2F06FC2865430EE32 /* Pods-hello-ios */,
+				9FAAECE56BB37A5C476EFF49099B5753 /* Pods-hello-watchOS Extension */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		F388428EA9D4E99A003D068977ECD020 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1CBAABF122F7D43467191AFE1F9F84FC /* DarklyEventSource-iOS.xcconfig */,
+				66C3351423D953014C231F432DD9D667 /* DarklyEventSource-iOS-dummy.m */,
+				96E300CBC962ED55979A1982E43D9597 /* DarklyEventSource-iOS-prefix.pch */,
+				1B105D33A72F1C51E0A80D49981AFE5D /* DarklyEventSource-watchOS.xcconfig */,
+				6F4E205AD075E7D9DFACBF6E8F3C73E2 /* DarklyEventSource-watchOS-dummy.m */,
+				BCE0C335967F313C994269513A186CE4 /* DarklyEventSource-watchOS-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/DarklyEventSource-iOS";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		754E5635B3B67DC4FC0C6E7D3D7404B9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				72C45CF7D55D20D406DB149D8D3BDD59 /* Darkly.h in Headers */,
+				7199661FFE4432A1E14391978EE705B7 /* DarklyConstants.h in Headers */,
+				96635BD81CBC408F312C65ED6F4EC87E /* LDClient.h in Headers */,
+				771CDD5183C33FB6E41902A4065E672B /* LDClientManager.h in Headers */,
+				1D27A7CC54B54F03EABE5DA2A480DDCD /* LDConfig.h in Headers */,
+				CBDF442574BDB157F66926AFF9FED5F0 /* LDDataManager.h in Headers */,
+				73FBEBAB5AFADEB5373944FB70FE2C09 /* LDEvent+EventTypes.h in Headers */,
+				4369A0DD16DF24DC52B97EDF4BFC4A27 /* LDEvent+Unauthorized.h in Headers */,
+				C5D6B2A29321E2D6AA3723576F9E1C0F /* LDEventModel.h in Headers */,
+				2ED712C559F345F5429585C3C0CD7C6E /* LDEventTrackingContext.h in Headers */,
+				C713CDBC93A9375D982B9114DF8E9834 /* LDFlagConfigModel.h in Headers */,
+				8BB0E0001EE6F5AF7F1CDBA1F6E04032 /* LDFlagConfigTracker.h in Headers */,
+				0E5BEFB2C3556F78E2921710CC674479 /* LDFlagConfigValue.h in Headers */,
+				12DE41F5CB3B781C917C852804F0858A /* LDFlagCounter.h in Headers */,
+				FBB8F1B9975F78FC5ACC16D493F38D44 /* LDFlagValueCounter.h in Headers */,
+				04CF339F96D5FE9B85C93A7417A1F5DA /* LDPollingManager.h in Headers */,
+				D5F3F7BEA0336C08B5D321BF40050859 /* LDRequestManager.h in Headers */,
+				6E059D64EFF9FE24585C701D4A07CD84 /* LDThrottler.h in Headers */,
+				2C895138B6E8261893A60CA30B5515F3 /* LDUserBuilder.h in Headers */,
+				764A823A34015184D84C1B61DD0609D2 /* LDUserModel.h in Headers */,
+				A128A3A016E8147B431D350C3557179A /* LDUtil.h in Headers */,
+				9F849C9BFB9D146FD81A1A21527257EA /* NSDate+ReferencedDate.h in Headers */,
+				9012672C2E89ED12DAC280B884EE9EBA /* NSDateFormatter+JsonHeader.h in Headers */,
+				F571D05ADAC84842CE22BE7926C27803 /* NSDateFormatter+LDUserModel.h in Headers */,
+				DF5CB963A45747DA623759A3E46BC7C7 /* NSDictionary+JSON.h in Headers */,
+				28933DE2C5BA811C19C873408CB87629 /* NSHTTPURLResponse+LaunchDarkly.h in Headers */,
+				48FFEBDBDCF52BB027F8C6BAFF70D09C /* NSMutableDictionary+NullRemovable.h in Headers */,
+				0009E09A6681BE2C945EB6CC53F4BF47 /* NSNumber+LaunchDarkly.h in Headers */,
+				EB1AD22F5061B4E90B61BF213F5B8E1A /* NSString+RemoveWhitespace.h in Headers */,
+				5E875DC53ACC2412084227178E343D36 /* NSThread+MainExecutable.h in Headers */,
+				516A4304B8FA867FDD262E37292AFCDD /* NSURLResponse+LaunchDarkly.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E7621ADA1F46617115652A07F6181D9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1870D7F82276E14F5472E3BAB3C8FBA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DCEF95E50F2775D5EDD8E6C743666188 /* Darkly.h in Headers */,
+				F05AE6BC00517CAE10D7C50FE78F4010 /* DarklyConstants.h in Headers */,
+				CC2CBCBA0AC43A6B9E3C97C20E9F570E /* LDClient.h in Headers */,
+				AB98C1E123414AB9779B4C46D427BDCD /* LDClientManager.h in Headers */,
+				D89C6492A4F7CBE5821F2DFDA6A1376D /* LDConfig.h in Headers */,
+				EEB3021D97A0C0ACD31F9E1D8FD5C0F8 /* LDDataManager.h in Headers */,
+				0588659FCE67D096DC970BAE217FB0E9 /* LDEvent+EventTypes.h in Headers */,
+				DDC08C5453B75F17ACA9A6A7CBAEAD3D /* LDEvent+Unauthorized.h in Headers */,
+				E2B096296A331D742F101CD7EF249C6E /* LDEventModel.h in Headers */,
+				1E93A75E803FB39E5F0D993463844B94 /* LDEventTrackingContext.h in Headers */,
+				83F461508E52786B104203EE1A5DF4B4 /* LDFlagConfigModel.h in Headers */,
+				58FA14BABEC4CE85447B64B63845014D /* LDFlagConfigTracker.h in Headers */,
+				E7E20EC1538855A5C95BEB148A3449B5 /* LDFlagConfigValue.h in Headers */,
+				BCC658C61D7432BD084F8F77327A0681 /* LDFlagCounter.h in Headers */,
+				BFFF523C751FDBBD416C854C4D0FC022 /* LDFlagValueCounter.h in Headers */,
+				F5B6C23C37839F4661C3DBCB8EF7334D /* LDPollingManager.h in Headers */,
+				8CE61E8A209CA7C5AEE9AF8C2D053B80 /* LDRequestManager.h in Headers */,
+				842D05996B08C8C75693F71A3E77039A /* LDThrottler.h in Headers */,
+				50F9152CDA132D6EC7C25B0B9C6A1DFA /* LDUserBuilder.h in Headers */,
+				D0468ED52734CD4D28351EA0634A51A7 /* LDUserModel.h in Headers */,
+				6D5E04EE96B4F6C1E5742EB2481AFE2E /* LDUtil.h in Headers */,
+				17DF7646EA2BF1D8ECD04614FFEB2D18 /* NSDate+ReferencedDate.h in Headers */,
+				49D870B613550793CEA805330809F71E /* NSDateFormatter+JsonHeader.h in Headers */,
+				395E270ECE4F8AB6F6A8CBF246D15100 /* NSDateFormatter+LDUserModel.h in Headers */,
+				1B3960203F74C1E3C7E8E8FD2892A807 /* NSDictionary+JSON.h in Headers */,
+				BA90534FB1C6047436C10D4EFCA57A2E /* NSHTTPURLResponse+LaunchDarkly.h in Headers */,
+				756E78B499F9A7CB9C17AF5C7FCF9BAF /* NSMutableDictionary+NullRemovable.h in Headers */,
+				782A4805AC5DCA618E2B2F52802C53CE /* NSNumber+LaunchDarkly.h in Headers */,
+				76395E603F9A788CBD513935C4EB7B88 /* NSString+RemoveWhitespace.h in Headers */,
+				D812E2BA075B76065C45E510E64A6FC4 /* NSThread+MainExecutable.h in Headers */,
+				D56C67707484A3C2545B9DF341BE078A /* NSURLResponse+LaunchDarkly.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AF4E9E3D63D4C0A785A64D63002F5DAB /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB04F4A7AC139EC80CD8C1CAD660D6D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				11284C366A9997704F6FA85CF0002C12 /* DarklyEventSource.h in Headers */,
+				8AB7ED028F9531CB42248DF7979895D1 /* LDEventParser.h in Headers */,
+				7A628BB016F0E8225EEA9EFC3CB019C6 /* LDEventSource.h in Headers */,
+				A8F88ECFE3371BAE845430CBAF7993E0 /* LDEventStringAccumulator.h in Headers */,
+				E6070F8BB11F6B2B247878F5107D55B1 /* NSArray+LDEventSource.h in Headers */,
+				5D37266E83F1BF82AE04B9EAA60FE579 /* NSString+LDEventSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FD5FD0B1259E53C67750308386D67A18 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E774FDAB6F8C03C92F43BFF4C1B52AF /* DarklyEventSource.h in Headers */,
+				C70274C3A9A23D85F8FB0E9E803CA931 /* LDEventParser.h in Headers */,
+				E863B6572B5EEA6B37BC5747A9E1ECE4 /* LDEventSource.h in Headers */,
+				523D7C0623B9F5F27E489F2FCE14A29D /* LDEventStringAccumulator.h in Headers */,
+				64FFB19D60E2A130EDF365160793C5A3 /* NSArray+LDEventSource.h in Headers */,
+				77D3F247ED5CA2122951DAABF244F9DE /* NSString+LDEventSource.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		0388386D680280B70A8AC4461204B6DB /* Pods-hello-ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFC218379B233C20BEB3098AAC66DC15 /* Build configuration list for PBXNativeTarget "Pods-hello-ios" */;
+			buildPhases = (
+				AF4E9E3D63D4C0A785A64D63002F5DAB /* Headers */,
+				B3142C7B25601DB5E8A8EDC932AD0F2D /* Sources */,
+				19EDC1E4D903E82766B50CD8025C51BC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0B0997A807A314920B37F17B8F8F0B29 /* PBXTargetDependency */,
+				DA903B631BE4AA52628308E7A4F5975D /* PBXTargetDependency */,
+			);
+			name = "Pods-hello-ios";
+			productName = "Pods-hello-ios";
+			productReference = 4F17A14855B99B4E1B49026110A29C8F /* libPods-hello-ios.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		36D017F67CAC5BCBD23A2C30EED14FA4 /* LaunchDarkly-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 98E39C69DCF9396D3BCF705D6A4A1878 /* Build configuration list for PBXNativeTarget "LaunchDarkly-watchOS" */;
+			buildPhases = (
+				754E5635B3B67DC4FC0C6E7D3D7404B9 /* Headers */,
+				02A0BCBDB98A354FE7509D6405B5BF37 /* Sources */,
+				1F491462DA227656A28219E38255F539 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				181D29BE6925C6589A4294A93FE1EF96 /* PBXTargetDependency */,
+			);
+			name = "LaunchDarkly-watchOS";
+			productName = "LaunchDarkly-watchOS";
+			productReference = D624A47FB3A5563BC8592F4E05DDBA29 /* libLaunchDarkly-watchOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		984DD7BC2CE2AEB4D7DF3E4D1803F0F3 /* LaunchDarkly-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9D58C9BD7D71EE0DCDAC11BD0232C0F7 /* Build configuration list for PBXNativeTarget "LaunchDarkly-iOS" */;
+			buildPhases = (
+				A1870D7F82276E14F5472E3BAB3C8FBA /* Headers */,
+				76421D5D4FEDD09BE49DA480F9A67653 /* Sources */,
+				34AA0A0F38EFAAB8B26016CCD0997230 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				849F9FB79091BDF167EEB78CC60EF1EA /* PBXTargetDependency */,
+			);
+			name = "LaunchDarkly-iOS";
+			productName = "LaunchDarkly-iOS";
+			productReference = 1840E6A0E03ADA9970E68F9CCAA90223 /* libLaunchDarkly-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C56A3679073A762F7B39249D0A8B4771 /* DarklyEventSource-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C38F16C0886675DFB57003334AFDD18A /* Build configuration list for PBXNativeTarget "DarklyEventSource-iOS" */;
+			buildPhases = (
+				FD5FD0B1259E53C67750308386D67A18 /* Headers */,
+				6E7E88AD9FF79785B9A09DB4243B6F50 /* Sources */,
+				3AD39AA2BA431525B0B818B6D5F42D95 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DarklyEventSource-iOS";
+			productName = "DarklyEventSource-iOS";
+			productReference = 8CB8BDE45BC81BE45473004DED490111 /* libDarklyEventSource-iOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		D252CE8D4C2FF93F97A9CA619A642609 /* Pods-hello-watchOS Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1E8F50C531985C38FBC7A339BFCB7C4A /* Build configuration list for PBXNativeTarget "Pods-hello-watchOS Extension" */;
+			buildPhases = (
+				8E7621ADA1F46617115652A07F6181D9 /* Headers */,
+				3926843863B8943D905B06155ACBEF0A /* Sources */,
+				C952C2FD5B5BC2DE0AAD90F7DF6D821C /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D5687D1C2940509BCEF4E7B0198E4B7E /* PBXTargetDependency */,
+				274200DE24991B094F0DD1F50990217C /* PBXTargetDependency */,
+			);
+			name = "Pods-hello-watchOS Extension";
+			productName = "Pods-hello-watchOS Extension";
+			productReference = 6652B1F98CDBD54EE989EA80C70F8D6B /* libPods-hello-watchOS Extension.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		FACD7A0B95D8AEE0D511709EC3CF3F9F /* DarklyEventSource-watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3561BF47421DE8ECC7EA2DB1E1130A07 /* Build configuration list for PBXNativeTarget "DarklyEventSource-watchOS" */;
+			buildPhases = (
+				DB04F4A7AC139EC80CD8C1CAD660D6D5 /* Headers */,
+				F96196235891B58F1FF9287806CF57F3 /* Sources */,
+				1355612856BD004FED74C49AC37AC915 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "DarklyEventSource-watchOS";
+			productName = "DarklyEventSource-watchOS";
+			productReference = B80496B2E85C4679EFAEC7415E2A6E5E /* libDarklyEventSource-watchOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = 27F348A43CE575CA05047A6D91AD298E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C56A3679073A762F7B39249D0A8B4771 /* DarklyEventSource-iOS */,
+				FACD7A0B95D8AEE0D511709EC3CF3F9F /* DarklyEventSource-watchOS */,
+				984DD7BC2CE2AEB4D7DF3E4D1803F0F3 /* LaunchDarkly-iOS */,
+				36D017F67CAC5BCBD23A2C30EED14FA4 /* LaunchDarkly-watchOS */,
+				0388386D680280B70A8AC4461204B6DB /* Pods-hello-ios */,
+				D252CE8D4C2FF93F97A9CA619A642609 /* Pods-hello-watchOS Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		02A0BCBDB98A354FE7509D6405B5BF37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1362513EFF801A21E2B1DC2A521F62A6 /* DarklyConstants.m in Sources */,
+				318A5AD8E78BC7B1708942D02C8898FA /* LaunchDarkly-watchOS-dummy.m in Sources */,
+				EDB0A755B3865ECA090A2A8099CEAAA8 /* LDClient.m in Sources */,
+				1963CD4ED79E15AFD2ACCC1E5C28FF72 /* LDClientManager.m in Sources */,
+				EE59D45F0141B84455E70CC4DCEFBAD9 /* LDConfig.m in Sources */,
+				667F8C7C9B02CBAF5D76F467161EE84D /* LDDataManager.m in Sources */,
+				E6D7A7391D2E561EDE15007070579230 /* LDEvent+EventTypes.m in Sources */,
+				F272BC71A4F9CD284127A507785D7999 /* LDEvent+Unauthorized.m in Sources */,
+				F23ABD898E612D4A7C6AB565C3EB2F6D /* LDEventModel.m in Sources */,
+				6C65BF2C18952FFC7FCAF0C93FF5051D /* LDEventTrackingContext.m in Sources */,
+				DDD3C777316455DD6EB3294D5ABD3066 /* LDFlagConfigModel.m in Sources */,
+				98E05B6B13B144154E0E08B7BDFB3FCA /* LDFlagConfigTracker.m in Sources */,
+				C8350D9BF1347924FDEBE95C58B1CD82 /* LDFlagConfigValue.m in Sources */,
+				37C29D0E21A356BF33C5A313FC74AE0D /* LDFlagCounter.m in Sources */,
+				1472B3C893ACBA687A7134355236995A /* LDFlagValueCounter.m in Sources */,
+				0227349374EE8C778D5CFFD6B34227B4 /* LDPollingManager.m in Sources */,
+				B38F49609609833796F6D923CDBC2910 /* LDRequestManager.m in Sources */,
+				3BAABD0C7CB676B23B0B1D3CD62E7BCE /* LDThrottler.m in Sources */,
+				14CA56095AD6821E78FB1DF0CB302755 /* LDUserBuilder.m in Sources */,
+				85AD606522091DCA19FD73DAEDF618FF /* LDUserModel.m in Sources */,
+				E44715310EC13DA23A2ED7F495A91AC5 /* LDUtil.m in Sources */,
+				4523AB7C6DE482454F0B84F221112D80 /* NSDate+ReferencedDate.m in Sources */,
+				0E79FAB289351440A1FB4F8DECD0B4B1 /* NSDateFormatter+JsonHeader.m in Sources */,
+				AB73FB6B381D9B477608479EC84B74BB /* NSDateFormatter+LDUserModel.m in Sources */,
+				D8D14C2E69ADBEDA1FBEF5F833520460 /* NSDictionary+JSON.m in Sources */,
+				B674D85B65C074C91367871DC8784A18 /* NSHTTPURLResponse+LaunchDarkly.m in Sources */,
+				C2470E6B5077CD7CAA10C9628F3C55BD /* NSMutableDictionary+NullRemovable.m in Sources */,
+				596DFC8AF0EAD726D50AD393B26A724F /* NSNumber+LaunchDarkly.m in Sources */,
+				92A3CFB9AF7836A842768C0CEF2B2ECD /* NSString+RemoveWhitespace.m in Sources */,
+				A39253C3ABA4ABB2007D5D5F1D85E85C /* NSThread+MainExecutable.m in Sources */,
+				7559ADC25E2C74DF106A9BECC250E1BB /* NSURLResponse+LaunchDarkly.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3926843863B8943D905B06155ACBEF0A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CB2D06C13BF6B7E0CAC8A1617B508EF5 /* Pods-hello-watchOS Extension-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6E7E88AD9FF79785B9A09DB4243B6F50 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93F3F8D6CAE6C51D91C92CA4AAF884F6 /* DarklyEventSource-iOS-dummy.m in Sources */,
+				CAB79BFC86E6253E8ABC52BD093977B2 /* LDEventParser.m in Sources */,
+				BAF9CEC539E2C32FB91F01A2BE196427 /* LDEventSource.m in Sources */,
+				07E820067CD0E01C2C3306D11AF075D7 /* LDEventStringAccumulator.m in Sources */,
+				04435A56A5BBA0DB95C0C908B10C2C86 /* NSArray+LDEventSource.m in Sources */,
+				FC6E9BBB9B465FDCCACC9F3BBA535D1D /* NSString+LDEventSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		76421D5D4FEDD09BE49DA480F9A67653 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4C162B0F91929A809F2F43C2CBC467DE /* DarklyConstants.m in Sources */,
+				C8C72F4561FD6FC4586805EB74E6FEAE /* LaunchDarkly-iOS-dummy.m in Sources */,
+				D6B45C7CB77615F4B36CFEAECF6EB4C7 /* LDClient.m in Sources */,
+				D211134A23A4E8B5180233431D7AA86F /* LDClientManager.m in Sources */,
+				C411B7887C46EE6FB2398CD1D71F8F84 /* LDConfig.m in Sources */,
+				6CD9A82CBF610FE91DD426ADE19AAE31 /* LDDataManager.m in Sources */,
+				D35A3EFBE06D2A9C9CC8524AC4DDA928 /* LDEvent+EventTypes.m in Sources */,
+				C9FEDD2F6CF5CC5BB5DF4D9F24137196 /* LDEvent+Unauthorized.m in Sources */,
+				1CEE89FF9A742918350534AED13F68E5 /* LDEventModel.m in Sources */,
+				07B5A6F57FFCFFD0A915FA96C9D9E05F /* LDEventTrackingContext.m in Sources */,
+				139090BB1FFE7959DCD1B26957A51D89 /* LDFlagConfigModel.m in Sources */,
+				9761069D162FACACF9C9CE7E03E2BADD /* LDFlagConfigTracker.m in Sources */,
+				351F5EBD42BE84A164F9DBE718109DAE /* LDFlagConfigValue.m in Sources */,
+				C8A9E977A932255C306C741DBB4BC629 /* LDFlagCounter.m in Sources */,
+				3B70A5427E7DBFF97EB2655FC924F579 /* LDFlagValueCounter.m in Sources */,
+				68DFAAC073CF44013BB75CFD40F7246F /* LDPollingManager.m in Sources */,
+				9B626B54711B0C33F6DC5DEF1C80763F /* LDRequestManager.m in Sources */,
+				8CC6088DFEBBD5ED270B688EBB5B19C4 /* LDThrottler.m in Sources */,
+				7AFB41F543141FF5B3CCBD88514665E8 /* LDUserBuilder.m in Sources */,
+				29E4C0EB2DD617CE29B7381CFFDAF3F4 /* LDUserModel.m in Sources */,
+				7D620C5D249E73449D0787C9203F9831 /* LDUtil.m in Sources */,
+				ABAFD423F4D61645030403E338B6F6B7 /* NSDate+ReferencedDate.m in Sources */,
+				2384628DA3F8EA0461425D4A11A5126D /* NSDateFormatter+JsonHeader.m in Sources */,
+				291277BF6C99780464876BB3693B1AA5 /* NSDateFormatter+LDUserModel.m in Sources */,
+				97ED607C0666E8A30E73173BFDD0B00C /* NSDictionary+JSON.m in Sources */,
+				D70FD97363AF58B572696FD6CA9B5CE3 /* NSHTTPURLResponse+LaunchDarkly.m in Sources */,
+				7EAB5118C3AF839DB200B20D6AB610F6 /* NSMutableDictionary+NullRemovable.m in Sources */,
+				37F24145E21B69AA561321266E0A674A /* NSNumber+LaunchDarkly.m in Sources */,
+				3525F67AD9B53230A7FE2F5F661B1A96 /* NSString+RemoveWhitespace.m in Sources */,
+				768059704B05E5B8C77719F7E53E8884 /* NSThread+MainExecutable.m in Sources */,
+				B30636E7A0B059578EB6361952F64ED3 /* NSURLResponse+LaunchDarkly.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B3142C7B25601DB5E8A8EDC932AD0F2D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E36801FAE2F27CB0127BE06EFD710C84 /* Pods-hello-ios-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F96196235891B58F1FF9287806CF57F3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1DED6F307EE44656C6AAABDE623490F /* DarklyEventSource-watchOS-dummy.m in Sources */,
+				43D49EE5251B977628945CCAF58F9196 /* LDEventParser.m in Sources */,
+				7E9B2052ECFD8FAB1A0CCE025F9F039C /* LDEventSource.m in Sources */,
+				2A77DA21A35C6DC2FCE59AC4D2E5C8C1 /* LDEventStringAccumulator.m in Sources */,
+				7B2D9E6BCB2866F21EEC2BB68C7F7CE3 /* NSArray+LDEventSource.m in Sources */,
+				C631E054684390C030F3FDD559794640 /* NSString+LDEventSource.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0B0997A807A314920B37F17B8F8F0B29 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DarklyEventSource-iOS";
+			target = C56A3679073A762F7B39249D0A8B4771 /* DarklyEventSource-iOS */;
+			targetProxy = 7366722384CF1C699B5D56F60C084C0B /* PBXContainerItemProxy */;
+		};
+		181D29BE6925C6589A4294A93FE1EF96 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DarklyEventSource-watchOS";
+			target = FACD7A0B95D8AEE0D511709EC3CF3F9F /* DarklyEventSource-watchOS */;
+			targetProxy = 2293B93CCA0AAE0C73D061B7B768F74A /* PBXContainerItemProxy */;
+		};
+		274200DE24991B094F0DD1F50990217C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LaunchDarkly-watchOS";
+			target = 36D017F67CAC5BCBD23A2C30EED14FA4 /* LaunchDarkly-watchOS */;
+			targetProxy = AE3481BD1099FEA820AEF1EE8D4E16D9 /* PBXContainerItemProxy */;
+		};
+		849F9FB79091BDF167EEB78CC60EF1EA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DarklyEventSource-iOS";
+			target = C56A3679073A762F7B39249D0A8B4771 /* DarklyEventSource-iOS */;
+			targetProxy = 42B192B70A6087DE7289E414E0B7E3EF /* PBXContainerItemProxy */;
+		};
+		D5687D1C2940509BCEF4E7B0198E4B7E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "DarklyEventSource-watchOS";
+			target = FACD7A0B95D8AEE0D511709EC3CF3F9F /* DarklyEventSource-watchOS */;
+			targetProxy = A0DCE1C2D6F0F7DF7F38E1DE5D5FABD2 /* PBXContainerItemProxy */;
+		};
+		DA903B631BE4AA52628308E7A4F5975D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "LaunchDarkly-iOS";
+			target = 984DD7BC2CE2AEB4D7DF3E4D1803F0F3 /* LaunchDarkly-iOS */;
+			targetProxy = BB91111CD1834FA573BD33FD643BC83F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0EC046DD849E05F4575440D325C8441D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438B75469DB3F568DB48624C56686C6E /* LaunchDarkly-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchDarkly-iOS/LaunchDarkly-iOS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1912166B7C2C804DF18B2A15DAA1B6B0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FFFFEE281FE3714E720FD5F99B2897C /* LaunchDarkly-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchDarkly-watchOS/LaunchDarkly-watchOS-prefix.pch";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		26D11E5B69E27F9565BB366E950FECC8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 143E2D47FFD98CEB111E81D7F68CEDC8 /* Pods-hello-watchOS Extension.debug.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		62677EC3AC39DE5962187BD80A5E5FC4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B105D33A72F1C51E0A80D49981AFE5D /* DarklyEventSource-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/DarklyEventSource-watchOS/DarklyEventSource-watchOS-prefix.pch";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		6342420830E105334768068E089E9665 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3145528DBB2571E94797CCB7E9EBBE54 /* Pods-hello-ios.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6E2EAF0520983AF09164611BB596CB5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438B75469DB3F568DB48624C56686C6E /* LaunchDarkly-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchDarkly-iOS/LaunchDarkly-iOS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7704C10640BD968DA6D927F03C9CAE1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CBAABF122F7D43467191AFE1F9F84FC /* DarklyEventSource-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/DarklyEventSource-iOS/DarklyEventSource-iOS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		964F9F4BFF53F45EC610B63FD4E561CF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1B105D33A72F1C51E0A80D49981AFE5D /* DarklyEventSource-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/DarklyEventSource-watchOS/DarklyEventSource-watchOS-prefix.pch";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		9E130273FE90555D121A79364A2AD244 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38398CC6E715BC8BD31D35CF7511895F /* Pods-hello-watchOS Extension.release.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = 4;
+				VALIDATE_PRODUCT = YES;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		9E4C26BBF69441FD93A047035EF103F3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		9F9308405B669D6F068599C4F741CA84 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3FFFFEE281FE3714E720FD5F99B2897C /* LaunchDarkly-watchOS.xcconfig */;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/LaunchDarkly-watchOS/LaunchDarkly-watchOS-prefix.pch";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		BF33F0C3A54FD2CEAA2FC8E37CA12830 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1044393C6D8979A693116AB08B16E1A7 /* Pods-hello-ios.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EDA075A1D921B703AF8C377106A56CE0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CBAABF122F7D43467191AFE1F9F84FC /* DarklyEventSource-iOS.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				GCC_PREFIX_HEADER = "Target Support Files/DarklyEventSource-iOS/DarklyEventSource-iOS-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FFD412A6B16D4FAE9EFD2446E76A94AC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1E8F50C531985C38FBC7A339BFCB7C4A /* Build configuration list for PBXNativeTarget "Pods-hello-watchOS Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26D11E5B69E27F9565BB366E950FECC8 /* Debug */,
+				9E130273FE90555D121A79364A2AD244 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9E4C26BBF69441FD93A047035EF103F3 /* Debug */,
+				FFD412A6B16D4FAE9EFD2446E76A94AC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3561BF47421DE8ECC7EA2DB1E1130A07 /* Build configuration list for PBXNativeTarget "DarklyEventSource-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				62677EC3AC39DE5962187BD80A5E5FC4 /* Debug */,
+				964F9F4BFF53F45EC610B63FD4E561CF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		98E39C69DCF9396D3BCF705D6A4A1878 /* Build configuration list for PBXNativeTarget "LaunchDarkly-watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9F9308405B669D6F068599C4F741CA84 /* Debug */,
+				1912166B7C2C804DF18B2A15DAA1B6B0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9D58C9BD7D71EE0DCDAC11BD0232C0F7 /* Build configuration list for PBXNativeTarget "LaunchDarkly-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0EC046DD849E05F4575440D325C8441D /* Debug */,
+				6E2EAF0520983AF09164611BB596CB5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C38F16C0886675DFB57003334AFDD18A /* Build configuration list for PBXNativeTarget "DarklyEventSource-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EDA075A1D921B703AF8C377106A56CE0 /* Debug */,
+				7704C10640BD968DA6D927F03C9CAE1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFC218379B233C20BEB3098AAC66DC15 /* Build configuration list for PBXNativeTarget "Pods-hello-ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF33F0C3A54FD2CEAA2FC8E37CA12830 /* Debug */,
+				6342420830E105334768068E089E9665 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}
