@@ -1,6 +1,0 @@
-framework module LaunchDarkly {
-  umbrella header "LaunchDarkly-iOS-umbrella.h"
-
-  export *
-  module * { export * }
-}

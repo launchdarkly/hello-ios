@@ -25,6 +25,8 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 @property (weak, nonatomic) IBOutlet UILabel *stringValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *arrayValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dictionaryValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *onlineLabel;
+@property (weak, nonatomic) IBOutlet UISwitch *onlineSwitch;
 
 @end
 
@@ -35,6 +37,7 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     
     [self setupLDClient];
     [self checkFeatureValue];
+    [self checkOnlineStatus];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -98,6 +101,11 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [self checkDictionaryFeatureValue];
 }
 
+- (void)checkOnlineStatus {
+    self.onlineLabel.text = [LDClient sharedInstance].isOnline ? @"Online" : @"Offline";
+    self.onlineSwitch.on = [LDClient sharedInstance].isOnline;
+}
+
 - (void)updateLabel:(UILabel *)label withText:(NSString *)value {
     if (value == nil) {
         value = @"<nil>";
@@ -123,6 +131,13 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     } else if([key isEqualToString:DICTIONARY_FLAG_KEY]) {
         [self checkDictionaryFeatureValue];
     }
+}
+
+#pragma mark - IBActions
+
+- (IBAction)onlineSwitchValueChanged:(UISwitch *)sender {
+    [LDClient sharedInstance].online = sender.on;
+    [self checkOnlineStatus];
 }
 
 @end

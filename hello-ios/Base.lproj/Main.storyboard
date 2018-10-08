@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -152,7 +152,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="saF-xa-vJn" userLabel="Dictionary View">
-                                <rect key="frame" x="0.0" y="213" width="375" height="37"/>
+                                <rect key="frame" x="0.0" y="212.5" width="375" height="36.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dictionary value:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q1g-1e-xL4">
                                         <rect key="frame" x="8" y="8" width="128" height="21"/>
@@ -161,7 +161,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dBz-mn-zLc">
-                                        <rect key="frame" x="358" y="8" width="9" height="21"/>
+                                        <rect key="frame" x="358.5" y="8" width="8.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -175,6 +175,41 @@
                                     <constraint firstItem="dBz-mn-zLc" firstAttribute="top" secondItem="q1g-1e-xL4" secondAttribute="top" id="fC3-Bk-4dy"/>
                                     <constraint firstItem="dBz-mn-zLc" firstAttribute="top" secondItem="saF-xa-vJn" secondAttribute="top" constant="8" id="gNN-4v-O2w"/>
                                     <constraint firstAttribute="bottom" secondItem="dBz-mn-zLc" secondAttribute="bottom" constant="8" id="jFk-5k-usJ"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ThB-xo-T7L" userLabel="Online Status View">
+                                <rect key="frame" x="0.0" y="249" width="375" height="47"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SDK Status:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Rd-MR-SQc" userLabel="SDK Status Label">
+                                        <rect key="frame" x="8" y="13" width="92" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tPQ-Ll-lA9" userLabel="Online Switch">
+                                        <rect key="frame" x="318" y="8" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="onlineSwitchValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="6Jm-44-OLk"/>
+                                        </connections>
+                                    </switch>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Online" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JfV-ce-byp" userLabel="Online Label">
+                                        <rect key="frame" x="108" y="13" width="49" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="JfV-ce-byp" firstAttribute="leading" secondItem="2Rd-MR-SQc" secondAttribute="trailing" constant="8" symbolic="YES" id="2UR-px-uqH"/>
+                                    <constraint firstItem="tPQ-Ll-lA9" firstAttribute="centerY" secondItem="ThB-xo-T7L" secondAttribute="centerY" id="35a-m3-Ko6"/>
+                                    <constraint firstItem="2Rd-MR-SQc" firstAttribute="centerY" secondItem="ThB-xo-T7L" secondAttribute="centerY" id="5QF-0m-4vg"/>
+                                    <constraint firstItem="JfV-ce-byp" firstAttribute="centerY" secondItem="ThB-xo-T7L" secondAttribute="centerY" id="UvR-Xz-gfb"/>
+                                    <constraint firstItem="tPQ-Ll-lA9" firstAttribute="top" secondItem="ThB-xo-T7L" secondAttribute="top" constant="8" id="YlP-5A-cVQ"/>
+                                    <constraint firstItem="tPQ-Ll-lA9" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="JfV-ce-byp" secondAttribute="trailing" constant="8" symbolic="YES" id="eZr-3d-EZA"/>
+                                    <constraint firstAttribute="trailing" secondItem="tPQ-Ll-lA9" secondAttribute="trailing" constant="8" id="fiD-7B-7p6"/>
+                                    <constraint firstItem="2Rd-MR-SQc" firstAttribute="leading" secondItem="ThB-xo-T7L" secondAttribute="leading" constant="8" id="guZ-tK-9yK"/>
+                                    <constraint firstAttribute="bottom" secondItem="tPQ-Ll-lA9" secondAttribute="bottom" constant="8" id="l6U-CP-EBZ"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -191,11 +226,14 @@
                             <constraint firstItem="Rnk-UA-6WX" firstAttribute="top" secondItem="eoK-gZ-Uje" secondAttribute="bottom" id="Pqe-e2-qgP"/>
                             <constraint firstItem="129-SV-EOH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Rrw-7C-V5b"/>
                             <constraint firstItem="Gta-Cg-QdV" firstAttribute="top" secondItem="129-SV-EOH" secondAttribute="bottom" id="Vym-Wo-T7j"/>
+                            <constraint firstAttribute="trailing" secondItem="ThB-xo-T7L" secondAttribute="trailing" id="WIE-wa-c5U"/>
                             <constraint firstItem="h74-6f-gMW" firstAttribute="top" secondItem="Rnk-UA-6WX" secondAttribute="bottom" id="X8h-YV-Qxm"/>
                             <constraint firstItem="saF-xa-vJn" firstAttribute="top" secondItem="h74-6f-gMW" secondAttribute="bottom" id="e3h-hK-SUU"/>
                             <constraint firstItem="eoK-gZ-Uje" firstAttribute="top" secondItem="Gta-Cg-QdV" secondAttribute="bottom" id="gOR-n3-u4F"/>
                             <constraint firstItem="129-SV-EOH" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailing" id="h5Y-VN-O6m"/>
+                            <constraint firstItem="ThB-xo-T7L" firstAttribute="top" secondItem="saF-xa-vJn" secondAttribute="bottom" id="nRf-YL-tkX"/>
                             <constraint firstAttribute="trailing" secondItem="Gta-Cg-QdV" secondAttribute="trailing" id="ros-bw-sH1"/>
+                            <constraint firstItem="ThB-xo-T7L" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="sns-TW-oVE"/>
                             <constraint firstItem="Gta-Cg-QdV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="tHc-MQ-neW"/>
                             <constraint firstItem="129-SV-EOH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="ulb-jk-lGP"/>
                         </constraints>
@@ -206,6 +244,8 @@
                         <outlet property="dictionaryValueLabel" destination="dBz-mn-zLc" id="BNR-4W-ijU"/>
                         <outlet property="doubleValueLabel" destination="O7s-H4-pPu" id="dwo-r6-f3W"/>
                         <outlet property="numberValueLabel" destination="xaA-BC-hg2" id="zGm-LC-s2j"/>
+                        <outlet property="onlineLabel" destination="JfV-ce-byp" id="kHJ-HH-BD0"/>
+                        <outlet property="onlineSwitch" destination="tPQ-Ll-lA9" id="Pc3-xc-gfu"/>
                         <outlet property="stringValueLabel" destination="SdZ-1p-fVg" id="ODO-ys-Byq"/>
                     </connections>
                 </viewController>
