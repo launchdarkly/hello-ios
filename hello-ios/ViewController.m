@@ -53,7 +53,7 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [userBuilder customArray:@"groups" value:@[@"beta_testers"]];
     
     LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
-    
+
     [[LDClient sharedInstance] setDelegate:self];
     [[LDClient sharedInstance] start:config withUserBuilder:userBuilder];
 }
