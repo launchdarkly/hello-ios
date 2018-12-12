@@ -7,17 +7,17 @@
 //
 
 #import "ViewController.h"
-#import "Darkly.h"
+@import LaunchDarkly;
 
-NSString *MOBILE_KEY = @"";
-NSString *BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
-NSString *NUMBER_FLAG_KEY = @"hello-ios-number";
-NSString *DOUBLE_FLAG_KEY = @"hello-ios-double";
-NSString *STRING_FLAG_KEY = @"hello-ios-string";
-NSString *ARRAY_FLAG_KEY = @"hello-ios-array";
-NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
+NSString * const MOBILE_KEY = @"";
+NSString * const BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
+NSString * const NUMBER_FLAG_KEY = @"hello-ios-number";
+NSString * const DOUBLE_FLAG_KEY = @"hello-ios-double";
+NSString * const STRING_FLAG_KEY = @"hello-ios-string";
+NSString * const ARRAY_FLAG_KEY = @"hello-ios-array";
+NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 
-@interface ViewController () <ClientDelegate>
+@interface ViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *booleanValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *numberValueLabel;
@@ -28,12 +28,15 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 @property (weak, nonatomic) IBOutlet UILabel *onlineLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *onlineSwitch;
 
+@property (strong, nonatomic) NSArray<NSString*> *flagKeys;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.flagKeys = @[BOOLEAN_FLAG_KEY, NUMBER_FLAG_KEY, DOUBLE_FLAG_KEY, STRING_FLAG_KEY, ARRAY_FLAG_KEY, DICTIONARY_FLAG_KEY];
     
     [self setupLDClient];
     [self checkFeatureValue];
@@ -45,46 +48,51 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 }
 
 - (void)setupLDClient {
-    LDUserBuilder *userBuilder = [[LDUserBuilder alloc] init];
-    userBuilder.key = @"bob@example.com";
+    LDUser *user = [[LDUser alloc] initWithKey:@"bob@example.com"];
     //optional user fields
-    userBuilder.firstName = @"Bob";
-    userBuilder.lastName = @"Loblaw";
-    [userBuilder customArray:@"groups" value:@[@"beta_testers"]];
-    
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
+    user.firstName = @"Bob";
+    user.lastName = @"Loblaw";
+    user.custom = @{@"groups": @[@"beta_testers"]};
 
-    [[LDClient sharedInstance] setDelegate:self];
-    [[LDClient sharedInstance] start:config withUserBuilder:userBuilder];
+    LDConfig *config = [[LDConfig alloc] init];
+
+    __weak typeof(self) weakSelf = self;
+    [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        for (NSString* flagKey in changedFlags.allKeys) {
+            [strongSelf featureFlagDidUpdate:flagKey];
+        }
+    }];
+    [[LDClient sharedInstance] startWithMobileKey:MOBILE_KEY config:config user:user];
 }
 
 - (void)checkBoolFeatureValue {
-    BOOL boolFeature = [[LDClient sharedInstance] boolVariation:BOOLEAN_FLAG_KEY fallback:NO];
+    BOOL boolFeature = [[LDClient sharedInstance] boolVariationForKey:BOOLEAN_FLAG_KEY fallback:NO];
     [self updateLabel:self.booleanValueLabel withText:boolFeature ? @"YES" : @"NO"];
 }
 
 - (void)checkNumberFeatureValue {
-    NSInteger numberFeature = [[[LDClient sharedInstance] numberVariation:NUMBER_FLAG_KEY fallback:@0] integerValue];
+    NSInteger numberFeature = [[LDClient sharedInstance] integerVariationForKey:NUMBER_FLAG_KEY fallback:0];
     [self updateLabel:self.numberValueLabel withText:[NSString stringWithFormat:@"%ld",(long)numberFeature]];
 }
 
 - (void)checkDoubleFeatureValue {
-    double doubleFeature = [[LDClient sharedInstance] doubleVariation:DOUBLE_FLAG_KEY fallback:0.0];
+    double doubleFeature = [[LDClient sharedInstance] doubleVariationForKey:DOUBLE_FLAG_KEY fallback:0.0];
     [self updateLabel:self.doubleValueLabel withText:[NSString stringWithFormat:@"%f",doubleFeature]];
 }
 
 - (void)checkStringFeatureValue {
-    NSString *stringFeature = [[LDClient sharedInstance] stringVariation:STRING_FLAG_KEY fallback:@"<no default>"];
+    NSString *stringFeature = [[LDClient sharedInstance] stringVariationForKey:STRING_FLAG_KEY fallback:@"<no default>"];
     [self updateLabel:self.stringValueLabel withText:stringFeature];
 }
 
 - (void)checkArrayFeatureValue {
-    NSArray *arrayFeature = [[LDClient sharedInstance] arrayVariation:ARRAY_FLAG_KEY fallback:@[@0,@1]];
+    NSArray *arrayFeature = [[LDClient sharedInstance] arrayVariationForKey:ARRAY_FLAG_KEY fallback:@[@0,@1]];
     [self updateLabel:self.arrayValueLabel withText:[arrayFeature componentsJoinedByString:@"\n"]];
 }
 
 - (void)checkDictionaryFeatureValue {
-    NSDictionary *dictionaryFeature = [[LDClient sharedInstance] dictionaryVariation:DICTIONARY_FLAG_KEY fallback:@{@"dictionary":@"fallback"}];
+    NSDictionary *dictionaryFeature = [[LDClient sharedInstance] dictionaryVariationForKey:DICTIONARY_FLAG_KEY fallback:@{@"dictionary":@"fallback"}];
     NSMutableArray *elems = [NSMutableArray arrayWithCapacity:dictionaryFeature.count];
     [dictionaryFeature enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [elems addObject:[NSString stringWithFormat:@"\"%@\": %@", key, obj]];
@@ -114,8 +122,6 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     }
     label.text = value;
 }
-
-#pragma mark - ClientDelegate methods
 
 -(void)featureFlagDidUpdate:(NSString *)key {
     if([key isEqualToString:BOOLEAN_FLAG_KEY]) {

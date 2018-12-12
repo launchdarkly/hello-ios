@@ -7,13 +7,15 @@
 //
 
 #import "InterfaceController.h"
-#import "Darkly.h"
+@import LaunchDarkly;
 
-NSString *MOBILE_KEY = @"";
-NSString *FLAG_KEY = @"test-flag";
+NSString * const MOBILE_KEY = @"";
+NSString * const FLAG_KEY = @"test-flag";
 
-@interface InterfaceController () <ClientDelegate>
+@interface InterfaceController ()
 @property (unsafe_unretained, nonatomic) IBOutlet WKInterfaceLabel *valueLabel;
+
+@property (strong, nonatomic) NSArray<NSString*> *flagKeys;
 
 @end
 
@@ -21,13 +23,14 @@ NSString *FLAG_KEY = @"test-flag";
 
 - (void)awakeWithContext:(id)context {
     [super awakeWithContext:context];
-    [LDClient sharedInstance].delegate = self;
     // Configure interface objects here.
 }
 
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
+
+    self.flagKeys = @[FLAG_KEY];
     [self setupLDClient];
     [self checkFeatureValue];
 }
@@ -38,21 +41,26 @@ NSString *FLAG_KEY = @"test-flag";
 }
 
 - (void)setupLDClient {
-    LDUserBuilder *builder = [[LDUserBuilder alloc] init];
-    builder.key = @"bob@example.com";
-    builder.firstName = @"Bob";
-    builder.lastName = @"Loblaw";
+    LDUser *user = [[LDUser alloc] initWithKey:@"bob@example.com"];
+    user.firstName = @"Bob";
+    user.lastName = @"Loblaw";
+    user.custom = @{@"groups": @[@"beta_testers"]};
+
+    LDConfig *config = [[LDConfig alloc] init];
+    //Streaming Mode is not allowed on watchOS, always uses .polling mode
     
-    NSArray *groups = @[@"beta_testers"];
-    [builder customArray:@"groups" value:groups];
-    
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
-    
-    [[LDClient sharedInstance] start:config withUserBuilder:builder];
+    __weak typeof(self) weakSelf = self;
+    [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
+        __strong typeof(weakSelf) strongSelf = weakSelf;
+        for (NSString* flagKey in changedFlags.allKeys) {
+            [strongSelf featureFlagDidUpdate:flagKey];
+        }
+    }];
+    [[LDClient sharedInstance] startWithMobileKey:MOBILE_KEY config:config user:user];
 }
 
 - (void)checkFeatureValue {
-    BOOL showFeature = [[LDClient sharedInstance] boolVariation:FLAG_KEY fallback:NO];
+    BOOL showFeature = [[LDClient sharedInstance] boolVariationForKey:FLAG_KEY fallback:NO];
     [self updateLabel:[NSString stringWithFormat:@"%d",showFeature]];
 }
 
