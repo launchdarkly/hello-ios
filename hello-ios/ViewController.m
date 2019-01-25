@@ -36,6 +36,11 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [super viewDidLoad];
     
     [self setupLDClient];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+
     [self checkFeatureValue];
     [self checkOnlineStatus];
 }
@@ -102,8 +107,12 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 }
 
 - (void)checkOnlineStatus {
-    self.onlineLabel.text = [LDClient sharedInstance].isOnline ? @"Online" : @"Offline";
+    [self setOnlineLabel];
     self.onlineSwitch.on = [LDClient sharedInstance].isOnline;
+}
+
+- (void)setOnlineLabel {
+    self.onlineLabel.text = [LDClient sharedInstance].isOnline ? @"Online" : @"Offline";
 }
 
 - (void)updateLabel:(UILabel *)label withText:(NSString *)value {
@@ -131,13 +140,18 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     } else if([key isEqualToString:DICTIONARY_FLAG_KEY]) {
         [self checkDictionaryFeatureValue];
     }
+    [self setOnlineLabel];
+}
+
+-(void)userUnchanged {
+    [self setOnlineLabel];
 }
 
 #pragma mark - IBActions
 
 - (IBAction)onlineSwitchValueChanged:(UISwitch *)sender {
     [LDClient sharedInstance].online = sender.on;
-    [self checkOnlineStatus];
+    [self setOnlineLabel];
 }
 
 @end
