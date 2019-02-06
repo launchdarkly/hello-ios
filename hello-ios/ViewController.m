@@ -54,7 +54,9 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     user.lastName = @"Loblaw";
     user.custom = @{@"groups": @[@"beta_testers"]};
 
-    LDConfig *config = [[LDConfig alloc] init];
+    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
+//    config.streamingMode = NO;
+//    config.flagPollingInterval = 30.0;
 
     __weak typeof(self) weakSelf = self;
     [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
@@ -63,7 +65,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
             [strongSelf featureFlagDidUpdate:flagKey];
         }
     }];
-    [[LDClient sharedInstance] startWithMobileKey:MOBILE_KEY config:config user:user];
+    [[LDClient sharedInstance] startWithConfig:config user:user];
 }
 
 - (void)checkBoolFeatureValue {
