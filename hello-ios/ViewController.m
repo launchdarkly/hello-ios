@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Darkly.h"
+@import LaunchDarkly;
 
 NSString *MOBILE_KEY = @"";
 NSString *BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
