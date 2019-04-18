@@ -7,7 +7,7 @@
 //
 
 #import "InterfaceController.h"
-#import "Darkly.h"
+@import LaunchDarkly;
 
 NSString *MOBILE_KEY = @"";
 NSString *FLAG_KEY = @"test-flag";
