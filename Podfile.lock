@@ -1,12 +1,12 @@
 PODS:
   - DarklyEventSource (4.0.1)
-  - LaunchDarkly (3.0.0):
-    - LaunchDarkly/Core (= 3.0.0)
-  - LaunchDarkly/Core (3.0.0):
+  - LaunchDarkly (3.0.1):
+    - LaunchDarkly/Core (= 3.0.1)
+  - LaunchDarkly/Core (3.0.1):
     - DarklyEventSource (~> 4.0.1)
 
 DEPENDENCIES:
-  - LaunchDarkly (= 3.0.0)
+  - LaunchDarkly (= 3.0.1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -15,8 +15,8 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   DarklyEventSource: d3a3482edd0451dc6d2b3844b8fc30e4ca73de30
-  LaunchDarkly: 755d2a75a36a0c3551a227159e74a26151336f9b
+  LaunchDarkly: 50de08974f0da7ba30ab98e430da6dc1cd003987
 
-PODFILE CHECKSUM: 6b8e71f14bd62f71d773ccf887ceaf5e2cda8e36
+PODFILE CHECKSUM: 7adf53498880de3eca47636d87a3531e62bf0233
 
 COCOAPODS: 1.6.1
