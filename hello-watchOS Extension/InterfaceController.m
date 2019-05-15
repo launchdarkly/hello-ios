@@ -9,7 +9,6 @@
 #import "InterfaceController.h"
 @import LaunchDarkly;
 
-NSString * const MOBILE_KEY = @"";
 NSString * const FLAG_KEY = @"test-flag";
 
 @interface InterfaceController ()
@@ -31,7 +30,7 @@ NSString * const FLAG_KEY = @"test-flag";
     [super willActivate];
 
     self.flagKeys = @[FLAG_KEY];
-    [self setupLDClient];
+    [self registerLDClientObservers];
     [self checkFeatureValue];
 }
 
@@ -40,16 +39,7 @@ NSString * const FLAG_KEY = @"test-flag";
     [super didDeactivate];
 }
 
-- (void)setupLDClient {
-    LDUser *user = [[LDUser alloc] initWithKey:@"bob@example.com"];
-    user.firstName = @"Bob";
-    user.lastName = @"Loblaw";
-    user.custom = @{@"groups": @[@"beta_testers"]};
-
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY ];
-    //Streaming Mode is not allowed on watchOS, always uses .polling mode
-    config.flagPollingInterval = 30.0;
-    
+- (void)registerLDClientObservers {
     __weak typeof(self) weakSelf = self;
     [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -57,7 +47,6 @@ NSString * const FLAG_KEY = @"test-flag";
             [strongSelf featureFlagDidUpdate:flagKey];
         }
     }];
-    [[LDClient sharedInstance] startWithConfig:config user:user];
 }
 
 - (void)checkFeatureValue {

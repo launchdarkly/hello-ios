@@ -7,11 +7,13 @@
 //
 
 #import "ExtensionDelegate.h"
+#import "LDClientConfigurator.h"
 
 @implementation ExtensionDelegate
 
 - (void)applicationDidFinishLaunching {
     // Perform any final initialization of your application.
+    [LDClientConfigurator setupLDClient];
 }
 
 - (void)applicationDidBecomeActive {

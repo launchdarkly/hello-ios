@@ -9,7 +9,6 @@
 #import "ViewController.h"
 @import LaunchDarkly;
 
-NSString * const MOBILE_KEY = @"";
 NSString * const BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
 NSString * const NUMBER_FLAG_KEY = @"hello-ios-number";
 NSString * const DOUBLE_FLAG_KEY = @"hello-ios-double";
@@ -38,7 +37,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [super viewDidLoad];
     self.flagKeys = @[BOOLEAN_FLAG_KEY, NUMBER_FLAG_KEY, DOUBLE_FLAG_KEY, STRING_FLAG_KEY, ARRAY_FLAG_KEY, DICTIONARY_FLAG_KEY];
     
-    [self setupLDClient];
+    [self registerLDClientObservers];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -52,17 +51,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [super didReceiveMemoryWarning];
 }
 
-- (void)setupLDClient {
-    LDUser *user = [[LDUser alloc] initWithKey:@"bob@example.com"];
-    //optional user fields
-    user.firstName = @"Bob";
-    user.lastName = @"Loblaw";
-    user.custom = @{@"groups": @[@"beta_testers"]};
-
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
-//    config.streamingMode = NO;
-//    config.flagPollingInterval = 30.0;
-
+- (void)registerLDClientObservers {
     __weak typeof(self) weakSelf = self;
     [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
@@ -74,7 +63,6 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf setOnlineLabel];
     }];
-    [[LDClient sharedInstance] startWithConfig:config user:user];
 }
 
 - (void)checkBoolFeatureValue {
