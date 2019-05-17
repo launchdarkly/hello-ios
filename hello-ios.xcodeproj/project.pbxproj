@@ -15,6 +15,8 @@
 		690132B71E962A040020AEC8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690132B61E962A040020AEC8 /* Assets.xcassets */; };
 		690132BB1E962A040020AEC8 /* hello-watchOS.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 6901329A1E962A040020AEC8 /* hello-watchOS.app */; };
 		690132C41E964F410020AEC8 /* InterfaceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 690132AE1E962A040020AEC8 /* InterfaceController.m */; };
+		83C2E2A8228C75B300F35883 /* LDClientConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C2E2A7228C75B300F35883 /* LDClientConfigurator.m */; };
+		83C2E2A9228C75B300F35883 /* LDClientConfigurator.m in Sources */ = {isa = PBXBuildFile; fileRef = 83C2E2A7228C75B300F35883 /* LDClientConfigurator.m */; };
 		F02202EF1BD856F500EB7727 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202EE1BD856F500EB7727 /* main.m */; };
 		F02202F21BD856F500EB7727 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202F11BD856F500EB7727 /* AppDelegate.m */; };
 		F02202F51BD856F500EB7727 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F02202F41BD856F500EB7727 /* ViewController.m */; };
@@ -85,6 +87,8 @@
 		690132B61E962A040020AEC8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690132B81E962A040020AEC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A676E8541D77A8501FE6A94 /* Pods-hello-watchOS Extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-watchOS Extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension.release.xcconfig"; sourceTree = "<group>"; };
+		83C2E2A6228C75B300F35883 /* LDClientConfigurator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDClientConfigurator.h; sourceTree = "<group>"; };
+		83C2E2A7228C75B300F35883 /* LDClientConfigurator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDClientConfigurator.m; sourceTree = "<group>"; };
 		91708128117708E83F55478B /* Pods-hello-watchOS Extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hello-watchOS Extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension.debug.xcconfig"; sourceTree = "<group>"; };
 		A84BEC15117E0983D361C54E /* Pods_hello_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hello_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB599DD66E02A80057508487 /* Pods_hello_watchOS_Extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hello_watchOS_Extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,6 +166,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		83C2E2AA228C75D600F35883 /* hello-common */ = {
+			isa = PBXGroup;
+			children = (
+				83C2E2A6228C75B300F35883 /* LDClientConfigurator.h */,
+				83C2E2A7228C75B300F35883 /* LDClientConfigurator.m */,
+			);
+			path = "hello-common";
+			sourceTree = "<group>";
+		};
 		B2135FDE0CB041A738B00886 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -175,6 +188,7 @@
 		F02202E11BD856F500EB7727 = {
 			isa = PBXGroup;
 			children = (
+				83C2E2AA228C75D600F35883 /* hello-common */,
 				F02202EC1BD856F500EB7727 /* hello-ios */,
 				6901329B1E962A040020AEC8 /* hello-watchOS */,
 				690132AA1E962A040020AEC8 /* hello-watchOS Extension */,
@@ -458,6 +472,7 @@
 				690132B21E962A040020AEC8 /* ExtensionDelegate.m in Sources */,
 				690132C41E964F410020AEC8 /* InterfaceController.m in Sources */,
 				690132B51E962A040020AEC8 /* NotificationController.m in Sources */,
+				83C2E2A9228C75B300F35883 /* LDClientConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +483,7 @@
 				F02202F51BD856F500EB7727 /* ViewController.m in Sources */,
 				F02202F21BD856F500EB7727 /* AppDelegate.m in Sources */,
 				F02202EF1BD856F500EB7727 /* main.m in Sources */,
+				83C2E2A8228C75B300F35883 /* LDClientConfigurator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

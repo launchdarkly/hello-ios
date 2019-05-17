@@ -9,7 +9,6 @@
 #import "InterfaceController.h"
 @import LaunchDarkly;
 
-NSString *MOBILE_KEY = @"";
 NSString *FLAG_KEY = @"test-flag";
 
 @interface InterfaceController () <ClientDelegate>
@@ -28,27 +27,13 @@ NSString *FLAG_KEY = @"test-flag";
 - (void)willActivate {
     // This method is called when watch view controller is about to be visible to user
     [super willActivate];
-    [self setupLDClient];
+    [[LDClient sharedInstance] setDelegate: self];
     [self checkFeatureValue];
 }
 
 - (void)didDeactivate {
     // This method is called when watch view controller is no longer visible
     [super didDeactivate];
-}
-
-- (void)setupLDClient {
-    LDUserBuilder *builder = [[LDUserBuilder alloc] init];
-    builder.key = @"bob@example.com";
-    builder.firstName = @"Bob";
-    builder.lastName = @"Loblaw";
-    
-    NSArray *groups = @[@"beta_testers"];
-    [builder customArray:@"groups" value:groups];
-    
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
-    
-    [[LDClient sharedInstance] start:config withUserBuilder:builder];
 }
 
 - (void)checkFeatureValue {

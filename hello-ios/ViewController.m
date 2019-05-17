@@ -9,7 +9,6 @@
 #import "ViewController.h"
 @import LaunchDarkly;
 
-NSString *MOBILE_KEY = @"";
 NSString *BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
 NSString *NUMBER_FLAG_KEY = @"hello-ios-number";
 NSString *DOUBLE_FLAG_KEY = @"hello-ios-double";
@@ -34,33 +33,18 @@ NSString *DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setupLDClient];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
 
+    [[LDClient sharedInstance] setDelegate:self];
     [self checkFeatureValue];
     [self checkOnlineStatus];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-}
-
-- (void)setupLDClient {
-    LDUserBuilder *userBuilder = [[LDUserBuilder alloc] init];
-    userBuilder.key = @"bob@example.com";
-    //optional user fields
-    userBuilder.firstName = @"Bob";
-    userBuilder.lastName = @"Loblaw";
-    [userBuilder customArray:@"groups" value:@[@"beta_testers"]];
-    
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:MOBILE_KEY];
-
-    [[LDClient sharedInstance] setDelegate:self];
-    [[LDClient sharedInstance] start:config withUserBuilder:userBuilder];
 }
 
 - (void)checkBoolFeatureValue {
