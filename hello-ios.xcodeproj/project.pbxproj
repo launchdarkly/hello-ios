@@ -421,12 +421,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-hello-watchOS Extension/Pods-hello-watchOS Extension-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DarklyEventSource-watchOS/DarklyEventSource.framework",
+				"${BUILT_PRODUCTS_DIR}/LDSwiftEventSource-watchOS/LDSwiftEventSource.framework",
 				"${BUILT_PRODUCTS_DIR}/LaunchDarkly-watchOS/LaunchDarkly.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarklyEventSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDSwiftEventSource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchDarkly.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -441,12 +441,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-hello-ios/Pods-hello-ios-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/DarklyEventSource-iOS/DarklyEventSource.framework",
+				"${BUILT_PRODUCTS_DIR}/LDSwiftEventSource-iOS/LDSwiftEventSource.framework",
 				"${BUILT_PRODUCTS_DIR}/LaunchDarkly-iOS/LaunchDarkly.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DarklyEventSource.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LDSwiftEventSource.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LaunchDarkly.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

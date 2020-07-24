@@ -2,7 +2,6 @@
 //  LDClientConfigurator.m
 //  hello-ios
 //
-//  Created by Mark Pokorny on 5/15/19. +JMJ
 //  Copyright © 2019 John Kodumal. All rights reserved.
 //
 
@@ -22,7 +21,7 @@ NSString * const launchDarklyMobileKey = @"";
     LDConfig *config = [[LDConfig alloc] initWithMobileKey:launchDarklyMobileKey];
     config.flagPollingInterval = 30.0;
 
-    [[LDClient sharedInstance] startWithConfig:config user:user];
+    [LDClient startWithConfiguration:config user:user completion: nil];
 }
 
 @end

@@ -2,7 +2,6 @@
 //  ViewController.m
 //  hello-ios
 //
-//  Created by John Kodumal on 10/21/15.
 //  Copyright © 2015 John Kodumal. All rights reserved.
 //
 
@@ -36,7 +35,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.flagKeys = @[BOOLEAN_FLAG_KEY, NUMBER_FLAG_KEY, DOUBLE_FLAG_KEY, STRING_FLAG_KEY, ARRAY_FLAG_KEY, DICTIONARY_FLAG_KEY];
-    
+
     [self registerLDClientObservers];
 }
 
@@ -53,45 +52,45 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 
 - (void)registerLDClientObservers {
     __weak typeof(self) weakSelf = self;
-    [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
+    [[LDClient get] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         for (NSString* flagKey in changedFlags.allKeys) {
             [strongSelf featureFlagDidUpdate:flagKey];
         }
     }];
-    [[LDClient sharedInstance] observeFlagsUnchangedWithOwner:self handler:^{
+    [[LDClient get] observeFlagsUnchangedWithOwner:self handler:^{
         __strong typeof(weakSelf) strongSelf = weakSelf;
         [strongSelf setOnlineLabel];
     }];
 }
 
 - (void)checkBoolFeatureValue {
-    BOOL boolFeature = [[LDClient sharedInstance] boolVariationForKey:BOOLEAN_FLAG_KEY fallback:NO];
+    BOOL boolFeature = [[LDClient get] boolVariationForKey:BOOLEAN_FLAG_KEY defaultValue:NO];
     [self updateLabel:self.booleanValueLabel withText:boolFeature ? @"YES" : @"NO"];
 }
 
 - (void)checkNumberFeatureValue {
-    NSInteger numberFeature = [[LDClient sharedInstance] integerVariationForKey:NUMBER_FLAG_KEY fallback:0];
+    NSInteger numberFeature = [[LDClient get] integerVariationForKey:NUMBER_FLAG_KEY defaultValue:0];
     [self updateLabel:self.numberValueLabel withText:[NSString stringWithFormat:@"%ld",(long)numberFeature]];
 }
 
 - (void)checkDoubleFeatureValue {
-    double doubleFeature = [[LDClient sharedInstance] doubleVariationForKey:DOUBLE_FLAG_KEY fallback:0.0];
+    double doubleFeature = [[LDClient get] doubleVariationForKey:DOUBLE_FLAG_KEY defaultValue:0.0];
     [self updateLabel:self.doubleValueLabel withText:[NSString stringWithFormat:@"%f",doubleFeature]];
 }
 
 - (void)checkStringFeatureValue {
-    NSString *stringFeature = [[LDClient sharedInstance] stringVariationForKey:STRING_FLAG_KEY fallback:@"<no default>"];
+    NSString *stringFeature = [[LDClient get] stringVariationForKey:STRING_FLAG_KEY defaultValue:@"<no default>"];
     [self updateLabel:self.stringValueLabel withText:stringFeature];
 }
 
 - (void)checkArrayFeatureValue {
-    NSArray *arrayFeature = [[LDClient sharedInstance] arrayVariationForKey:ARRAY_FLAG_KEY fallback:@[@0,@1]];
+    NSArray *arrayFeature = [[LDClient get] arrayVariationForKey:ARRAY_FLAG_KEY defaultValue:@[@0,@1]];
     [self updateLabel:self.arrayValueLabel withText:[arrayFeature componentsJoinedByString:@"\n"]];
 }
 
 - (void)checkDictionaryFeatureValue {
-    NSDictionary *dictionaryFeature = [[LDClient sharedInstance] dictionaryVariationForKey:DICTIONARY_FLAG_KEY fallback:@{@"dictionary":@"fallback"}];
+    NSDictionary *dictionaryFeature = [[LDClient get] dictionaryVariationForKey:DICTIONARY_FLAG_KEY defaultValue:@{@"dictionary":@"fallback"}];
     NSMutableArray *elems = [NSMutableArray arrayWithCapacity:dictionaryFeature.count];
     [dictionaryFeature enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
         [elems addObject:[NSString stringWithFormat:@"\"%@\": %@", key, obj]];
@@ -110,11 +109,11 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 
 - (void)checkOnlineStatus {
     [self setOnlineLabel];
-    self.onlineSwitch.on = [LDClient sharedInstance].isOnline;
+    self.onlineSwitch.on = [LDClient get].isOnline;
 }
 
 - (void)setOnlineLabel {
-    self.onlineLabel.text = [LDClient sharedInstance].isOnline ? @"Online" : @"Offline";
+    self.onlineLabel.text = [LDClient get].isOnline ? @"Online" : @"Offline";
 }
 
 - (void)updateLabel:(UILabel *)label withText:(NSString *)value {
@@ -150,7 +149,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 #pragma mark - IBActions
 
 - (IBAction)onlineSwitchValueChanged:(UISwitch *)sender {
-    [LDClient sharedInstance].online = sender.on;
+    [[LDClient get] setOnline:sender.on];
     [self setOnlineLabel];
 }
 

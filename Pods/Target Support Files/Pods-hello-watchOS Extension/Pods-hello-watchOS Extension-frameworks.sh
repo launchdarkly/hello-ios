@@ -197,11 +197,11 @@ if [ -r "${ARTIFACT_LIST_FILE}" ]; then
 fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DarklyEventSource-watchOS/DarklyEventSource.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LDSwiftEventSource-watchOS/LDSwiftEventSource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LaunchDarkly-watchOS/LaunchDarkly.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
-  install_framework "${BUILT_PRODUCTS_DIR}/DarklyEventSource-watchOS/DarklyEventSource.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/LDSwiftEventSource-watchOS/LDSwiftEventSource.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/LaunchDarkly-watchOS/LaunchDarkly.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then

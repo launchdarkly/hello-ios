@@ -2,7 +2,6 @@
 //  InterfaceController.m
 //  hello-watchOS Extension
 //
-//  Created by Danial Zahid on 4/6/17.
 //  Copyright © 2017 John Kodumal. All rights reserved.
 //
 
@@ -41,7 +40,7 @@ NSString * const FLAG_KEY = @"test-flag";
 
 - (void)registerLDClientObservers {
     __weak typeof(self) weakSelf = self;
-    [[LDClient sharedInstance] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
+    [[LDClient get] observeKeys:self.flagKeys owner:self handler:^(NSDictionary<NSString *,LDChangedFlag *> * _Nonnull changedFlags) {
         __strong typeof(weakSelf) strongSelf = weakSelf;
         for (NSString* flagKey in changedFlags.allKeys) {
             [strongSelf featureFlagDidUpdate:flagKey];
@@ -50,7 +49,7 @@ NSString * const FLAG_KEY = @"test-flag";
 }
 
 - (void)checkFeatureValue {
-    BOOL showFeature = [[LDClient sharedInstance] boolVariationForKey:FLAG_KEY fallback:NO];
+    BOOL showFeature = [[LDClient get] boolVariationForKey:FLAG_KEY defaultValue:NO];
     [self updateLabel:[NSString stringWithFormat:@"%d",showFeature]];
 }
 

@@ -1,10 +1,10 @@
 use_frameworks!
 target 'hello-ios' do
-    platform :ios, '8.0'
-    pod 'LaunchDarkly', '4.7.0'
+    platform :ios, '10.0'
+    pod 'LaunchDarkly', '~> 5.0'
 end
     
 target 'hello-watchOS Extension' do
-    platform :watchos, '2.0'
-    pod 'LaunchDarkly', '4.7.0'
+    platform :watchos, '3.0'
+    pod 'LaunchDarkly', '~> 5.0'
 end
