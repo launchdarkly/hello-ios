@@ -132,15 +132,27 @@ public class LDClient {
     
     private func go(online goOnline: Bool, reasonOnlineUnavailable: String, completion:(() -> Void)?) {
         let owner = "SetOnlineOwner" as AnyObject
+        var completed = false
+        let internalCompletedQueue = DispatchQueue(label: "com.launchdarkly.LDClient.goCompletedQueue")
+
+        let completionCheck = { (completion: (() -> Void)?) in
+            internalCompletedQueue.sync {
+                if completed == false {
+                    completion?()
+                    completed = true
+                }
+            }
+        }
+
         if completion != nil && !goOnline {
             completion?()
         } else if completion != nil {
             observeAll(owner: owner) { _ in
-                completion?()
+                completionCheck(completion)
                 self.stopObserving(owner: owner)
             }
             observeFlagsUnchanged(owner: owner) {
-                completion?()
+                completionCheck(completion)
                 self.stopObserving(owner: owner)
             }
         }
@@ -149,11 +161,11 @@ public class LDClient {
     }
 
     private var canGoOnline: Bool {
-        return hasStarted && isInSupportedRunMode && !config.mobileKey.isEmpty
+        hasStarted && isInSupportedRunMode && !config.mobileKey.isEmpty
     }
 
     var isInSupportedRunMode: Bool {
-        return runMode == .foreground || config.enableBackgroundUpdates
+        runMode == .foreground || config.enableBackgroundUpdates
     }
 
     private func reasonOnlineUnavailable(goOnline: Bool) -> String {
@@ -249,12 +261,10 @@ public class LDClient {
      
      Normally, the client app should create and set the LDUser and pass that into `start(config: user: completion:)`.
      
-     The client app can change the LDUser by getting the `user`, adjusting the values, and passing it to the LDClient method identify. This allows client apps to collect information over time from the user and update as information is collected. Client apps should follow [Apple's Privacy Policy](apple.com/legal/privacy) when collecting user information. If the client app does not create a LDUser, LDClient creates an anonymous default user, which can affect the feature flags delivered to the LDClient.
+     The client app can change the active `user` by calling identify with a new or updated LDUser. Client apps should follow [Apple's Privacy Policy](apple.com/legal/privacy) when collecting user information. If the client app does not create a LDUser, LDClient creates an anonymous default user, which can affect the feature flags delivered to the LDClient.
      
      When a new user is set, the LDClient goes offline and sets the new user. If the client was online when the new user was set, it goes online again, subject to a throttling delay if in force (see `setOnline(_: completion:)` for details). To change both the `config` and `user`, set the LDClient offline, set both properties, then set the LDClient online. A completion may be passed to the identify method to allow a client app to know when fresh flag values for the new user are ready.
-     
-     This operation is not thread safe. You may want to use a DispatchQueue if calling `identify` from multiple threads.
-     
+
      - parameter user: The LDUser set with the desired user.
      - parameter completion: Closure called when the embedded `setOnlineIdentify` call completes, subject to throttling delays. (Optional)
     */
@@ -269,20 +279,22 @@ public class LDClient {
         }
     }
 
-    func internalIdentify(newUser: LDUser, testing: Bool = false, completion: (() -> Void)? = nil) {
+    func internalIdentify(newUser: LDUser, completion: (() -> Void)? = nil) {
         internalIdentifyQueue.sync {
-            var internalUser = newUser
-            if !testing {
-                internalUser.flagStore = FlagStore(featureFlagDictionary: newUser.flagStore.featureFlags)
-            }
-            self.user = internalUser
+            self.user = newUser
             Log.debug(self.typeName(and: #function) + "new user set with key: " + self.user.key )
             let wasOnline = self.isOnline
             self.internalSetOnline(false)
 
             cacheConverter.convertCacheData(for: user, and: config)
             if let cachedFlags = self.flagCache.retrieveFeatureFlags(forUserWithKey: self.user.key, andMobileKey: self.config.mobileKey), !cachedFlags.isEmpty {
-                self.user.flagStore.replaceStore(newFlags: cachedFlags, completion: nil)
+                flagStore.replaceStore(newFlags: cachedFlags, completion: nil)
+            } else {
+                if let userFlagStore = user.flagStore {
+                    flagStore.replaceStore(newFlags: userFlagStore.featureFlags, completion: nil)
+                } else {
+                    flagStore.replaceStore(newFlags: [:], completion: nil)
+                }
             }
             self.service = self.serviceFactory.makeDarklyServiceProvider(config: self.config, user: self.user)
             self.service.clearFlagResponseCache()
@@ -294,7 +306,7 @@ public class LDClient {
             self.internalSetOnline(wasOnline, completion: completion)
         }
     }
-    
+
     private let internalIdentifyQueue: DispatchQueue = DispatchQueue(label: "InternalIdentifyQueue")
 
     private(set) var service: DarklyServiceProvider {
@@ -360,7 +372,7 @@ public class LDClient {
         //the defaultValue cast to 'as T?' directs the call to the Optional-returning variation method
         variation(forKey: flagKey, defaultValue: defaultValue as T?) ?? defaultValue
     }
-    
+
     /**
      Returns the LDEvaluationDetail for the given feature flag. LDEvaluationDetail gives you more insight into why your variation contains the specified value. If the flag does not exist, cannot be cast to the correct return type, or the LDClient is not started, returns an LDEvaluationDetail with the default value. Use this method when the default value is a non-Optional type. See `variationDetail` with the Optional return value when the default value can be nil. See [variationWithdefaultValue](x-source-tag://variationWithdefaultValue)
      
@@ -370,12 +382,12 @@ public class LDClient {
      - returns: LDEvaluationDetail which wraps the requested feature flag value, or the default value, which variation was served, and the evaluation reason.
      */
     public func variationDetail<T: LDFlagValueConvertible>(forKey flagKey: LDFlagKey, defaultValue: T) -> LDEvaluationDetail<T> {
-        let featureFlag = user.flagStore.featureFlag(for: flagKey)
+        let featureFlag = flagStore.featureFlag(for: flagKey)
         let reason = checkErrorKinds(featureFlag: featureFlag) ?? featureFlag?.reason
         let value = variationInternal(forKey: flagKey, defaultValue: defaultValue, includeReason: true)
         return LDEvaluationDetail(value: value ?? defaultValue, variationIndex: featureFlag?.variation, reason: reason)
     }
-    
+
     private func checkErrorKinds(featureFlag: FeatureFlag?) -> [String: Any]? {
         if !hasStarted {
             return ["kind": "ERROR", "errorKind": "CLIENT_NOT_READY"]
@@ -431,7 +443,7 @@ public class LDClient {
     public func variation<T: LDFlagValueConvertible>(forKey flagKey: LDFlagKey, defaultValue: T? = nil) -> T? {
         variationInternal(forKey: flagKey, defaultValue: defaultValue, includeReason: false)
     }
-    
+
     /**
      Returns the LDEvaluationDetail for the given feature flag. LDEvaluationDetail gives you more insight into why your variation contains the specified value. If the flag does not exist, cannot be cast to the correct return type, or the LDClient is not started, returns an LDEvaluationDetail with the default value, which may be `nil`. Use this method when the default value is a Optional type. See [variationWithoutdefaultValue](x-source-tag://variationWithoutdefaultValue)
      
@@ -441,24 +453,19 @@ public class LDClient {
      - returns: LDEvaluationDetail which wraps the requested feature flag value, or the default value, which variation was served, and the evaluation reason.
      */
     public func variationDetail<T: LDFlagValueConvertible>(forKey flagKey: LDFlagKey, defaultValue: T? = nil) -> LDEvaluationDetail<T?> {
-        let featureFlag = user.flagStore.featureFlag(for: flagKey)
+        let featureFlag = flagStore.featureFlag(for: flagKey)
         let reason = checkErrorKinds(featureFlag: featureFlag) ?? featureFlag?.reason
         let value = variationInternal(forKey: flagKey, defaultValue: defaultValue, includeReason: true)
         return LDEvaluationDetail(value: value, variationIndex: featureFlag?.variation, reason: reason)
     }
-    
-    internal func variationInternal<T: LDFlagValueConvertible>(forKey flagKey: LDFlagKey, defaultValue: T) -> T {
-        //Because the defaultValue is wrapped into an Optional, the nil coalescing right side should never be called
-        variationInternal(forKey: flagKey, defaultValue: defaultValue as T?, includeReason: false) ?? defaultValue
-    }
-    
+
     internal func variationInternal<T: LDFlagValueConvertible>(forKey flagKey: LDFlagKey, defaultValue: T? = nil, includeReason: Bool? = false) -> T? {
         guard hasStarted
         else {
             Log.debug(typeName(and: #function) + "returning defaultValue: \(defaultValue.stringValue)." + " LDClient not started.")
             return defaultValue
         }
-        let featureFlag = user.flagStore.featureFlag(for: flagKey)
+        let featureFlag = flagStore.featureFlag(for: flagKey)
         let value = (featureFlag?.value as? T) ?? defaultValue
         let failedConversionMessage = self.failedConversionMessage(featureFlag: featureFlag, defaultValue: defaultValue)
         Log.debug(typeName(and: #function) + "flagKey: \(flagKey), value: \(value.stringValue), defaultValue: \(defaultValue.stringValue), featureFlag: \(featureFlag.stringValue), reason: \(featureFlag?.reason?.description ?? "No evaluation reason")."
@@ -497,10 +504,8 @@ public class LDClient {
     */
     public var allFlags: [LDFlagKey: Any]? {
         guard hasStarted
-        else {
-            return nil
-        }
-        return user.flagStore.featureFlags.allFlagValues
+        else { return nil }
+        return flagStore.featureFlags.allFlagValues
     }
 
     // MARK: Observing Updates
@@ -677,19 +682,19 @@ public class LDClient {
         Log.debug(typeName(and: #function) + "result: \(result)")
         switch result {
         case let .success(flagDictionary, streamingEvent):
-            let oldFlags = user.flagStore.featureFlags
+            let oldFlags = flagStore.featureFlags
             connectionInformation = ConnectionInformation.checkEstablishingStreaming(connectionInformation: connectionInformation)
             switch streamingEvent {
             case nil, .ping?, .put?:
-                user.flagStore.replaceStore(newFlags: flagDictionary) {
+                flagStore.replaceStore(newFlags: flagDictionary) {
                     self.updateCacheAndReportChanges(user: self.user, oldFlags: oldFlags)
                 }
             case .patch?:
-                user.flagStore.updateStore(updateDictionary: flagDictionary) {
+                flagStore.updateStore(updateDictionary: flagDictionary) {
                     self.updateCacheAndReportChanges(user: self.user, oldFlags: oldFlags)
                 }
             case .delete?:
-                user.flagStore.deleteFlag(deleteDictionary: flagDictionary) {
+                flagStore.deleteFlag(deleteDictionary: flagDictionary) {
                     self.updateCacheAndReportChanges(user: self.user, oldFlags: oldFlags)
                 }
             }
@@ -711,8 +716,8 @@ public class LDClient {
 
     private func updateCacheAndReportChanges(user: LDUser,
                                              oldFlags: [LDFlagKey: FeatureFlag]) {
-        flagCache.storeFeatureFlags(user.flagStore.featureFlags, forUser: user, andMobileKey: config.mobileKey, lastUpdated: Date(), storeMode: .async)
-        flagChangeNotifier.notifyObservers(user: user, oldFlags: oldFlags)
+        flagCache.storeFeatureFlags(flagStore.featureFlags, forUser: user, andMobileKey: config.mobileKey, lastUpdated: Date(), storeMode: .async)
+        flagChangeNotifier.notifyObservers(flagStore: flagStore, oldFlags: oldFlags)
     }
 
     // MARK: Events
@@ -889,6 +894,7 @@ public class LDClient {
     private(set) var environmentReporter: EnvironmentReporting
     private(set) var throttler: Throttling
     private(set) var diagnosticReporter: DiagnosticReporting
+    let flagStore: FlagMaintaining
 
     private(set) var hasStarted: Bool {
         get { hasStartedQueue.sync { _hasStarted } }
@@ -903,6 +909,10 @@ public class LDClient {
         }
         environmentReporter = self.serviceFactory.makeEnvironmentReporter()
         flagCache = newCache
+        flagStore = self.serviceFactory.makeFlagStore()
+        if let userFlagStore = startUser?.flagStore {
+            flagStore.replaceStore(newFlags: userFlagStore.featureFlags, completion: nil)
+        }
         LDUserWrapper.configureKeyedArchiversToHandleVersion2_3_0AndOlderUserCacheFormat()
         cacheConverter = self.serviceFactory.makeCacheConverter(maxCachedUsers: configuration.maxCachedUsers)
         flagChangeNotifier = flagNotifier
@@ -940,7 +950,7 @@ public class LDClient {
         Log.level = environmentReporter.isDebugBuild && config.isDebugMode ? .debug : .noLogging
         cacheConverter.convertCacheData(for: user, and: config)
         if let cachedFlags = flagCache.retrieveFeatureFlags(forUserWithKey: user.key, andMobileKey: config.mobileKey), !cachedFlags.isEmpty {
-            user.flagStore.replaceStore(newFlags: cachedFlags, completion: nil)
+            flagStore.replaceStore(newFlags: cachedFlags, completion: nil)
         }
 
         eventReporter.record(Event.identifyEvent(user: user))
@@ -1022,10 +1032,6 @@ private extension Optional {
         
         func setRunMode(_ runMode: LDClientRunMode) {
             self.runMode = runMode
-        }
-
-        func setHasStarted(_ hasStarted: Bool) {
-            self.hasStarted = hasStarted
         }
 
         func setService(_ service: DarklyServiceProvider) {

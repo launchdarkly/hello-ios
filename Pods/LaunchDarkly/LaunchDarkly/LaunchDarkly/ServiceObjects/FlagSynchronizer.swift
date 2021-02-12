@@ -87,7 +87,11 @@ class FlagSynchronizer: LDFlagSynchronizing, EventHandler {
     private var syncQueue = DispatchQueue(label: Constants.queueName, qos: .utility)
     private var eventSourceStarted: Date?
 
-    init(streamingMode: LDStreamingMode, pollingInterval: TimeInterval, useReport: Bool, service: DarklyServiceProvider, onSyncComplete: FlagSyncCompleteClosure?) {
+    init(streamingMode: LDStreamingMode, 
+         pollingInterval: TimeInterval, 
+         useReport: Bool, 
+         service: DarklyServiceProvider,
+         onSyncComplete: FlagSyncCompleteClosure?) {
         Log.debug(FlagSynchronizer.typeName(and: #function) + "streamingMode: \(streamingMode), " + "pollingInterval: \(pollingInterval), " + "useReport: \(useReport)")
         self.streamingMode = streamingMode
         self.pollingInterval = pollingInterval
@@ -217,9 +221,7 @@ class FlagSynchronizer: LDFlagSynchronizing, EventHandler {
 
     private class func shouldRetryFlagRequest(useReport: Bool, statusCode: Int?) -> Bool {
         guard let statusCode = statusCode
-        else {
-            return false
-        }
+        else { return false }
         return useReport && LDConfig.isReportRetryStatusCode(statusCode)
     }
 

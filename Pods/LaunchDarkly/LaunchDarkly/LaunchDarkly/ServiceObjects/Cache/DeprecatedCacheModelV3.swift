@@ -1,5 +1,5 @@
 //
-//  DeprecatedCacheModelV4.swift
+//  DeprecatedCacheModelV3.swift
 //  LaunchDarkly
 //
 //  Copyright © 2019 Catamorphic Co. All rights reserved.
@@ -7,8 +7,8 @@
 
 import Foundation
 
-//Cache model in use from 2.13.0 up to 2.14.0
-/* Cache model v4 schema
+//Cache model in use from 2.11.0 up to 2.13.0
+/* Cache model v3 schema
 [<userKey>: [
     “key: <userKey>,                            //LDUserModel dictionary
     “ip”: <ipAddress>,
@@ -27,18 +27,14 @@ import Foundation
     ”config”: [                                 //LDFlagConfigModel dictionary
         <flagKey>: [                            //LDFlagConfigValue dictionary
             “value”: <flagValue>,
-            “version”: <modelVersion>,
-            “flagVersion”: <flagVersion>,
-            “variation”: <variation>,
-            “trackEvents”: <trackEvents>,
-            “debugEventsUntilDate”: <debugEventsUntilDate>
+            “version”: <modelVersion>
             ]
         ],
-    “privateAttrs”: <privateAttributes>
+    “privateAttrs”: <privateAttributes>        (from 2.10.0 forward)
     ]
 ]
  */
-final class DeprecatedCacheModelV4: DeprecatedCache {
+final class DeprecatedCacheModelV3: DeprecatedCache {
     let keyedValueCache: KeyedValueCaching
     let cachedDataKey = CacheConverter.CacheKeys.ldUserModelDictionary
 
@@ -56,13 +52,7 @@ final class DeprecatedCacheModelV4: DeprecatedCache {
         let featureFlags = Dictionary(uniqueKeysWithValues: featureFlagDictionaries.compactMap { flagKey, flagValueDictionary in
             (flagKey, FeatureFlag(flagKey: flagKey,
                                   value: flagValueDictionary.value,
-                                  variation: flagValueDictionary.variation,
-                                  version: flagValueDictionary.version,
-                                  flagVersion: flagValueDictionary.flagVersion,
-                                  trackEvents: flagValueDictionary.trackEvents,
-                                  debugEventsUntilDate: Date(millisSince1970: flagValueDictionary.debugEventsUntilDate),
-                                  reason: nil,
-                                  trackReason: nil))
+                                  version: flagValueDictionary.version))
         })
         return (featureFlags, cachedUserDictionary.lastUpdated)
     }

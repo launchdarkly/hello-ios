@@ -18,7 +18,7 @@ protocol DiagnosticEvent {
     var id: DiagnosticId { get }
 }
 
-struct DiagnosticInit: DiagnosticEvent, Codable {
+struct DiagnosticInit: DiagnosticEvent, Encodable {
     let kind = DiagnosticKind.diagnosticInit
     let id: DiagnosticId
     let creationDate: Int64
@@ -37,7 +37,7 @@ struct DiagnosticInit: DiagnosticEvent, Codable {
     }
 }
 
-struct DiagnosticStats: DiagnosticEvent, Codable {
+struct DiagnosticStats: DiagnosticEvent, Encodable {
     let kind = DiagnosticKind.diagnosticStats
     let id: DiagnosticId
     let creationDate: Int64
@@ -65,7 +65,7 @@ struct DiagnosticId: Codable {
     }
 }
 
-struct DiagnosticPlatform: Codable {
+struct DiagnosticPlatform: Encodable {
     let name: String = "swift"
     let systemName: String
     let systemVersion: String
@@ -84,7 +84,7 @@ struct DiagnosticPlatform: Codable {
     }
 }
 
-struct DiagnosticSdk: Codable {
+struct DiagnosticSdk: Encodable {
     let name: String = "ios-client-sdk"
     let version: String
     let wrapperName: String?
@@ -115,6 +115,7 @@ struct DiagnosticConfig: Codable {
     let maxCachedUsers: Int
     let mobileKeyCount: Int
     let diagnosticRecordingIntervalMillis: Int
+    let customHeaders: Bool
 
     init(config: LDConfig) {
         customBaseURI = config.baseUrl != LDConfig.Defaults.baseUrl
@@ -135,5 +136,6 @@ struct DiagnosticConfig: Codable {
         maxCachedUsers = config.maxCachedUsers >= 0 ? config.maxCachedUsers : -1
         mobileKeyCount = 1 + (config.getSecondaryMobileKeys().count)
         diagnosticRecordingIntervalMillis = Int(round(config.diagnosticRecordingInterval * 1_000))
+        customHeaders = !config.additionalHeaders.isEmpty || config.headerDelegate != nil
     }
 }
