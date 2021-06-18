@@ -16,7 +16,16 @@ LaunchDarkly overview
 Supported iOS and Xcode versions
 -------------------------
 
-This version of the LaunchDarkly SDK has been tested with iOS 13.5 and across mobile, desktop, watch, and tv devices. The SDK is built with Xcode 12.0. The minimum platform versions are:
+This version of the LaunchDarkly SDK has been tested across iOS, macOS, watchOS, and tvOS devices.
+
+The LaunchDarkly iOS SDK requires the following minimum build tool versions:
+
+| Tool  | Version |
+| ----- | ------- |
+| Xcode | 11.4+   |
+| Swift | 5.2+    |
+
+And supports the following device platforms:
 
 | Platform | Version |
 | -------- | ------- |
@@ -40,7 +49,7 @@ To include LaunchDarkly in a Swift package, simply add it to the dependencies se
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/launchdarkly/ios-client-sdk.git", .upToNextMinor(from: "5.3.2"))
+    .package(url: "https://github.com/launchdarkly/ios-client-sdk.git", .upToNextMinor(from: "5.4.2"))
 ]
 ```
 
@@ -51,7 +60,7 @@ To use the [CocoaPods](https://cocoapods.org) dependency manager to integrate La
 ```ruby
 use_frameworks!
 target 'YourTargetName' do
-  pod 'LaunchDarkly', '~> 5.3'
+  pod 'LaunchDarkly', '~> 5.4'
 end
 ```
 
@@ -62,7 +71,7 @@ To use the [Carthage](https://github.com/Carthage/Carthage) dependency manager t
 To integrate LaunchDarkly into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "launchdarkly/ios-client-sdk" ~> 5.3
+github "launchdarkly/ios-client-sdk" ~> 5.4
 ```
 
 ### Manual installation
