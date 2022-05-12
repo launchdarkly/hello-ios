@@ -16,7 +16,7 @@ NSString * const launchDarklyMobileKey = @"";
     //optional user fields
     user.firstName = @"Bob";
     user.lastName = @"Loblaw";
-    user.custom = @{@"groups": @[@"beta_testers"]};
+    user.custom = @{@"groups": [LDValue ofString:@"beta_testers"]};
 
     LDConfig *config = [[LDConfig alloc] initWithMobileKey:launchDarklyMobileKey];
     config.flagPollingInterval = 30.0;

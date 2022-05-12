@@ -12,8 +12,7 @@ NSString * const BOOLEAN_FLAG_KEY = @"hello-ios-boolean";
 NSString * const NUMBER_FLAG_KEY = @"hello-ios-number";
 NSString * const DOUBLE_FLAG_KEY = @"hello-ios-double";
 NSString * const STRING_FLAG_KEY = @"hello-ios-string";
-NSString * const ARRAY_FLAG_KEY = @"hello-ios-array";
-NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
+NSString * const JSON_FLAG_KEY = @"hello-ios-json";
 
 @interface ViewController ()
 
@@ -21,8 +20,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 @property (weak, nonatomic) IBOutlet UILabel *numberValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *doubleValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *stringValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *arrayValueLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dictionaryValueLabel;
+@property (weak, nonatomic) IBOutlet UILabel *jsonValueLabel;
 @property (weak, nonatomic) IBOutlet UILabel *onlineLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *onlineSwitch;
 
@@ -34,7 +32,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.flagKeys = @[BOOLEAN_FLAG_KEY, NUMBER_FLAG_KEY, DOUBLE_FLAG_KEY, STRING_FLAG_KEY, ARRAY_FLAG_KEY, DICTIONARY_FLAG_KEY];
+    self.flagKeys = @[BOOLEAN_FLAG_KEY, NUMBER_FLAG_KEY, DOUBLE_FLAG_KEY, STRING_FLAG_KEY, JSON_FLAG_KEY];
 
     [self registerLDClientObservers];
 }
@@ -84,18 +82,10 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [self updateLabel:self.stringValueLabel withText:stringFeature];
 }
 
-- (void)checkArrayFeatureValue {
-    NSArray *arrayFeature = [[LDClient get] arrayVariationForKey:ARRAY_FLAG_KEY defaultValue:@[@0,@1]];
-    [self updateLabel:self.arrayValueLabel withText:[arrayFeature componentsJoinedByString:@"\n"]];
-}
-
-- (void)checkDictionaryFeatureValue {
-    NSDictionary *dictionaryFeature = [[LDClient get] dictionaryVariationForKey:DICTIONARY_FLAG_KEY defaultValue:@{@"dictionary":@"fallback"}];
-    NSMutableArray *elems = [NSMutableArray arrayWithCapacity:dictionaryFeature.count];
-    [dictionaryFeature enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-        [elems addObject:[NSString stringWithFormat:@"\"%@\": %@", key, obj]];
-    }];
-    [self updateLabel:self.dictionaryValueLabel withText:[elems componentsJoinedByString:@"\n"]];
+- (void)checkJSONFeatureValue {
+    LDJSONEvaluationDetail *result = [[LDClient get] jsonVariationDetailForKey:JSON_FLAG_KEY defaultValue:[LDValue ofArray:@[]]];
+    NSArray<LDValue *>* value = result.value.arrayValue;
+    [self updateLabel:self.jsonValueLabel withText:value.description];
 }
 
 - (void)checkFeatureValue {
@@ -103,8 +93,7 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
     [self checkNumberFeatureValue];
     [self checkDoubleFeatureValue];
     [self checkStringFeatureValue];
-    [self checkArrayFeatureValue];
-    [self checkDictionaryFeatureValue];
+    [self checkJSONFeatureValue];
 }
 
 - (void)checkOnlineStatus {
@@ -134,10 +123,8 @@ NSString * const DICTIONARY_FLAG_KEY = @"hello-ios-dictionary";
         [self checkDoubleFeatureValue];
     } else if([key isEqualToString:STRING_FLAG_KEY]) {
         [self checkStringFeatureValue];
-    } else if([key isEqualToString:ARRAY_FLAG_KEY]) {
-        [self checkArrayFeatureValue];
-    } else if([key isEqualToString:DICTIONARY_FLAG_KEY]) {
-        [self checkDictionaryFeatureValue];
+    } else if([key isEqualToString:JSON_FLAG_KEY]) {
+        [self checkJSONFeatureValue];
     }
     [self setOnlineLabel];
 }
