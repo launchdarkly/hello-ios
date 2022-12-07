@@ -12,16 +12,21 @@ NSString * const launchDarklyMobileKey = @"";
 
 @implementation LDClientConfigurator
 +(void)setupLDClient {
-    LDUser *user = [[LDUser alloc] initWithKey:@"bob@example.com"];
-    //optional user fields
-    user.firstName = @"Bob";
-    user.lastName = @"Loblaw";
-    user.custom = @{@"groups": [LDValue ofString:@"beta_testers"]};
+    LDContextBuilder *builder = [[LDContextBuilder alloc] initWithKey:@"test@email.com"];
+    [builder trySetValueWithName:@"firstName" value:[LDValue ofString:@"Bob"]];
+    [builder trySetValueWithName:@"lastName" value:[LDValue ofString:@"Loblaw"]];
 
-    LDConfig *config = [[LDConfig alloc] initWithMobileKey:launchDarklyMobileKey];
-    config.flagPollingInterval = 30.0;
+    NSArray *groups = [NSArray arrayWithObjects:[LDValue ofString:@"beta_testers"], nil];
+    [builder trySetValueWithName:@"groups" value:[LDValue ofArray:groups]];
 
-    [LDClient startWithConfiguration:config user:user completion: nil];
+    ContextBuilderResult *result = [builder build];
+
+    if (result.success) {
+        LDConfig *config = [[LDConfig alloc] initWithMobileKey:launchDarklyMobileKey];
+        config.flagPollingInterval = 30.0;
+
+        [LDClient startWithConfiguration:config context:result.success completion: nil];
+    }
 }
 
 @end
