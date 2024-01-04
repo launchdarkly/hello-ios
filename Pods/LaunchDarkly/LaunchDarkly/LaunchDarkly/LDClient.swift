@@ -286,31 +286,31 @@ public class LDClient {
         }
     }
 
-    /**
-     Deprecated identify method which accepts a legacy LDUser instead of an LDContext.
-
-     This LDUser will be converted into an LDContext, and the context specific version of this method will be called. See `identify(context:completion:)` for details.
-     */
-    public func identify(user: LDUser, completion: (() -> Void)? = nil) {
-        switch user.toContext() {
-        case .failure(let error):
-            Log.debug(self.typeName(and: #function) + "user created an invalid context: SDK identified context WILL NOT CHANGE: " + error.localizedDescription )
-        case .success(let context):
-            identify(context: context, completion: completion)
-        }
-    }
-
     func internalIdentify(newContext: LDContext, completion: (() -> Void)? = nil) {
+        var updatedContext = newContext
+        if config.autoEnvAttributes {
+            updatedContext = AutoEnvContextModifier(environmentReporter: environmentReporter).modifyContext(updatedContext)
+        }
+
         internalIdentifyQueue.sync {
-            self.context = newContext
+            if self.context == updatedContext {
+                self.eventReporter.record(IdentifyEvent(context: self.context))
+                completion?()
+                return
+            }
+
+            self.context = updatedContext
             Log.debug(self.typeName(and: #function) + "new context set with key: " + self.context.fullyQualifiedKey() )
             let wasOnline = self.isOnline
             self.internalSetOnline(false)
 
-            let cachedContextFlags = self.flagCache.retrieveFeatureFlags(contextKey: self.context.fullyQualifiedHashedKey()) ?? [:]
+            let cachedData = self.flagCache.getCachedData(cacheKey: self.context.contextHash())
+            let cachedContextFlags = cachedData.items ?? [:]
+            let oldItems = flagStore.storedItems.featureFlags
             flagStore.replaceStore(newStoredItems: cachedContextFlags)
+            flagChangeNotifier.notifyObservers(oldFlags: oldItems, newFlags: flagStore.storedItems.featureFlags)
             self.service.context = self.context
-            self.service.clearFlagResponseCache()
+            self.service.resetFlagResponseCache(etag: cachedData.etag)
             flagSynchronizer = serviceFactory.makeFlagSynchronizer(streamingMode: ConnectionInformation.effectiveStreamingMode(config: config, ldClient: self),
                                                                    pollingInterval: config.flagPollingInterval(runMode: runMode),
                                                                    useReport: config.useReport,
@@ -483,21 +483,21 @@ public class LDClient {
     private func onFlagSyncComplete(result: FlagSyncResult) {
         Log.debug(typeName(and: #function) + "result: \(result)")
         switch result {
-        case let .flagCollection(flagCollection):
+        case let .flagCollection((flagCollection, etag)):
             let oldStoredItems = flagStore.storedItems
             connectionInformation = ConnectionInformation.checkEstablishingStreaming(connectionInformation: connectionInformation)
             flagStore.replaceStore(newStoredItems: StoredItems(items: flagCollection.flags))
-            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems)
+            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems, etag: etag)
         case let .patch(featureFlag):
             let oldStoredItems = flagStore.storedItems
             connectionInformation = ConnectionInformation.checkEstablishingStreaming(connectionInformation: connectionInformation)
             flagStore.updateStore(updatedFlag: featureFlag)
-            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems)
+            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems, etag: nil)
         case let .delete(deleteResponse):
             let oldStoredItems = flagStore.storedItems
             connectionInformation = ConnectionInformation.checkEstablishingStreaming(connectionInformation: connectionInformation)
             flagStore.deleteFlag(deleteResponse: deleteResponse)
-            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems)
+            self.updateCacheAndReportChanges(context: self.context, oldStoredItems: oldStoredItems, etag: nil)
         case .upToDate:
             connectionInformation.lastKnownFlagValidity = Date()
             flagChangeNotifier.notifyUnchanged()
@@ -515,8 +515,8 @@ public class LDClient {
     }
 
     private func updateCacheAndReportChanges(context: LDContext,
-                                             oldStoredItems: StoredItems) {
-        flagCache.storeFeatureFlags(flagStore.storedItems, contextKey: context.fullyQualifiedHashedKey(), lastUpdated: Date())
+                                             oldStoredItems: StoredItems, etag: String?) {
+        flagCache.saveCachedData(flagStore.storedItems, cacheKey: context.contextHash(), lastUpdated: Date(), etag: etag)
         flagChangeNotifier.notifyObservers(oldFlags: oldStoredItems.featureFlags, newFlags: flagStore.storedItems.featureFlags)
     }
 
@@ -596,22 +596,6 @@ public class LDClient {
         start(serviceFactory: nil, config: config, context: context, completion: completion)
     }
 
-    /**
-     Deprecated start method which accepts a legacy LDUser instead of an LDContext.
-
-     This LDUser will be converted into an LDContext, and the context specific version of this method will be called. See `start(config:context:completion:)` for details.
-     */
-    public static func start(config: LDConfig, user: LDUser? = nil, completion: (() -> Void)? = nil) {
-        switch user?.toContext() {
-        case nil:
-            start(serviceFactory: nil, config: config, context: nil, completion: completion)
-        case .failure(let error):
-            Log.debug(self.typeName(and: #function) + "user created an invalid context: " + error.localizedDescription )
-        case .success(let context):
-            start(serviceFactory: nil, config: config, context: context, completion: completion)
-        }
-    }
-
     static func start(serviceFactory: ClientServiceCreating?, config: LDConfig, context: LDContext? = nil, completion: (() -> Void)? = nil) {
         Log.debug("LDClient starting")
         if serviceFactory != nil {
@@ -657,22 +641,6 @@ public class LDClient {
     */
     public static func start(config: LDConfig, context: LDContext? = nil, startWaitSeconds: TimeInterval, completion: ((_ timedOut: Bool) -> Void)? = nil) {
         start(serviceFactory: nil, config: config, context: context, startWaitSeconds: startWaitSeconds, completion: completion)
-    }
-
-    /**
-     Deprecated start method which accepts a legacy LDUser instead of an LDContext.
-
-     This LDUser will be converted into an LDContext, and the context specific version of this method will be called. See `start(config:context:startWaitSeconds:completion:)` for details.
-     */
-    public static func start(config: LDConfig, user: LDUser? = nil, startWaitSeconds: TimeInterval, completion: ((_ timedOut: Bool) -> Void)? = nil) {
-        switch user?.toContext() {
-        case nil:
-            start(serviceFactory: nil, config: config, context: nil, startWaitSeconds: startWaitSeconds, completion: completion)
-        case .failure(let error):
-            Log.debug(self.typeName(and: #function) + "user created an invalid context: " + error.localizedDescription )
-        case .success(let context):
-            start(serviceFactory: nil, config: config, context: context, startWaitSeconds: startWaitSeconds, completion: completion)
-        }
     }
 
     static func start(serviceFactory: ClientServiceCreating?, config: LDConfig, context: LDContext? = nil, startWaitSeconds: TimeInterval, completion: ((_ timedOut: Bool) -> Void)? = nil) {
@@ -740,7 +708,7 @@ public class LDClient {
 
     private init(serviceFactory: ClientServiceCreating, configuration: LDConfig, startContext: LDContext?, completion: (() -> Void)? = nil) {
         self.serviceFactory = serviceFactory
-        environmentReporter = self.serviceFactory.makeEnvironmentReporter()
+        environmentReporter = self.serviceFactory.makeEnvironmentReporter(config: configuration)
         flagCache = self.serviceFactory.makeFeatureFlagCache(mobileKey: configuration.mobileKey, maxCachedContexts: configuration.maxCachedContexts)
         flagStore = self.serviceFactory.makeFlagStore()
         flagChangeNotifier = self.serviceFactory.makeFlagChangeNotifier()
@@ -749,8 +717,13 @@ public class LDClient {
         config = configuration
         let anonymousContext = LDContext()
         context = startContext ?? anonymousContext
-        service = self.serviceFactory.makeDarklyServiceProvider(config: config, context: context)
-        diagnosticReporter = self.serviceFactory.makeDiagnosticReporter(service: service)
+
+        if config.autoEnvAttributes {
+            context = AutoEnvContextModifier(environmentReporter: environmentReporter).modifyContext(context)
+        }
+
+        service = self.serviceFactory.makeDarklyServiceProvider(config: config, context: context, envReporter: environmentReporter)
+        diagnosticReporter = self.serviceFactory.makeDiagnosticReporter(service: service, environmentReporter: environmentReporter)
         eventReporter = self.serviceFactory.makeEventReporter(service: service)
         connectionInformation = self.serviceFactory.makeConnectionInformation()
         flagSynchronizer = self.serviceFactory.makeFlagSynchronizer(streamingMode: config.allowStreamingMode ? config.streamingMode : .polling,
@@ -758,16 +731,18 @@ public class LDClient {
                                                                     useReport: config.useReport,
                                                                     service: service)
 
-        if let backgroundNotification = environmentReporter.backgroundNotification {
+        if let backgroundNotification = SystemCapabilities.backgroundNotification {
             NotificationCenter.default.addObserver(self, selector: #selector(didEnterBackground), name: backgroundNotification, object: nil)
         }
-        if let foregroundNotification = environmentReporter.foregroundNotification {
+        if let foregroundNotification = SystemCapabilities.foregroundNotification {
             NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: foregroundNotification, object: nil)
         }
 
         NotificationCenter.default.addObserver(self, selector: #selector(didCloseEventSource), name: Notification.Name(FlagSynchronizer.Constants.didCloseEventSourceName), object: nil)
 
         eventReporter = self.serviceFactory.makeEventReporter(service: service, onSyncComplete: onEventSyncComplete)
+        let cachedData = flagCache.getCachedData(cacheKey: context.contextHash())
+        service.resetFlagResponseCache(etag: cachedData.etag)
         flagSynchronizer = self.serviceFactory.makeFlagSynchronizer(streamingMode: config.allowStreamingMode ? config.streamingMode : .polling,
                                                                     pollingInterval: config.flagPollingInterval(runMode: runMode),
                                                                     useReport: config.useReport,
@@ -775,7 +750,7 @@ public class LDClient {
                                                                     onSyncComplete: onFlagSyncComplete)
 
         Log.level = environmentReporter.isDebugBuild && config.isDebugMode ? .debug : .noLogging
-        if let cachedFlags = flagCache.retrieveFeatureFlags(contextKey: context.fullyQualifiedHashedKey()), !cachedFlags.isEmpty {
+        if let cachedFlags = cachedData.items, !cachedFlags.isEmpty {
             flagStore.replaceStore(newStoredItems: cachedFlags)
         }
 

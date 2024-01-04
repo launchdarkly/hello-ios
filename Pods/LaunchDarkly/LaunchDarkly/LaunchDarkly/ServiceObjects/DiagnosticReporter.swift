@@ -7,13 +7,15 @@ protocol DiagnosticReporting {
 
 class DiagnosticReporter: DiagnosticReporting {
     private let service: DarklyServiceProvider
+    private let environmentReporting: EnvironmentReporting
     private var timer: TimeResponding?
     private var sentInit: Bool
     private let stateQueue = DispatchQueue(label: "com.launchdarkly.diagnosticReporter.state", qos: .background)
     private let workQueue = DispatchQueue(label: "com.launchdarkly.diagnosticReporter.work", qos: .background)
 
-    init(service: DarklyServiceProvider) {
+    init(service: DarklyServiceProvider, environmentReporting: EnvironmentReporting) {
         self.service = service
+        self.environmentReporting = environmentReporting
         self.sentInit = false
     }
 
@@ -35,6 +37,7 @@ class DiagnosticReporter: DiagnosticReporting {
                         sendDiagnosticEventAsync(diagnosticEvent: lastStats)
                     }
                     let initEvent = DiagnosticInit(config: service.config,
+                                                   environmentReporting: environmentReporting,
                                                    diagnosticId: cache.getDiagnosticId(),
                                                    creationDate: Date().millisSince1970)
                     sendDiagnosticEventAsync(diagnosticEvent: initEvent)
@@ -62,11 +65,11 @@ class DiagnosticReporter: DiagnosticReporting {
 
     private func sendDiagnosticEventSync<T: DiagnosticEvent & Encodable>(diagnosticEvent: T) {
         Log.debug(typeName + ": Sending diagnostic event: \(String(describing: diagnosticEvent))")
-        self.service.publishDiagnostic(diagnosticEvent: diagnosticEvent) { _, urlResponse, error in
-            let shouldRetry = self.processSendResponse(response: urlResponse as? HTTPURLResponse, error: error, isRetry: false)
+        self.service.publishDiagnostic(diagnosticEvent: diagnosticEvent) { response in
+            let shouldRetry = self.processSendResponse(response: response.urlResponse as? HTTPURLResponse, error: response.error, isRetry: false)
             if shouldRetry {
-                self.service.publishDiagnostic(diagnosticEvent: diagnosticEvent) { _, urlResponse, error in
-                    _ = self.processSendResponse(response: urlResponse as? HTTPURLResponse, error: error, isRetry: true)
+                self.service.publishDiagnostic(diagnosticEvent: diagnosticEvent) { response in
+                    _ = self.processSendResponse(response: response.urlResponse as? HTTPURLResponse, error: response.error, isRetry: true)
                 }
             }
         }
