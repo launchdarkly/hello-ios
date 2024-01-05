@@ -22,7 +22,8 @@ NSString * const launchDarklyMobileKey = @"";
     ContextBuilderResult *result = [builder build];
 
     if (result.success) {
-        LDConfig *config = [[LDConfig alloc] initWithMobileKey:launchDarklyMobileKey];
+        LDConfig *config = [[LDConfig alloc]
+                            initWithMobileKey:launchDarklyMobileKey autoEnvAttributes:true];
         config.flagPollingInterval = 30.0;
 
         [LDClient startWithConfiguration:config context:result.success completion: nil];
