@@ -1,6 +1,10 @@
 ### LaunchDarkly Sample iOS Application
+
+[![Build](https://github.com/launchdarkly/hello-ios/actions/workflows/ci.yml/badge.svg)](https://github.com/launchdarkly/hello-ios/actions/workflows/ci.yml)
+
 We've built a simple console application that demonstrates how LaunchDarkly's SDK works. 
 Below, you'll find the basic build procedure, but for more comprehensive instructions, you can visit your [Quickstart page](https://app.launchdarkly.com/quickstart#/).
+
 ##### Build instructions
 
 1. Make sure you have [XCode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12) and [CocoaPods](https://cocoapods.org) installed
