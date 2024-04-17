@@ -1,30 +1,22 @@
-//
-//  LDClientConfigurator.m
-//  hello-ios
-//
-//  Copyright © 2019 John Kodumal. All rights reserved.
-//
-
 #import "LDClientConfigurator.h"
 @import LaunchDarkly;
 
-NSString * const launchDarklyMobileKey = @"";
+// Set sdkKey to your LaunchDarkly mobile key.
+NSString * const sdkKey = @"";
 
 @implementation LDClientConfigurator
 +(void)setupLDClient {
-    LDContextBuilder *builder = [[LDContextBuilder alloc] initWithKey:@"test@email.com"];
-    [builder trySetValueWithName:@"firstName" value:[LDValue ofString:@"Bob"]];
-    [builder trySetValueWithName:@"lastName" value:[LDValue ofString:@"Loblaw"]];
-
-    NSArray *groups = [NSArray arrayWithObjects:[LDValue ofString:@"beta_testers"], nil];
-    [builder trySetValueWithName:@"groups" value:[LDValue ofArray:groups]];
+    // Set up the evaluation context. This context should appear on your
+    // LaunchDarkly contexts dashboard soon after you run the demo.
+    LDContextBuilder *builder = [[LDContextBuilder alloc] initWithKey:@"example-user-key"];
+    [builder kindWithKind:@"user"];
+    [builder nameWithName:@"Sandy"];
 
     ContextBuilderResult *result = [builder build];
 
     if (result.success) {
         LDConfig *config = [[LDConfig alloc]
-                            initWithMobileKey:launchDarklyMobileKey autoEnvAttributes:true];
-        config.flagPollingInterval = 30.0;
+                            initWithMobileKey:sdkKey autoEnvAttributes:true];
 
         [LDClient startWithConfiguration:config context:result.success completion: nil];
     }
