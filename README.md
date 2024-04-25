@@ -8,7 +8,7 @@ Below, you'll find the build procedure. For more comprehensive instructions, you
 
 1. Make sure you have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12) installed
 1. Make sure you're in this directory and then type `pod install`
-1. Open `hello-ios.xcworkspace` in XCode
+1. Open `hello-ios.xcworkspace` in Xcode
 1. Set the value of `sdkKey` in `hello-common/LDClientConfigurator.m` to your LaunchDarkly mobile key. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` in `hello-ios/ViewController.m` and `hello-watchOS Extension/InterfaceController.m` to the flag key.
 
 ```swift
@@ -22,4 +22,4 @@ Below, you'll find the build procedure. For more comprehensive instructions, you
     NSString * const FEATURE_FLAG_KEY = @"sample-feature";
 ```
 
-You should see the message "The <flagKey> feature flag evaluates to <flagValue>.", the application will run continuously and react to the flag changes in LaunchDarkly.
+You should see the message "The <flagKey> feature flag evaluates to <flagValue>.". The application will run continuously and react to the flag changes in LaunchDarkly.
