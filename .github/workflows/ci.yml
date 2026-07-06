@@ -17,14 +17,17 @@ jobs:
     runs-on: macos-15
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
-      - uses: maxim-lobanov/setup-xcode@60606e260d2fc5762a71e64e74b2174e8ea3c8bd
+      - uses: maxim-lobanov/setup-xcode@ed7a3b1fda3918c0306d1b724322adc0b8cc0a90
         with:
           xcode-version: 16.4
 
+      - name: Install CocoaPods dependencies
+        run: pod install
+
       - name: Build hello-ios
-        run: xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-ios' CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-ios' CODE_SIGNING_ALLOWED=NO | xcpretty
 
       - name: Build hello-watchOS
-        run: xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-watchOS' CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-watchOS' CODE_SIGNING_ALLOWED=NO | xcpretty
