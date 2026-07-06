@@ -18,7 +18,7 @@ NSString * const sdkKey = @"";
         LDConfig *config = [[LDConfig alloc]
                             initWithMobileKey:sdkKey autoEnvAttributes:true];
 
-        [LDClient startWithConfiguration:config context:result.success completion: nil];
+        [LDClient startWithConfiguration:config context:result.success startWaitSeconds:5 completion:nil];
     }
 }
 
