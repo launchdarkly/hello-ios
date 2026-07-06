@@ -23,8 +23,11 @@ jobs:
         with:
           xcode-version: 16.4
 
+      - name: Install CocoaPods dependencies
+        run: pod install
+
       - name: Build hello-ios
-        run: xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-ios' CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-ios' CODE_SIGNING_ALLOWED=NO | xcpretty
 
       - name: Build hello-watchOS
-        run: xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-watchOS' CODE_SIGNING_ALLOWED=NO | xcpretty
+        run: set -o pipefail && xcodebuild build -workspace 'hello-ios.xcworkspace' -scheme 'hello-watchOS' CODE_SIGNING_ALLOWED=NO | xcpretty
