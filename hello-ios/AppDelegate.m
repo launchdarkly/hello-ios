@@ -4,12 +4,8 @@
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSString *mobileKey = [[NSBundle mainBundle] objectForInfoDictionaryKey:@"mobileKey"];
-    if (mobileKey.length == 0) {
-        [NSException raise:NSInternalInconsistencyException
-                    format:@"Missing mobileKey in Info.plist. Copy Secrets.xcconfig.example to Secrets.xcconfig and set mobileKey."];
-    }
-    [[ExposureDedupeDemo shared] startClientWithMobileKey:mobileKey];
+    // Set ExposureDedupeDemo.mobileKey in ExposureDedupeDemo.swift to your LaunchDarkly mobile key.
+    [[ExposureDedupeDemo shared] startClientWithMobileKey:ExposureDedupeDemo.mobileKey];
     return YES;
 }
 

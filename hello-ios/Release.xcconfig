@@ -1,2 +1,0 @@
-#include "../Pods/Target Support Files/Pods-hello-ios/Pods-hello-ios.release.xcconfig"
-#include? "../Secrets.xcconfig"
