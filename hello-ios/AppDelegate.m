@@ -1,11 +1,11 @@
 #import "AppDelegate.h"
-#import "LDClientConfigurator.h"
+#import "hello_ios-Swift.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [LDClientConfigurator setupLDClient];
-
+    // Set ExposureDedupeDemo.mobileKey in ExposureDedupeDemo.swift to your LaunchDarkly mobile key.
+    [[ExposureDedupeDemo shared] startClientWithMobileKey:ExposureDedupeDemo.mobileKey];
     return YES;
 }
 
