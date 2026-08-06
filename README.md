@@ -7,14 +7,17 @@ Below, you'll find the build procedure. For more comprehensive instructions, you
 ## Build instructions
 
 1. Make sure you have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12) installed
+1. Copy `Secrets.xcconfig.example` to `Secrets.xcconfig` and set `mobileKey` to your LaunchDarkly mobile key (`Secrets.xcconfig` is gitignored)
 1. Make sure you're in this directory and then type `pod install`
 1. Open `hello-ios.xcworkspace` in Xcode
-1. Set the value of `mobileKey` in `hello-ios/ExposureDedupeDemo.swift` to your LaunchDarkly mobile key (watchOS still uses `sdkKey` in `hello-common/LDClientConfigurator.m`). If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` in `hello-ios/ViewController.m` and `hello-watchOS Extension/InterfaceController.m` to the flag key.
+1. If there is an existing boolean feature flag in your LaunchDarkly project that you want to evaluate, set `featureFlagKey` in `hello-ios/ViewController.m` and `hello-watchOS Extension/InterfaceController.m` to the flag key. watchOS still uses `sdkKey` in `hello-common/LDClientConfigurator.m`.
 
-```swift
-    // hello-ios/ExposureDedupeDemo.swift
-    @objc public static let mobileKey = "your-mobile-key"
+```xcconfig
+    // Secrets.xcconfig
+    mobileKey = your-mobile-key
+```
 
+```objc
     // hello-ios/ViewController.m
     self.featureFlagKey = @"sample-feature";
 

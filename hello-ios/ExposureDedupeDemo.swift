@@ -6,9 +6,6 @@ import LaunchDarkly
 @objc public final class ExposureDedupeDemo: NSObject {
     @objc public static let shared = ExposureDedupeDemo()
 
-    /// Set this to your LaunchDarkly mobile key.
-    @objc public static let mobileKey = ""
-
     // Two hooks with different windows, to show that each one is deduplicated on its own.
     // TimeInterval is seconds on iOS (Android uses milliseconds).
     private static let fastWindow: TimeInterval = 5
