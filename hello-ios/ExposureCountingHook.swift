@@ -15,14 +15,14 @@ final class ExposureCountingHook: Hook {
     private let afters = Counter()
 
     /// The per-hook policy. Declaring it here is the Swift equivalent of Android's
-    /// `new MetricsHook().evaluationExposureDeduper(window, maxSize)`.
+    /// `new MetricsHook().evaluationExposureDeduper(window)`.
     let evaluationExposureDeduper: EvaluationExposureDeduper?
 
     init(label: String, window: TimeInterval, onStage: @escaping () -> Void) {
         self.label = label
         self.window = window
         self.onStage = onStage
-        self.evaluationExposureDeduper = EvaluationExposureDeduper(window: window, maxSize: 2_000)
+        self.evaluationExposureDeduper = EvaluationExposureDeduper(window: window)
     }
 
     func metadata() -> Metadata {
