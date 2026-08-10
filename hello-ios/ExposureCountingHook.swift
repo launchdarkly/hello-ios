@@ -2,8 +2,8 @@ import Foundation
 import LaunchDarkly
 
 /// Counts the evaluation series stages it observes, so the example can show what exposure
-/// deduplication does. Deduplication is declared on the hook via `evaluationExposureDeduper`,
-/// the same way a customer would configure any other hook.
+/// deduplication does. Deduplication comes from wrapping this hook in a `DedupingHook` at
+/// registration, the same way a customer would wrap any other hook.
 ///
 /// Deduplication skips the whole series, so both counts stay equal and both stop climbing while
 /// repeated evaluations resolve to the same result.
@@ -14,15 +14,10 @@ final class ExposureCountingHook: Hook {
     private let befores = Counter()
     private let afters = Counter()
 
-    /// The per-hook policy. Declaring it here is the Swift equivalent of Android's
-    /// `new MetricsHook().evaluationExposureDeduper(window)`.
-    let evaluationExposureDeduper: EvaluationExposureDeduper?
-
     init(label: String, window: TimeInterval, onStage: @escaping () -> Void) {
         self.label = label
         self.window = window
         self.onStage = onStage
-        self.evaluationExposureDeduper = EvaluationExposureDeduper(window: window)
     }
 
     func metadata() -> Metadata {

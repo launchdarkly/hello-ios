@@ -2,7 +2,7 @@ import Foundation
 import LaunchDarkly
 
 /// Owns the two example hooks and starts the LaunchDarkly client the way a customer would:
-/// each hook carries its own `evaluationExposureDeduper`.
+/// each hook is wrapped in its own `DedupingHook`.
 @objc public final class ExposureDedupeDemo: NSObject {
     @objc public static let shared = ExposureDedupeDemo()
 
@@ -34,8 +34,12 @@ import LaunchDarkly
         }
 
         var config = LDConfig(mobileKey: mobileKey, autoEnvAttributes: .enabled)
-        // Same shape a customer uses: each hook declares its own deduper.
-        config.hooks = [fastHook, slowHook]
+        // Same shape a customer uses: wrap each hook at registration. Each wrapper has its own
+        // window, so neither suppresses the other.
+        config.hooks = [
+            DedupingHook(fastHook, window: Self.fastWindow),
+            DedupingHook(slowHook, window: Self.slowWindow)
+        ]
 
         var builder = LDContextBuilder(key: Self.defaultUserKey)
         builder.kind("user")
