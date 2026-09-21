@@ -6,6 +6,8 @@ Below, you'll find the build procedure. For more comprehensive instructions, you
 
 ## Build instructions
 
+This example targets iOS 15.0 and watchOS 9.0, the minimum deployment targets of the LaunchDarkly iOS SDK 11.6.2 and later.
+
 1. Make sure you have [Xcode](https://itunes.apple.com/us/app/xcode/id497799835?ls=1&mt=12) installed
 1. Make sure you're in this directory and then type `pod install`
 1. Open `hello-ios.xcworkspace` in Xcode
